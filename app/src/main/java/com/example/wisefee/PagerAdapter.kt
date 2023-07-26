@@ -5,10 +5,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
 class PagerAdapter(activity: FragmentActivity) : FragmentStateAdapter(activity) {
-    val fragments: List<Fragment>
-    init{
-        fragments= listOf(OneBoarding(),TwoBoarding(),ThreeBoarding())
-    }
+    var fragments: ArrayList<Fragment> = ArrayList()
 
     override fun getItemCount(): Int {
         return fragments.size
@@ -16,5 +13,17 @@ class PagerAdapter(activity: FragmentActivity) : FragmentStateAdapter(activity) 
 
     override fun createFragment(position: Int): Fragment {
         return fragments[position]
+    }
+
+    fun addFragment(fragment: Fragment) {
+        fragments.add(fragment)
+        notifyItemInserted(fragments.size - 1)
+        //TODO: notifyItemInserted!!
+    }
+
+    fun removeFragement() {
+        fragments.removeLast()
+        notifyItemRemoved(fragments.size)
+        //TODO: notifyItemRemoved!!
     }
 }

@@ -6,14 +6,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".TwoBoarding">
+    tools:context=".TwoBoarding"
+    android:id="@+id/boarding2">
 
     <TextView
-        android:id="@+id/boarding2"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="스타트 1"
+        android:text="스타트 2"
         android:textAlignment="center"
         android:textColor="#3F51B5"
         android:textSize="13dp" />

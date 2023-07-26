@@ -6,11 +6,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".OneBoarding"
-    tools:viewBindingIgnore="true">
+    tools:context=".TwoBoarding"
+    android:id="@+id/boarding1">
 
     <TextView
-        android:id="@+id/boarding1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -28,7 +27,5 @@
         android:textAlignment="center"
         android:textColor="#3F51B5"
         android:textSize="13dp" />
-
-
 
 </LinearLayout>
