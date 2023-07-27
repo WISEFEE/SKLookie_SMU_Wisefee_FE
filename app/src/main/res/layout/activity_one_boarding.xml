@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".TwoBoarding"
+    tools:context=".OneBoarding"
     android:id="@+id/boarding1">
 
     <TextView
@@ -16,16 +16,37 @@
         android:text="스타트 1"
         android:textAlignment="center"
         android:textColor="#3F51B5"
-        android:textSize="13dp" />
+        android:textSize="15dp" />
 
-    <TextView
-        android:layout_width="150dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:text="@string/boarding_content"
-        android:textAlignment="center"
-        android:textColor="#3F51B5"
-        android:textSize="13dp" />
+        android:orientation="horizontal"
+        android:gravity="center">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingTop="20dp"
+            android:text="@string/boarding_content"
+            android:textAlignment="center"
+            android:textColor="#3F51B5"
+            android:textSize="15dp"
+            android:gravity="center"
+            tools:ignore="RtlCompat"
+            android:layout_marginLeft="60dp"/>
+
+        <Button
+            android:id="@+id/nextbtn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="24dp"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/icon_next"
+            android:backgroundTint="#3F51B5"/>
+    </LinearLayout>
+
 
 </LinearLayout>
