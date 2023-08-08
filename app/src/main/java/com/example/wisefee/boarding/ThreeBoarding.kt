@@ -1,4 +1,4 @@
-package com.example.wisefee
+package com.example.wisefee.boarding
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
