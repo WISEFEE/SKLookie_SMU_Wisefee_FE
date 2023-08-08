@@ -1,4 +1,4 @@
-package com.example.wisefee
+package com.example.wisefee.boarding
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
