@@ -32,8 +32,6 @@ class CartActivity : AppCompatActivity() {
 
 
 
-
-
         binding.checkoutButton.setOnClickListener {
             // 구매버튼
         }

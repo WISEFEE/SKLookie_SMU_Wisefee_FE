@@ -13,6 +13,13 @@
         android:theme="@style/Theme.Wisefee"
         tools:targetApi="31">
         <activity
+            android:name=".MenuActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Cart.CartActivity"
             android:exported="true">
             <intent-filter>
@@ -23,16 +30,16 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".boarding.OneBoarding"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".boarding.ThreeBoarding"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".boarding.TwoBoarding"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".boarding.MainActivity"
             android:exported="true">
