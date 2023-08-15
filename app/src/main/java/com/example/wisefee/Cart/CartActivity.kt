@@ -1,9 +1,13 @@
 package com.example.wisefee.Cart
 
+import android.app.AlertDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wisefee.databinding.ActivityCartBinding
+import com.example.wisefee.databinding.BuyDialogConfirmBinding
+import com.example.wisefee.payment.PaymentActivity
 
 class CartActivity : AppCompatActivity() {
     private val cartItems = mutableListOf<CartItem>()
@@ -31,24 +35,47 @@ class CartActivity : AppCompatActivity() {
         cartAdapter.notifyDataSetChanged()  //리사이클뷰 변경적용
 
 
-
+        // 구매버튼
         binding.checkoutButton.setOnClickListener {
-            // 구매버튼
+            showBuyDialog()
         }
 
         updateTotalPrice() // 초기화 시 총 금액 업데이트
 
     }
 
+    //초기화 시 총 금액 업데이트
     private fun updateTotalPrice() {
         var totalPrice = 0
         var total = 0
+        var quantity = 0
         for (cartItem in cartItems) {
             totalPrice += cartItem.product.price * cartItem.quantity
+            quantity += cartItem.quantity
         }
         total = totalPrice + 1000
-        binding.totalPriceTextView.text = "총 금액: ${total}원"
-        binding.countTextView.text = "총 ${cartItems.size}개"
+        binding.priceTextView.text = "${totalPrice}원"
+        binding.totalPriceTextView.text = "${total}원"
+        binding.countTextView.text = "총 ${quantity}개"
+    }
 
+    //구매여부 버튼
+    private fun showBuyDialog(){
+        val dialogBinding = BuyDialogConfirmBinding.inflate(layoutInflater)
+        val dialogBuilder = AlertDialog.Builder(this)
+            .setView(dialogBinding.root)
+
+        val alertDialog = dialogBuilder.create()
+
+        dialogBinding.btnYes.setOnClickListener {
+            val intent = Intent(this, PaymentActivity::class.java )
+            startActivity(intent)
+        }
+
+        dialogBinding.btnNo.setOnClickListener {
+            alertDialog.dismiss()
+        }
+
+        alertDialog.show()
     }
 }

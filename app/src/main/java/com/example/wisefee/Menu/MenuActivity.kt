@@ -1,8 +1,10 @@
 package com.example.wisefee.Menu
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.wisefee.Cart.CartActivity
 import com.example.wisefee.Cart.Product
 import com.example.wisefee.databinding.ActivityMenuBinding
 
@@ -19,6 +21,13 @@ class MenuActivity : AppCompatActivity() {
 
         menuList = getProductInfo()
 
+        //장바구니 버튼 전환
+        binding.cartButton.setOnClickListener {
+            val intent = Intent(this, CartActivity::class.java)
+            startActivity(intent)
+        }
+
+        //메뉴 어댑터
         menuAdapter = MenuAdapter(menuList)
         binding.menuRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.menuRecyclerView.adapter = menuAdapter
