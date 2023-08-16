@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".boarding.ThreeBoarding"
+    tools:context=".Boarding.ThreeBoarding"
     android:id="@+id/boarding3">
 
     <TextView

@@ -2,7 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
+        android:name=".MasterApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -13,18 +17,16 @@
         android:theme="@style/Theme.Wisefee"
         tools:targetApi="31">
         <activity
-            android:name=".payment.PaymentActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+            android:name=".MainActivity"
+            android:exported="false" />
         <activity
-            android:name=".Menu.MenuActivity"
-            android:exported="true">
-        </activity>
+            android:name=".Login.SignupActivity"
+            android:exported="false" />
         <activity
-            android:name=".Cart.CartActivity"
+            android:name=".Login.SignupConsumerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".IntroActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,20 +35,31 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".Payment.PaymentActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Menu.MenuActivity"
             android:exported="true" />
         <activity
-            android:name=".boarding.OneBoarding"
+            android:name=".Cart.CartActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".Login.LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Boarding.OneBoarding"
             android:exported="false" />
         <activity
-            android:name=".boarding.ThreeBoarding"
+            android:name=".Boarding.ThreeBoarding"
             android:exported="false" />
         <activity
-            android:name=".boarding.TwoBoarding"
+            android:name=".Boarding.TwoBoarding"
             android:exported="false" />
-        <activity
-            android:name=".boarding.MainActivity"
-            android:exported="true"></activity>
     </application>
 
 </manifest>

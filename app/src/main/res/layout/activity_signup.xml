@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="20dp">
+    <TextView
+        android:id="@+id/wisefee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/holtwoodonesc"
+        android:gravity="center_horizontal"
+        android:text="WISEFEE"
+        android:textColor="#3A4CA8"
+        android:textSize="36dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="30"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="20dp"
+        android:paddingHorizontal="10dp">
+
+        <Button
+            android:id="@+id/signup_consumer"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/login_button"
+            android:backgroundTint="#3F51B5"
+            android:gravity="center"
+            android:text="개인 회원가입하기"
+            android:textColor="#ffffff"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/signup_seller"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/login_button"
+            android:backgroundTint="#3F51B5"
+            android:gravity="center"
+            android:text="매장 회원가입하기"
+            android:textColor="#ffffff"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/signup_kakao"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/login_button"
+            android:backgroundTint="#F8E543"
+            android:gravity="center"
+            android:text="카카오톡으로 시작하기"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/signup_naver"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/login_button"
+            android:backgroundTint="#4CAF50"
+            android:gravity="center"
+            android:text="네이버로 시작하기"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/signup_google"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/login_button2"
+            android:gravity="center"
+            android:text="구글로 시작하기"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

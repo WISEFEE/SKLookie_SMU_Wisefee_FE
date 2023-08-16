@@ -1,9 +1,7 @@
-package com.example.wisefee.payment
+package com.example.wisefee.Payment
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.wisefee.R
-import com.example.wisefee.databinding.ActivityCartBinding
 import com.example.wisefee.databinding.ActivityPaymentBinding
 
 class PaymentActivity : AppCompatActivity() {

@@ -7,7 +7,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wisefee.databinding.ActivityCartBinding
 import com.example.wisefee.databinding.BuyDialogConfirmBinding
-import com.example.wisefee.payment.PaymentActivity
+import com.example.wisefee.Payment.PaymentActivity
 
 class CartActivity : AppCompatActivity() {
     private val cartItems = mutableListOf<CartItem>()
