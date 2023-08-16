@@ -40,6 +40,7 @@ class MenuActivity : AppCompatActivity() {
             Product(1, "아메리카노",1000),
             Product(2, "카페라떼",3000),
             Product(3, "에스프레소",2000),
+            Product(4, "에스프레소",2000),
             // ...
         )
     }
