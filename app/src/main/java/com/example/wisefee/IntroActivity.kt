@@ -22,7 +22,7 @@ class IntroActivity : AppCompatActivity() {
         if ((application as MasterApplication).checkIsLogin()) {
             handler.postDelayed({
 //                var intent = Intent(this, MainActivity::class.java)
-                var intent = Intent(this, CartActivity::class.java)
+                var intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
             }, 1000)
         } else {

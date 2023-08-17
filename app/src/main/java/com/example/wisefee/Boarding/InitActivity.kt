@@ -31,7 +31,6 @@ class InitActivity : AppCompatActivity() {
         pagerAdapter.addFragment(TwoBoarding())
         pagerAdapter.addFragment(ThreeBoarding())
 
-
         TabLayoutMediator(binding.tabView, binding.viewpager) { tab, position ->
 
         }.attach()
