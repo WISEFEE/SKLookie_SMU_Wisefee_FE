@@ -2,8 +2,6 @@ package com.example.wisefee
 
 import android.app.Application
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import com.facebook.stetho.Stetho
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import okhttp3.Interceptor
@@ -27,9 +25,9 @@ class MasterApplication : Application() {
         val header = Interceptor {
             val original = it.request()
             if (checkIsLogin()) {
-                getUserToken()?.let { token ->
+                getUserToken()?.let { accessToken ->
                     val requeset = original.newBuilder()
-                        .header("Authorization", "token " + token)
+                        .header("Authorization", "accessToken " + accessToken)
                         .build()
                     it.proceed(requeset)
                 }
@@ -54,8 +52,8 @@ class MasterApplication : Application() {
 
     fun checkIsLogin(): Boolean {
         val sp = getSharedPreferences("login_sp", Context.MODE_PRIVATE)
-        var token = sp.getString("token", "null")
-        if (token != "null")
+        var accessToken = sp.getString("token", "null")
+        if (accessToken != "null")
             return true
         else
             return false
@@ -63,9 +61,9 @@ class MasterApplication : Application() {
 
     fun getUserToken(): String? {
         val sp = getSharedPreferences("login_sp", Context.MODE_PRIVATE)
-        val token = sp.getString("token", "null")
-        if (token == "null") return null
-        else return token
+        val accessToken = sp.getString("accessToken", "null")
+        if (accessToken == "null") return null
+        else return accessToken
     }
 
 }

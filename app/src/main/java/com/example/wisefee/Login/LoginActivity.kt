@@ -4,13 +4,13 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.wisefee.MainActivity
 import com.example.wisefee.MasterApplication
-import com.example.wisefee.R
+import com.example.wisefee.RetrofitService
 import com.example.wisefee.databinding.ActivityLoginBinding
-import org.mozilla.javascript.tools.jsc.Main
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -42,15 +42,18 @@ class LoginActivity : AppCompatActivity() {
             val email = binding.idInputbox.text.toString()
             val password = binding.passwordInputbox.text.toString()
 
-            (application as MasterApplication).service.login(
-                email, password
-            ).enqueue(object : Callback<User> {
+            val loginRequest = RetrofitService.LoginRequest(email, password)
 
-                override fun onResponse(call: Call<User>, response: Response<User>) {
+            (application as MasterApplication).service.login(
+                loginRequest
+            ).enqueue(object : Callback<LoginResponse> {
+
+                override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                     if (response.isSuccessful) {
                         val user = response.body()
 
                         val token = user!!.accessToken!!
+                        Log.d("AccessToken", "Received token: $token")
                         saveUserToken(email, token, activity)
                         (application as MasterApplication).createRetrofit()
 
@@ -61,7 +64,7 @@ class LoginActivity : AppCompatActivity() {
                     }
                 }
 
-                override fun onFailure(call: Call<User>, t: Throwable) {
+                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                     Toast.makeText(activity, "서버 오류", Toast.LENGTH_LONG).show()
                 }
             })

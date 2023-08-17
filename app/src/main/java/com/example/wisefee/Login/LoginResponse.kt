@@ -2,7 +2,7 @@ package com.example.wisefee.Login
 
 import java.io.Serializable
 
-class User(
+class LoginResponse(
     var grantType : String? = null,
     var accessToken : String? = null
 ): Serializable
