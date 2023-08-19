@@ -19,6 +19,7 @@ class MenuActivity : AppCompatActivity() {
     private lateinit var menuList: List<Product>
     //private var cafeId by Delegates.notNull<Int>() // 화면에서 선택한 카페 ID
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMenuBinding.inflate(layoutInflater)
@@ -34,6 +35,7 @@ class MenuActivity : AppCompatActivity() {
 
         //메뉴 어댑터
        /* menuAdapter = MenuAdapter(menuList)
+
         binding.menuRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.menuRecyclerView.adapter = menuAdapter*/
 
@@ -70,6 +72,8 @@ class MenuActivity : AppCompatActivity() {
         binding.menuRecyclerView.adapter = menuAdapter*/
 
     }
+
+
 
 
 

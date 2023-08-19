@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingTop="20dp">
+
     <TextView
         android:id="@+id/wisefee"
         android:layout_width="wrap_content"
@@ -85,9 +86,8 @@
             android:gravity="center"
             android:text="구글로 시작하기"
             android:textSize="17dp"
-            android:textStyle="bold" />
-
+            android:textStyle="bold"
+            android:stateListAnimator="@null"/>
     </LinearLayout>
-
 
 </LinearLayout>
