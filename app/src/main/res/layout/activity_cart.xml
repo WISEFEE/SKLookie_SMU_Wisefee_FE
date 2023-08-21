@@ -175,59 +175,51 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="47dp"
+        android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="#ffffff"
+        android:layout_alignParentBottom="true"
         android:orientation="horizontal">
-        <LinearLayout
+
+
+        <ImageView
+            android:id="@+id/home"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginVertical="10dp"
             android:layout_weight="1"
-            android:gravity="center">
-            <TextView
-                android:id="@+id/home_button"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/home_fill"/>
-        </LinearLayout>
+            android:src="@drawable/home"
+            android:gravity="center"/>
 
-        <LinearLayout
+        <ImageView
+            android:id="@+id/rental"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginVertical="10dp"
             android:layout_weight="1"
-            android:gravity="center">
+            android:src="@drawable/rental"
+            android:gravity="center" />
 
-            <TextView
-                android:id="@+id/order_button"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/cup_fill" />
-        </LinearLayout>
-
-        <LinearLayout
+        <ImageView
+            android:id="@+id/return_tumbler"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginVertical="10dp"
             android:layout_weight="1"
-            android:gravity="center">
+            android:src="@drawable/return_tumbler"
+            android:gravity="center" />
 
-            <TextView
-                android:id="@+id/circle_button"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/cycle"/>
-        </LinearLayout>
-
-        <LinearLayout
+        <ImageView
+            android:id="@+id/mypage"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginVertical="10dp"
             android:layout_weight="1"
-            android:gravity="center">
+            android:src="@drawable/mypage"
+            android:gravity="center" />
 
-            <TextView
-                android:id="@+id/user_button"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/user_4_fill"/>
-        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
