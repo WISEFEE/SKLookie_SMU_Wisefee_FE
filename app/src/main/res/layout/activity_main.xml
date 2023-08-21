@@ -159,7 +159,7 @@
             android:layout_marginHorizontal="25dp"
             android:layout_marginVertical="10dp"
             android:layout_weight="1"
-            android:src="@drawable/home"
+            android:src="@drawable/home_vector"
             android:gravity="center"/>
 
         <ImageView
