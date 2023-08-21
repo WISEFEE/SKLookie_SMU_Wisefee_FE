@@ -17,6 +17,7 @@ class MenuActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMenuBinding
     private lateinit var menuAdapter: MenuAdapter
     private lateinit var menuList: List<Product>
+    private var selectedProduct: Product? = null
     //private var cafeId by Delegates.notNull<Int>() // 화면에서 선택한 카페 ID
 
 
@@ -49,12 +50,13 @@ class MenuActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val productList = response.body()
                     if (productList != null) {
-                        val menuAdapter = MenuAdapter(productList.products)
+                        menuAdapter = MenuAdapter(productList.products)
                         binding.menuRecyclerView.apply {
                             layoutManager = LinearLayoutManager(this@MenuActivity)
                             adapter = menuAdapter
                         }
                     }
+                    Toast.makeText(getApplicationContext(), "api 호출 성공", Toast.LENGTH_SHORT).show();
                 } else {
                     // API 호출이 실패한 경우의 처리
                     Toast.makeText(getApplicationContext(), "api 호출 실패", Toast.LENGTH_SHORT).show();
