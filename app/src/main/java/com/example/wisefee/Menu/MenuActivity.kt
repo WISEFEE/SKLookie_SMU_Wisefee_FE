@@ -11,13 +11,13 @@ import com.example.wisefee.databinding.ActivityMenuBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.Serializable
 import kotlin.properties.Delegates
 
 class MenuActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMenuBinding
     private lateinit var menuAdapter: MenuAdapter
     private lateinit var menuList: List<Product>
-    private var selectedProduct: Product? = null
     //private var cafeId by Delegates.notNull<Int>() // 화면에서 선택한 카페 ID
 
 
@@ -41,7 +41,7 @@ class MenuActivity : AppCompatActivity() {
         binding.menuRecyclerView.adapter = menuAdapter*/
 
         val cafeId = 1
-        val token = "Bearer token"
+        val token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0dHRlZWVzc3MxMjNAYWFhLmNvbSIsInVzZXJJZCI6Miwibmlja25hbWUiOiJUb20iLCJhdXRoIjoiUk9MRV9DT05TVU1FUiIsImV4cCI6MTY5MjY3ODcyOH0.AZHE25z-yCBt-F89fiUpl6cleLFU8Afc9YOpstBVw2c"
         val apiService = RetrofitClient.apiService
         val call = apiService.getProductsForCafe(token, cafeId)
 
@@ -50,7 +50,12 @@ class MenuActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val productList = response.body()
                     if (productList != null) {
-                        menuAdapter = MenuAdapter(productList.products)
+                        menuList = productList.products
+                        menuAdapter = MenuAdapter(menuList, object : MenuAdapter.OnProductClickListener {
+                            override fun onProductClick(product: Product) {
+                                quantitySelectionActivity(product) // 클릭 이벤트 처리
+                            }
+                        })
                         binding.menuRecyclerView.apply {
                             layoutManager = LinearLayoutManager(this@MenuActivity)
                             adapter = menuAdapter
@@ -69,13 +74,15 @@ class MenuActivity : AppCompatActivity() {
             }
         })
 
-       /* menuAdapter = MenuAdapter(emptyList())
-        binding.menuRecyclerView.layoutManager = LinearLayoutManager(this)
-        binding.menuRecyclerView.adapter = menuAdapter*/
+
 
     }
 
-
+    private fun quantitySelectionActivity(selectedProduct: Product) {       //선택한 메뉴 전달함(quantityselectionactivity로)
+        val intent = Intent(this, QuantitySelectionActivity::class.java)
+        intent.putExtra("selectedProduct", selectedProduct)
+        startActivity(intent)
+    }
 
 
 
@@ -96,9 +103,5 @@ class MenuActivity : AppCompatActivity() {
         )
     }*/
 
-
-
-
-
-    }
+}
 

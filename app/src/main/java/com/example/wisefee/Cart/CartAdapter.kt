@@ -12,9 +12,9 @@ class CartAdapter(private val cartItems: List<CartItem>) : RecyclerView.Adapter<
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(cartItem: CartItem) {
-            binding.menuNameTextView.text = cartItem.product.name
+            binding.menuNameTextView.text = cartItem.product.productName
             binding.quantityTextView.text = cartItem.quantity.toString()
-            binding.menuPriceTextView.text = "${cartItem.product.price}원"
+            binding.menuPriceTextView.text = "${cartItem.product.productPrice}원"
         }
     }
 
