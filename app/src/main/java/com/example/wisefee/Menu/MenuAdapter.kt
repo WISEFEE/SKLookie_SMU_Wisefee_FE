@@ -6,22 +6,20 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.wisefee.databinding.MenuItemLayoutBinding
 
 
-class MenuAdapter(private var menuList: List<Product>) : RecyclerView.Adapter<MenuAdapter.MenuViewHolder>() {
+
+class MenuAdapter(private var products: List<Product>) : RecyclerView.Adapter<MenuAdapter.MenuViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuViewHolder {
         val binding = MenuItemLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MenuViewHolder(binding)
     }
     override fun onBindViewHolder(holder: MenuViewHolder, position: Int) {
-        val menuName = menuList[position]
-        holder.bind(menuName)
+        holder.bind(products[position])
     }
     override fun getItemCount(): Int {
-        return menuList.size
+        return products.size
     }
-    fun setData(newMenuList: List<Product>) {
-        menuList = newMenuList
-        notifyDataSetChanged()
-    }
+
 
     inner class MenuViewHolder(private val binding: MenuItemLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -31,3 +29,4 @@ class MenuAdapter(private var menuList: List<Product>) : RecyclerView.Adapter<Me
          }
     }
 }
+
