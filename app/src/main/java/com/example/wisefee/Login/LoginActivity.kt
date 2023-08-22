@@ -16,9 +16,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class LoginActivity : AppCompatActivity() {
-
-    private lateinit var binding : ActivityLoginBinding
-
+    private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,15 +28,22 @@ class LoginActivity : AppCompatActivity() {
 //        binding.loginNaver.setOnClickListener { startActivity(Intent(this, _::class.java)) }
 //        binding.loginGoogle.setOnClickListener { startActivity(Intent(this, _::class.java)) }
         binding.login.setOnClickListener { startActivity(Intent(this, LoginActivity::class.java)) }
-        binding.signup.setOnClickListener { startActivity(Intent(this, SignupActivity::class.java)) }
+        binding.signup.setOnClickListener {
+            startActivity(
+                Intent(
+                    this,
+                    SignupActivity::class.java
+                )
+            )
+        }
 
         setupListener(this@LoginActivity)
     }
 
 
     fun setupListener(activity: Activity) {
-
         binding.login.setOnClickListener {
+
             val email = binding.idInputbox.text.toString()
             val password = binding.passwordInputbox.text.toString()
 
@@ -48,19 +53,21 @@ class LoginActivity : AppCompatActivity() {
                 loginRequest
             ).enqueue(object : Callback<LoginResponse> {
 
-                override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                override fun onResponse(
+                    call: Call<LoginResponse>,
+                    response: Response<LoginResponse>
+                ) {
                     if (response.isSuccessful) {
                         val user = response.body()
+                        val accessToken = user!!.accessToken!!
 
-                        val token = user!!.accessToken!!
-                        Log.d("AccessToken", "Received token: $token")
-                        saveUserToken(email, token, activity)
+                        saveUserToken(accessToken, activity)
                         (application as MasterApplication).createRetrofit()
-
                         Toast.makeText(activity, "로그인 하셨습니다.", Toast.LENGTH_LONG).show()
                         startActivity(Intent(activity, MainActivity::class.java))
                     } else {
-                        Toast.makeText(activity, "가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.", Toast.LENGTH_LONG).show()
+                        Toast.makeText(activity, "가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.", Toast.LENGTH_LONG)
+                            .show()
                     }
                 }
 
@@ -71,12 +78,12 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    fun saveUserToken(username: String, token: String, activity: Activity) {
+    fun saveUserToken(accessToken: String, activity: Activity) {
         val sp = activity.getSharedPreferences("login_sp", Context.MODE_PRIVATE)
         val editor = sp.edit()
 
-        editor.putString("token", token)
-        editor.apply()
+        editor.putString("accessToken", accessToken)
+        editor.commit()
     }
 
 }

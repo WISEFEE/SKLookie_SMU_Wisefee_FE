@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "852188173413",
+    "project_id": "wisefee-b4b12",
+    "storage_bucket": "wisefee-b4b12.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:852188173413:android:7e9d11a4a649887cd1e28c",
+        "android_client_info": {
+          "package_name": "com.example.wisefee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "852188173413-1sr9g0ubfnv5kjuvn4hov9potu4ecqnu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjZ-Kc8saL4GlxcQbvN2xvCQHb-L0oe_U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "852188173413-1sr9g0ubfnv5kjuvn4hov9potu4ecqnu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
