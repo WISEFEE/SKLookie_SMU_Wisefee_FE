@@ -158,7 +158,7 @@
                         android:background="@drawable/circle_gray"
                         android:src="@drawable/settings"
                         android:scaleType="centerCrop"
-                        android:padding="20dp"/>
+                        android:padding="15dp"/>
                     <Button
                         android:layout_weight="1"
                         android:layout_width="match_parent"
@@ -183,9 +183,9 @@
                         android:layout_weight="4"
                         android:layout_margin="8dp"
                         android:background="@drawable/circle_gray"
-                        android:src="@drawable/subscribe"
+                        android:src="@drawable/subscription"
                         android:scaleType="centerCrop"
-                        android:padding="25dp"/>
+                        android:padding="20dp"/>
                     <Button
                         android:layout_weight="1"
                         android:layout_width="match_parent"
@@ -211,9 +211,9 @@
                         android:layout_weight="4"
                         android:layout_margin="8dp"
                         android:background="@drawable/circle_gray"
-                        android:src="@drawable/payment_history"
+                        android:src="@drawable/payment"
                         android:scaleType="centerCrop"
-                        android:padding="20dp"/>
+                        android:padding="15dp"/>
                     <Button
                         android:layout_weight="1"
                         android:layout_width="match_parent"
@@ -224,6 +224,49 @@
                         android:background="000000"/>
 
                 </LinearLayout>
+
+
+
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:weightSum="3">
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:weightSum="5"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <ImageButton
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="4"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/circle_gray"
+                        android:src="@drawable/settings"
+                        android:scaleType="centerCrop"
+                        android:padding="15dp"/>
+                    <Button
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:text="고객문의"
+                        android:textSize="12dp"
+                        android:gravity="top|center_horizontal"
+                        android:background="000000"/>
+                </LinearLayout>
+
+
 
 
 

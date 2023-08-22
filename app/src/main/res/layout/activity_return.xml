@@ -66,7 +66,7 @@
                 android:layout_height="115dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="10dp"
-                android:background="@drawable/layout_background"
+                android:background="@drawable/round_rectangle_notice"
 
                 android:orientation="horizontal"
                 android:padding="0dp">
@@ -78,9 +78,9 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical|left"
                     android:layout_weight="1"
-                    android:background="@drawable/layout_round_corner_left"
+                    android:background="@drawable/round_rectangle_left"
                     android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/coffee_1"
+                    app:srcCompat="@drawable/image_03"
                     android:clipToOutline="true"/>
 
                 <FrameLayout
@@ -156,7 +156,8 @@
                         android:layout_height="30dp"
                         android:layout_marginLeft="133dp"
                         android:layout_marginTop="56dp"
-                        android:background="@drawable/layout_round_corner"
+                        android:background="@drawable/round_rectangle"
+                        android:backgroundTint="@color/blue"
 
                         android:singleLine="true"
                         android:text="반납"
@@ -190,28 +191,28 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:src="@drawable/home_icon"
+            android:src="@drawable/home_vector"
             android:background="@color/white"/>
         <ImageButton
             android:id="@+id/rentalTumbler_button"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:src="@drawable/rental_icon"
+            android:src="@drawable/rental_vector"
             android:background="@color/white"/>
         <ImageButton
             android:id="@+id/returnTumbler_button"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:src="@drawable/return_icon"
+            android:src="@drawable/return_tumbler_vector"
             android:background="@color/white"/>
         <ImageButton
             android:id="@+id/myPage_button"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:src="@drawable/mypage_icon"
+            android:src="@drawable/mypage_vector"
             android:background="@color/white"/>
 
     </LinearLayout>
