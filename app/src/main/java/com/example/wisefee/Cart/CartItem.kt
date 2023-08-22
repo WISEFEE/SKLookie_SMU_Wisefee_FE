@@ -6,5 +6,6 @@ import java.io.Serializable
 
 data class CartItem(
     val product: Product,
-    var quantity: Int
+    var quantity: Int,
+    var temperature: String,
 ) : Serializable

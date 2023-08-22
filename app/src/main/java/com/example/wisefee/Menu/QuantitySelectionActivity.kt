@@ -28,12 +28,13 @@ class QuantitySelectionActivity : AppCompatActivity() {
             binding.productPriceTextView.text = formattedPrice
         }
 
-        //장바구니 추가버튼(수량 입력)
+        //장바구니 추가버튼(수량, 온도 넘겨줌)
         binding.cartAddButton.setOnClickListener {
             if (selectedProduct != null) {
                 val quantity = binding.quantityEditText.text.toString().toIntOrNull()
+                val temperature = if (binding.iceButton.isChecked) "ice" else "hot"
                 if (quantity != null && quantity > 0) {
-                    addToCart(selectedProduct!!, quantity)
+                    addToCart(selectedProduct!!, quantity,temperature)
                 } else {
                     Toast.makeText(this, "올바른 수량을 입력해주세요.", Toast.LENGTH_SHORT).show()
                 }
@@ -43,8 +44,8 @@ class QuantitySelectionActivity : AppCompatActivity() {
 
     // 장바구니에 상품 추가하고 장바구니 화면으로 이동
     //선택한 메뉴 cartItem에 담아서 cartActivity로 보냄
-    private fun addToCart(product: Product, quantity: Int) {
-        val cartItem = CartItem(product, quantity)
+    private fun addToCart(product: Product, quantity: Int, temperature: String) {
+        val cartItem = CartItem(product, quantity, temperature)
         //val cartItems = mutableListOf(cartItem)
 
 
@@ -58,9 +59,19 @@ class QuantitySelectionActivity : AppCompatActivity() {
         if (existingCartItems == null) {
             intent.putExtra("cartItems", arrayListOf(cartItem))
         } else {
-            existingCartItems.add(cartItem)
+            val existingItemIndex = existingCartItems.indexOfFirst { it.product == product && it.temperature == temperature}
+
+            if (existingItemIndex != -1) {
+                // 같은 상품이 있다면 수량 업데이트
+                existingCartItems[existingItemIndex].quantity += quantity
+            } else {
+                // 상품이 카트에 없다면 카트에 추가
+                existingCartItems.add(cartItem)
+            }
             intent.putExtra("cartItems", existingCartItems)
         }
+
+
 
 
         val alertDialogBuilder = AlertDialog.Builder(this)

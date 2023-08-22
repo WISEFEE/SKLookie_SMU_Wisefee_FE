@@ -59,7 +59,7 @@
         android:layout_weight="8"
         android:orientation="vertical">
         <TextView
-            android:id="@+id/menuNameTextView"
+            android:id="@+id/productNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
@@ -86,14 +86,61 @@
             android:inputType="number"
             android:layout_marginBottom="16dp"
             android:layout_gravity="center"/>
-
-
-        <Button
-            android:id="@+id/cartAddButton"
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4px"
+            android:background="#3F51B5"/>
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="담기"
-            android:layout_gravity="center_horizontal" />
+            android:text="음료 온도"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="20dp"
+            android:textSize="16sp"
+            android:textColor="#3F51B5"
+            android:textStyle="bold"/>
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp">
+            <RadioButton
+                android:id="@+id/iceButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ice"
+                android:layout_marginRight="20dp"
+                android:textSize="15sp"/>
+            <RadioButton
+                android:id="@+id/hotButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="hot"
+                android:layout_marginLeft="20dp"
+                android:textSize="15sp"/>
+        </RadioGroup>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4px"
+            android:background="#3F51B5"
+            android:layout_marginTop="15dp"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="right">
+            <Button
+                android:id="@+id/cartAddButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="담기"
+                android:textSize="20sp"
+                android:layout_gravity="right|bottom"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/round_button"/>
+        </RelativeLayout>
+
     </LinearLayout>
 
 
