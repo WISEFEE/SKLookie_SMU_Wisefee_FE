@@ -51,13 +51,13 @@ class MasterApplication : Application() {
     }
 
     fun checkIsLogin(): Boolean {
-        val sp = getSharedPreferences("login_sp", Context.MODE_PRIVATE)
+        /*val sp = getSharedPreferences("login_sp", Context.MODE_PRIVATE)
         var accessToken = sp.getString("token", "null")
         if (accessToken != "null")
             return true
         else
-            return false
-        //return true
+            return false*/
+        return true
 
     }
 

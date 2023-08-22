@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Menu.QuantitySelectionActivity"
+    tools:context=".Menu.MenuActivity"
     android:weightSum="10">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_weight="1"
         android:layout_height="0dp"
         android:layout_marginTop="5dp"
-        android:orientation="horizontal"
-        android:layout_marginBottom="10dp">
+        android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/go_back_button"
@@ -29,7 +29,7 @@
             android:id="@+id/title_return"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="수량 선택"
+            android:text="내 구독 관리"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:layout_gravity="center"
@@ -46,57 +46,34 @@
             android:layout_gravity="end"
             android:layout_weight="1"
             android:layout_marginRight="15dp"
-            android:src="@drawable/location"
             android:background="@color/white"/>
-
     </LinearLayout>
-
-    <!-- 상품 정보 표시 (이름과 가격) -->
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="8"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/menuNameTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:text="Product Name"
-            android:textColor="#3F51B5"
-            android:layout_gravity="center" />
-
-        <TextView
-            android:id="@+id/productPriceTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Product Price"
-            android:textSize="18sp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="16dp" />
-
-
-        <EditText
-            android:id="@+id/quantityEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="수량을 입력하세요"
-            android:inputType="number"
-            android:layout_marginBottom="16dp"
-            android:layout_gravity="center"/>
-
-
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
         <Button
-            android:id="@+id/cartAddButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="담기"
-            android:layout_gravity="center_horizontal" />
+            android:id="@+id/subscribeJoinButton"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@drawable/round_button"
+            android:text="현재 구독 중인\n정기 구독권이 없습니다."
+            android:layout_marginTop="10dp"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="#3F51B5"
+            android:text="구독권 가입하기"
+            android:textSize="18sp"
+            android:textColor="#ffffff"/>
     </LinearLayout>
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -146,5 +123,4 @@
             android:gravity="center" />
 
     </LinearLayout>
-
 </LinearLayout>
