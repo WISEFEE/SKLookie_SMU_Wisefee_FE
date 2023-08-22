@@ -105,6 +105,7 @@
                     android:textSize="12dp"
                     android:elevation="15dp"/>
                 <Button
+                    android:id="@+id/button_to_subscription1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="#00FFFFFF"/>
@@ -120,8 +121,9 @@
                 android:layout_height="120dp"
                 android:orientation="horizontal"
                 android:background="@drawable/round_rectangle_notice"
-                android:elevation="10dp">
-                
+                android:elevation="10dp"
+                android:layout_marginTop="10dp">
+
                 <ImageView
                     android:layout_width="140dp"
                     android:layout_height="match_parent"
@@ -144,9 +146,10 @@
                         android:textSize="17dp"
                         android:textColor="@color/black"
                         android:fontFamily="@font/inter_regular"
-                        android:textFontWeight="1000"/>
+                        android:textFontWeight="1000"
+                        android:layout_marginTop="3dp"/>
                     <TextView
-                        android:id="@+id/subscribe_price"
+                        android:id="@+id/subscribe2_price"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="가격"
@@ -154,10 +157,135 @@
                         android:textColor="#616161"
                         android:fontFamily="@font/inter_regular"
                         android:textFontWeight="1000"/>
+                    <TextView
+                        android:id="@+id/the_number_of_available_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="대여 가능한 텀블러"
+                        android:textSize="13dp"
+                        android:textColor="#616161"
+                        android:fontFamily="@font/inter_regular"
+                        android:textFontWeight="1000"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="할인률"
+                        android:textSize="13dp"
+                        android:textColor="#616161"
+                        android:fontFamily="@font/inter_regular"
+                        android:textFontWeight="1000"
+                        android:id="@+id/discount_rate_2"/>
 
                 </LinearLayout>
-                
+
+                <ImageButton
+                    android:layout_width="22dp"
+                    android:layout_height="25dp"
+                    android:layout_marginVertical="50dp"
+                    android:layout_marginLeft="320dp"
+                    android:backgroundTint="#BABABA"
+                    android:background="@drawable/icon_next" />
+
+                <Button
+                    android:id="@+id/button_to_subscription2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#00FFFFFF"/>
+
             </FrameLayout>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="15dp"
+                android:layout_height="120dp"
+                android:orientation="horizontal"
+                android:background="@drawable/round_rectangle_notice"
+                android:elevation="10dp"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/image_03"
+                    android:background="@drawable/round_rectangle_left"
+                    android:scaleType="centerCrop"
+                    android:clipToOutline="true"/>
+
+                <LinearLayout
+                    android:layout_width="160dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="140dp"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="3단계 구독권"
+                        android:textSize="17dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/inter_regular"
+                        android:textFontWeight="1000"
+                        android:layout_marginTop="3dp"/>
+                    <TextView
+                        android:id="@+id/subscribe3_price"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="가격"
+                        android:textSize="13dp"
+                        android:textColor="#616161"
+                        android:fontFamily="@font/inter_regular"
+                        android:textFontWeight="1000"/>
+                    <TextView
+                        android:id="@+id/the_number_of_available_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="대여 가능한 텀블러"
+                        android:textSize="13dp"
+                        android:textColor="#616161"
+                        android:fontFamily="@font/inter_regular"
+                        android:textFontWeight="1000"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="할인률"
+                        android:textSize="13dp"
+                        android:textColor="#616161"
+                        android:fontFamily="@font/inter_regular"
+                        android:textFontWeight="1000"
+                        android:id="@+id/discount_rate_3"/>
+
+                </LinearLayout>
+
+                <ImageButton
+                    android:layout_width="22dp"
+                    android:layout_height="25dp"
+                    android:layout_marginVertical="50dp"
+                    android:layout_marginLeft="320dp"
+                    android:backgroundTint="#BABABA"
+                    android:background="@drawable/icon_next" />
+
+                <Button
+                    android:id="@+id/button_to_subscription3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#00FFFFFF"/>
+
+            </FrameLayout>
+
+            <Button
+                android:id="@+id/change_subscription"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="20dp"
+                android:background="@drawable/round_rectangle"
+                android:backgroundTint="@color/blue"
+                android:text="구독권 변경하기"
+                android:fontFamily="@font/inter_regular"
+                android:textFontWeight="1000"
+                android:textColor="@color/white"
+                android:layout_marginBottom="30dp"
+                android:elevation="30dp"/>
 
 
         </LinearLayout>
