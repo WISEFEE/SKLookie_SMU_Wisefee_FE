@@ -1,9 +1,249 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mypage.PaymentHistory_2">
+    tools:context=".mypage.PaymentHistory_2"
+    android:orientation="vertical"
+    android:weightSum="10"
+    android:background="@color/white">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="331dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/go_back_button"
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:src="@drawable/arrow_icon" />
+
+        <TextView
+            android:id="@+id/title_return"
+            android:layout_width="160dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:layout_weight="2"
+            android:fontFamily="@font/inter_regular"
+            android:gravity="center_horizontal|center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="내 결제 이력"
+            android:textColor="#3A4CA8"
+            android:textStyle="bold"
+            android:textSize="21sp" />
+
+
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+        android:paddingTop="50dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="450dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/round_rectangle_notice"
+                android:orientation="vertical"
+                android:elevation="5dp"
+                android:layout_gravity="center_vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_height="match_parent"
+                        android:layout_width="80dp"
+                        android:src="@drawable/image_03"
+                        android:scaleType="centerCrop"
+                        android:layout_margin="13dp"/>
+                    <TextView
+                        android:id="@+id/history_type"
+                        android:layout_width="140dp"
+                        android:layout_height="match_parent"
+                        android:text="음료 주문"
+                        android:textColor="@color/blue"
+                        android:textFontWeight="1000"
+                        android:fontFamily="@font/inter__bold"
+                        android:textSize="20dp"
+                        android:gravity="center_vertical"/>
+                    <TextView
+                        android:id="@+id/history_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="2023.07.20"
+                        android:gravity="center_vertical|right"
+                        android:paddingRight="20dp"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="110dp"
+                        android:layout_height="match_parent"
+                        android:text="결제처"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:textSize="17dp"
+                        android:fontFamily="@font/inter__bold"
+                        android:textFontWeight="1000"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:id="@+id/history_location"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="LOOKIE CAFE"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/black"/>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="110dp"
+                        android:layout_height="match_parent"
+                        android:text="결제 수단"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:textSize="17dp"
+                        android:fontFamily="@font/inter__bold"
+                        android:textFontWeight="1000"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:id="@+id/payment_method"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="네이버페이"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/black"/>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="190dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="110dp"
+                        android:layout_height="match_parent"
+                        android:text="결제 내역"
+                        android:gravity="top|center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:textSize="17dp"
+                        android:fontFamily="@font/inter__bold"
+                        android:textFontWeight="1000"
+                        android:textColor="@color/black"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp">
+
+                    </androidx.recyclerview.widget.RecyclerView>
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_gravity="bottom">
+
+                    <TextView
+                        android:layout_width="110dp"
+                        android:layout_height="match_parent"
+                        android:text="결제 금액"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:textSize="17dp"
+                        android:fontFamily="@font/inter__bold"
+                        android:textFontWeight="1000"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:id="@+id/history_price"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="₩69,000"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/black"/>
+
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_gravity="bottom"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <ImageButton
+            android:id="@+id/home_button"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/home_vector"
+            android:background="@color/white"/>
+        <ImageButton
+            android:id="@+id/rentalTumbler_button"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/rental_vector"
+            android:background="@color/white"/>
+        <ImageButton
+            android:id="@+id/returnTumbler_button"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/return_tumbler_vector"
+            android:background="@color/white"/>
+        <ImageButton
+            android:id="@+id/myPage_button"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/mypage_vector"
+            android:background="@color/white"/>
+
+    </LinearLayout>
+
+</LinearLayout>
