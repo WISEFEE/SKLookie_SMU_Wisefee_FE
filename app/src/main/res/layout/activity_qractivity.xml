@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="10">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/go_back_button"
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/arrow_icon"
+            android:background="@color/white"/>
+
+        <TextView
+            android:id="@+id/title_return"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="텀블러 반납"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal|center_vertical"
+            android:textSize="21sp"
+            android:layout_weight="2"
+            android:fontFamily="@font/inter_regular"
+            android:textFontWeight="600"
+            android:textColor="#3A4CA8"/>
+
+        <ImageButton
+            android:id="@+id/notification_button"
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:layout_weight="1"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/notification_vector"
+            android:background="#00FFFFFF"
+            app:tint="@color/blue" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:orientation="vertical">
+
+
+        <FrameLayout
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:background="@drawable/round_rectangle_notice"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_height="450dp"
+            android:padding="13dp"
+            android:elevation="10dp">
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="120dp"
+                android:fontFamily="@font/inter_regular"
+                android:text="아래 버튼을 눌러주세요."
+                android:textAlignment="center"
+                android:textColor="#676767"
+                android:textSize="11sp" />
+
+            <android.widget.Button
+                android:id="@+id/no_button"
+
+                android:layout_gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:background="@drawable/round_rectangle"
+                android:layout_marginTop="155dp"
+                android:singleLine="true"
+                android:text="승인완료"
+                android:textColor="#FFFFFF"
+                android:textFontWeight="800"
+                android:textSize="16sp"
+                android:backgroundTint="@color/blue"/>
+
+            <TextView
+                android:layout_width="240dp"
+                android:layout_height="280dp"
+                android:background="@color/gray"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:text="주문 정보"
+                android:textSize="30dp"
+                android:textAlignment="center"
+                android:gravity="center"/>
+
+
+        </FrameLayout>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_gravity="bottom"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <ImageButton
+            android:id="@+id/home_button"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/home_vector"
+            android:background="@color/white"/>
+        <ImageButton
+            android:id="@+id/rentalTumbler_button"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/rental_vector"
+            android:background="@color/white"/>
+        <ImageButton
+            android:id="@+id/returnTumbler_button"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/return_tumbler_vector"
+            android:background="@color/white"/>
+        <ImageButton
+            android:id="@+id/myPage_button"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/mypage_vector"
+            android:background="@color/white"/>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+

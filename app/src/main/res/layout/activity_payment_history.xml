@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".mypage.PaymentHistory"
+    android:orientation="vertical"
+    android:weightSum="10"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="331dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/go_back_button"
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:src="@drawable/arrow_icon" />
+
+        <TextView
+            android:id="@+id/title_return"
+            android:layout_width="160dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:layout_weight="2"
+            android:fontFamily="@font/inter_regular"
+            android:gravity="center_horizontal|center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="내 결제 이력"
+            android:textColor="#3A4CA8"
+            android:textStyle="bold"
+            android:textSize="21sp" />
+
+
+    </LinearLayout>
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:padding="15dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_gravity="bottom"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <ImageButton
+            android:id="@+id/home_button"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/home_vector"
+            android:background="@color/white"/>
+        <ImageButton
+            android:id="@+id/rentalTumbler_button"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/rental_vector"
+            android:background="@color/white"/>
+        <ImageButton
+            android:id="@+id/returnTumbler_button"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/return_tumbler_vector"
+            android:background="@color/white"/>
+        <ImageButton
+            android:id="@+id/myPage_button"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/mypage_vector"
+            android:background="@color/white"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".mypage.CustomerInquiry"
+android:orientation="vertical"
+android:weightSum="10"
+android:background="@color/white">
+
+<LinearLayout
+    android:layout_width="331dp"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:layout_marginTop="5dp"
+    android:orientation="horizontal">
+
+    <ImageButton
+        android:id="@+id/go_back_button"
+        android:layout_width="35dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:layout_marginLeft="15dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:src="@drawable/arrow_icon" />
+
+    <TextView
+        android:id="@+id/title_return"
+        android:layout_width="160dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:layout_weight="2"
+        android:fontFamily="@font/inter_regular"
+        android:gravity="center_horizontal|center_vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="내 앱 설정"
+        android:textColor="#3A4CA8"
+        android:textStyle="bold"
+        android:textSize="21sp" />
+
+
+</LinearLayout>
+
+<LinearLayout
+    android:layout_weight="8"
+    android:layout_width="match_parent"
+    android:layout_height="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="300dp"
+        android:background="@drawable/round_rectangle_notice"
+        android:orientation="vertical"
+        android:elevation="5dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="아래 이메일 주소로\n문의내용을 보내주시기 바랍니다."
+            android:gravity="center_horizontal"
+            android:padding="15dp"
+            android:textSize="18dp"
+            android:fontFamily="@font/inter__bold"
+            android:textFontWeight="1000"
+            android:textColor="@color/blue"
+            android:layout_marginTop="45dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="wndms2074@naver.com"
+            android:gravity="center_horizontal"
+            android:textSize="18dp"
+            android:fontFamily="@font/inter__bold"
+            android:textFontWeight="1000"
+            android:textColor="#3E3D3D"
+            android:layout_marginTop="5dp"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>
+
+<LinearLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:layout_gravity="bottom"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:orientation="horizontal"
+    android:weightSum="4">
+
+    <ImageButton
+        android:id="@+id/home_button"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/home_vector"
+        android:background="@color/white"/>
+    <ImageButton
+        android:id="@+id/rentalTumbler_button"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/rental_vector"
+        android:background="@color/white"/>
+    <ImageButton
+        android:id="@+id/returnTumbler_button"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/return_tumbler_vector"
+        android:background="@color/white"/>
+    <ImageButton
+        android:id="@+id/myPage_button"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/mypage_vector"
+        android:background="@color/white"/>
+
+</LinearLayout>
+
+</LinearLayout>
