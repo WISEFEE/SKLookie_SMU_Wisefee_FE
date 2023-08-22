@@ -62,11 +62,37 @@
                 
                 <TextView
                     android:layout_width="250dp"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent"
+                    android:text="광고성 알림 수신"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="15dp"
+                    android:textSize="18dp"
+                    android:fontFamily="@font/inter_regular"
+                    android:textColor="@color/black"/>
                 <Switch
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingRight="10dp"/>
+                    android:paddingRight="15dp"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="250dp"
+                    android:layout_height="match_parent"
+                    android:text="주문 확인 알림 수신"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="15dp"
+                    android:textSize="18dp"
+                    android:fontFamily="@font/inter_regular"
+                    android:textColor="@color/black"/>
+                <Switch
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingRight="15dp"/>
 
             </LinearLayout>
 
