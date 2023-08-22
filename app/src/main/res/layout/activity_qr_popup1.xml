@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".return.return_popup"
+    tools:context="com.example.wisefee_return.QR_popup1"
     android:orientation="vertical">
 
 
@@ -17,13 +17,14 @@
         android:orientation="vertical"></LinearLayout>
 
     <FrameLayout
-        android:background="@drawable/layout_background"
+        android:background="@drawable/round_rectangle"
         android:layout_width="match_parent"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:layout_height="130dp"
         android:padding="13dp"
-        android:backgroundTint="#3A4CA8">
+        android:backgroundTint="#3A4CA8"
+        android:elevation="10dp">
 
 
 

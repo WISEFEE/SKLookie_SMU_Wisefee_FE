@@ -4,11 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="10">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="horizontal">
 
         <ImageButton
@@ -43,51 +45,40 @@
             android:layout_gravity="end"
             android:layout_weight="1"
             android:layout_marginRight="15dp"
-            android:src="@drawable/notification_icon"
-            android:background="@color/white"/>
+            android:src="@drawable/notification_vector"
+            android:background="#00FFFFFF"
+            app:tint="@color/blue" />
 
     </LinearLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="470dp"
+        android:layout_height="0dp"
+        android:layout_weight="8"
         android:orientation="vertical">
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1.5"
-            android:orientation="vertical"></LinearLayout>
-
         <FrameLayout
-            android:background="@drawable/layout_background"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:background="@drawable/round_rectangle_notice"
             android:layout_width="match_parent"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
-            android:layout_height="380dp"
-            android:padding="13dp">
+            android:layout_marginTop="50dp"
+            android:layout_height="450dp"
+            android:padding="13dp"
+            android:elevation="10dp">
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="65dp"
-                android:fontFamily="@font/inter_regular"
-                android:text="매장 직원에게\n보여주세요."
-                android:textAlignment="center"
-                android:textColor="#3A4CA8"
-                android:textFontWeight="1000"
-                android:textSize="21sp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="120dp"
                 android:fontFamily="@font/inter_regular"
-                android:text="직원 승인 후, 아래 버튼을 눌러주세요."
+                android:text="아래 버튼을 눌러주세요."
                 android:textAlignment="center"
                 android:textColor="#676767"
                 android:textSize="11sp" />
@@ -98,41 +89,37 @@
                 android:layout_gravity="center"
                 android:layout_width="120dp"
                 android:layout_height="30dp"
-                android:background="@drawable/layout_round_corner"
+                android:background="@drawable/round_rectangle"
                 android:layout_marginTop="155dp"
                 android:singleLine="true"
                 android:text="승인완료"
                 android:textColor="#FFFFFF"
                 android:textFontWeight="800"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:backgroundTint="@color/blue"/>
 
             <TextView
-                android:layout_width="180dp"
-                android:layout_height="180dp"
-                android:background="@color/dialogColor"
+                android:layout_width="240dp"
+                android:layout_height="280dp"
+                android:background="@color/gray"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
-                android:text="QR코드"
-                android:textSize="40dp"
+                android:text="주문 정보"
+                android:textSize="30dp"
                 android:textAlignment="center"
                 android:gravity="center"/>
 
 
         </FrameLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1.5"
-            android:orientation="vertical"></LinearLayout>
 
 
     </LinearLayout>
 
     <LinearLayout
-
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_gravity="bottom"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
@@ -144,28 +131,28 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:src="@drawable/home_icon"
+            android:src="@drawable/home_vector"
             android:background="@color/white"/>
         <ImageButton
             android:id="@+id/rentalTumbler_button"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:src="@drawable/rental_icon"
+            android:src="@drawable/rental_vector"
             android:background="@color/white"/>
         <ImageButton
             android:id="@+id/returnTumbler_button"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:src="@drawable/return_icon"
+            android:src="@drawable/return_tumbler_vector"
             android:background="@color/white"/>
         <ImageButton
             android:id="@+id/myPage_button"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:src="@drawable/mypage_icon"
+            android:src="@drawable/mypage_vector"
             android:background="@color/white"/>
 
     </LinearLayout>

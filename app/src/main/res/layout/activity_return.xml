@@ -46,7 +46,7 @@
             android:layout_gravity="end"
             android:layout_weight="1"
             android:layout_marginRight="15dp"
-            android:src="@drawable/notification_icon"
+            android:src="@drawable/notification_vector"
             android:background="@color/white"/>
 
     </LinearLayout>
