@@ -18,20 +18,7 @@
         android:theme="@style/Theme.Wisefee"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-        <activity
-            android:name=".StoreActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".SubscribeActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+
         <activity
             android:name="com.example.wisefee.Menu.QuantitySelectionActivity"
             android:exported="false" />

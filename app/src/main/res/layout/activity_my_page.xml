@@ -168,7 +168,7 @@
                         android:text="내 앱 설정"
                         android:textSize="12dp"
                         android:gravity="top|center_horizontal"
-                        android:background="000000"/>
+                        android:background="#ffffff"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -195,7 +195,7 @@
                         android:text="내 구독 관리"
                         android:textSize="12dp"
                         android:gravity="top|center_horizontal"
-                        android:background="000000"/>
+                        android:background="#ffffff"/>
 
                 </LinearLayout>
 
@@ -223,7 +223,7 @@
                         android:text="내 결제 이력"
                         android:textSize="12dp"
                         android:gravity="top|center_horizontal"
-                        android:background="000000"/>
+                        android:background="#ffffff"/>
 
                 </LinearLayout>
 
@@ -265,7 +265,7 @@
                         android:text="고객문의"
                         android:textSize="12dp"
                         android:gravity="top|center_horizontal"
-                        android:background="000000"/>
+                        android:background="#ffffff"/>
                 </LinearLayout>
 
 

@@ -8,7 +8,6 @@ import android.os.Looper
 import com.example.wisefee.Cart.CartActivity
 import com.example.wisefee.Login.LoginActivity
 import com.example.wisefee.Menu.MenuActivity
-import com.example.wisefee.Subscribe.SubscribeActivity
 import com.example.wisefee.databinding.ActivityIntroBinding
 import com.example.wisefee.databinding.ActivitySignupBinding
 
