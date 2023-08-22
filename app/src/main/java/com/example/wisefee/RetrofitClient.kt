@@ -9,7 +9,7 @@ object RetrofitClient {
 
     private const val BASE_URL = "http://10.0.2.2:8082/"
 
-    val token = "token"
+    val token = "yJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0dHRlZWVzc3MxMjMhIUBhYWEuY29tIiwidXNlcklkIjoxLCJuaWNrbmFtZSI6IlRvbSIsImF1dGgiOiJST0xFX0NPTlNVTUVSIiwiZXhwIjoxNjkyOTUxMDQyfQ.w0KEqLD6YXt0uh4F52jFqLOmvx_ct9-LlTWZvQoZv2U"
     // Initialize Network Interceptor
     val networkInterceptor = Interceptor { chain ->
         val newRequest = chain.request().newBuilder()

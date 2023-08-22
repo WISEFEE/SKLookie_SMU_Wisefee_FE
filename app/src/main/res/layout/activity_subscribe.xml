@@ -29,7 +29,7 @@
             android:id="@+id/title_return"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="결제 수단"
+            android:text="내 구독 관리"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:layout_gravity="center"
@@ -46,47 +46,33 @@
             android:layout_gravity="end"
             android:layout_weight="1"
             android:layout_marginRight="15dp"
-            android:src="@drawable/location"
             android:background="@color/white"/>
-
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="8"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical">
-        <Button
-            android:id="@+id/paymentButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="15dp"
-            android:background="@drawable/round_rectangle_button"
-            android:text="만나서 결제" />
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
         <Button
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginTop="20dp"
-            android:textStyle="bold"
-            android:textSize="15dp"
-            android:background="@drawable/round_rectangle_button"
-            android:text="테스트 운영기간동안에는\n무통장 입금만 밥습니다.\n\n총무님 통장 계좌\n\n위 계좌로 보증금 입금 후\n승인요청 버튼을 눌러주시기 바랍니다." />
-        <Button
-            android:id="@+id/checkoutButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textColor="#3F51B5"
-            android:textStyle="bold"
-            android:textSize="15dp"
+            android:layout_height="250dp"
             android:background="@drawable/round_button"
-            android:layout_gravity="right"
-            android:text="구매하기" />
+            android:text="현재 구독 중인\n정기 구독권이 없습니다."
+            android:layout_marginTop="10dp"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+        <Button
+            android:id="@+id/subscribeJoinButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="#3F51B5"
+            android:text="구독권 가입하기"
+            android:textSize="18sp"
+            android:textColor="#ffffff"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -135,5 +121,6 @@
             android:layout_weight="1"
             android:src="@drawable/mypage"
             android:gravity="center" />
+
     </LinearLayout>
 </LinearLayout>

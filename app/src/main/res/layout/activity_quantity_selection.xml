@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Menu.MenuActivity"
+    tools:context=".Menu.QuantitySelectionActivity"
     android:weightSum="10">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_weight="1"
         android:layout_height="0dp"
         android:layout_marginTop="5dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
 
         <ImageButton
             android:id="@+id/go_back_button"
@@ -29,7 +29,7 @@
             android:id="@+id/title_return"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="결제 수단"
+            android:text="수량 선택"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:layout_gravity="center"
@@ -51,43 +51,100 @@
 
     </LinearLayout>
 
+    <!-- 상품 정보 표시 (이름과 가격) -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="8"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginTop="20dp"
         android:orientation="vertical">
-        <Button
-            android:id="@+id/paymentButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="15dp"
-            android:background="@drawable/round_rectangle_button"
-            android:text="만나서 결제" />
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginTop="20dp"
-            android:textStyle="bold"
-            android:textSize="15dp"
-            android:background="@drawable/round_rectangle_button"
-            android:text="테스트 운영기간동안에는\n무통장 입금만 밥습니다.\n\n총무님 통장 계좌\n\n위 계좌로 보증금 입금 후\n승인요청 버튼을 눌러주시기 바랍니다." />
-        <Button
-            android:id="@+id/checkoutButton"
+        <TextView
+            android:id="@+id/productNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textColor="#3F51B5"
+            android:textSize="20sp"
             android:textStyle="bold"
-            android:textSize="15dp"
-            android:background="@drawable/round_button"
-            android:layout_gravity="right"
-            android:text="구매하기" />
+            android:text="Product Name"
+            android:textColor="#3F51B5"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/productPriceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Product Price"
+            android:textSize="18sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp" />
+
+
+        <EditText
+            android:id="@+id/quantityEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="수량을 입력하세요"
+            android:inputType="number"
+            android:layout_marginBottom="16dp"
+            android:layout_gravity="center"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4px"
+            android:background="#3F51B5"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="음료 온도"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="20dp"
+            android:textSize="16sp"
+            android:textColor="#3F51B5"
+            android:textStyle="bold"/>
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp">
+            <RadioButton
+                android:id="@+id/iceButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ice"
+                android:layout_marginRight="20dp"
+                android:textSize="15sp"/>
+            <RadioButton
+                android:id="@+id/hotButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="hot"
+                android:layout_marginLeft="20dp"
+                android:textSize="15sp"/>
+        </RadioGroup>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4px"
+            android:background="#3F51B5"
+            android:layout_marginTop="15dp"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginRight="20dp"
+            android:gravity="right">
+            <Button
+                android:id="@+id/cartAddButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="담기"
+                android:textSize="18sp"
+                android:layout_gravity="right|bottom"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/round_button"/>
+        </RelativeLayout>
+
     </LinearLayout>
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -135,5 +192,7 @@
             android:layout_weight="1"
             android:src="@drawable/mypage"
             android:gravity="center" />
+
     </LinearLayout>
+
 </LinearLayout>

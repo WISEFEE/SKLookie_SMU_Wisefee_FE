@@ -18,12 +18,18 @@ class CartActivity : AppCompatActivity() {
         binding = ActivityCartBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // 기존의 cartItems를 불러온다.
+        val existingCartItems = intent.getSerializableExtra("cartItems") as? ArrayList<CartItem>
+        if (existingCartItems != null) {
+            cartItems.addAll(existingCartItems)
+        }
 
         cartAdapter = CartAdapter(cartItems)
         binding.cartRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.cartRecyclerView.adapter = cartAdapter
 
 
+        /*
         // 예시
         val product = Product(id = 1, name = "아메리카노", price = 1000)
         val cartItem = CartItem(product, quantity = 2)
@@ -33,7 +39,7 @@ class CartActivity : AppCompatActivity() {
         val cartItem2 = CartItem(product2, quantity = 1)
         cartItems.add(cartItem2) //추가
         cartAdapter.notifyDataSetChanged()  //리사이클뷰 변경적용
-
+        */
 
         // 구매버튼
         binding.checkoutButton.setOnClickListener {
@@ -50,7 +56,7 @@ class CartActivity : AppCompatActivity() {
         var total = 0
         var quantity = 0
         for (cartItem in cartItems) {
-            totalPrice += cartItem.product.price * cartItem.quantity
+            totalPrice += cartItem.product.productPrice * cartItem.quantity
             quantity += cartItem.quantity
         }
         total = totalPrice + 1000

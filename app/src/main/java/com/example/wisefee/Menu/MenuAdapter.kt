@@ -6,8 +6,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.wisefee.databinding.MenuItemLayoutBinding
 
 
+//private val onProductClickListener: (product: Product) -> Unit
+class MenuAdapter(private var products: List<Product>, private val productClickListener: OnProductClickListener)
+    : RecyclerView.Adapter<MenuAdapter.MenuViewHolder>() {
 
-class MenuAdapter(private var products: List<Product>) : RecyclerView.Adapter<MenuAdapter.MenuViewHolder>() {
+    interface OnProductClickListener {
+        fun onProductClick(product: Product)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuViewHolder {
         val binding = MenuItemLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -25,7 +30,15 @@ class MenuAdapter(private var products: List<Product>) : RecyclerView.Adapter<Me
         RecyclerView.ViewHolder(binding.root) {
         fun bind(product: Product){
             binding.menuNameTextView.text = product.productName;
-            binding.menuPriceTextView.text = product.productPrice.toString();
+            //binding.menuPriceTextView.text = product.productPrice.toString();
+            val productPrice = product.productPrice.toString()
+            binding.menuPriceTextView.text = "${productPrice.replace(" ", "")}원"
+
+
+            // 메뉴 아이템 클릭 시
+            binding.root.setOnClickListener {
+                productClickListener.onProductClick(product) // 클릭 이벤트 처리
+            }
          }
     }
 }
