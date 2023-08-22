@@ -60,9 +60,24 @@
             android:layout_marginTop="5dp">
 
             <ImageView
-                android:layout_width="60dp"
+                android:layout_width="40dp"
                 android:layout_height="match_parent"
-                android:src=""/>
+                android:src="@drawable/search"
+                android:layout_margin="3dp"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical"
+
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="5dp"
+                android:hint="검색"
+                android:textSize="14dp"
+                android:background="@color/white"
+                android:fontFamily="@font/inter_regular"
+                android:layout_weight="1000"
+                android:textStyle="bold"
+                android:textColorHint="#A5A4A4"
 
 
         </LinearLayout>
