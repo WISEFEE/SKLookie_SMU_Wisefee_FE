@@ -41,7 +41,7 @@ class MenuActivity : AppCompatActivity() {
         binding.menuRecyclerView.adapter = menuAdapter*/
 
         val cafeId = 2
-        val token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0dHRlZWVzc3MxMjMhIUBhYWEuY29tIiwidXNlcklkIjoxLCJuaWNrbmFtZSI6IlRvbSIsImF1dGgiOiJST0xFX0NPTlNVTUVSIiwiZXhwIjoxNjkyOTQzMjkwfQ.6vpAuLLuSRwHwGwArSJvt6zwL0ZrznsrfsThmZKaCuU"
+        val token = "Bearer yJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0dHRlZWVzc3MxMjMhIUBhYWEuY29tIiwidXNlcklkIjoxLCJuaWNrbmFtZSI6IlRvbSIsImF1dGgiOiJST0xFX0NPTlNVTUVSIiwiZXhwIjoxNjkyOTUxMDQyfQ.w0KEqLD6YXt0uh4F52jFqLOmvx_ct9-LlTWZvQoZv2U"
         val apiService = RetrofitClient.apiService
         val call = apiService.getProductsForCafe(token, cafeId)
 

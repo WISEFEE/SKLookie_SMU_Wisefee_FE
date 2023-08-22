@@ -11,7 +11,7 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface RetrofitService {
-    @GET("api/v1/consumer/{cafeId}/product")
+    @GET("/api/v1/consumer/{cafeId}/product")
     fun getProductsForCafe(
         @Header("Authorization") authorization: String,
         @Path("cafeId") cafeId: Int): Call<ProductList>

@@ -55,18 +55,38 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="8"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="20dp">
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
         <Button
             android:id="@+id/paymentButton"
-            android:layout_width="100dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:background="@drawable/round_rectangle_button"
+            android:text="만나서 결제" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:background="@drawable/round_rectangle_button"
+            android:text="테스트 운영기간동안에는\n무통장 입금만 밥습니다.\n\n총무님 통장 계좌\n\n위 계좌로 보증금 입금 후\n승인요청 버튼을 눌러주시기 바랍니다." />
+        <Button
+            android:id="@+id/checkoutButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:textColor="#3F51B5"
             android:textStyle="bold"
             android:textSize="15dp"
             android:background="@drawable/round_button"
-            android:text="만나서 결제" />
+            android:layout_gravity="right"
+            android:text="구매하기" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

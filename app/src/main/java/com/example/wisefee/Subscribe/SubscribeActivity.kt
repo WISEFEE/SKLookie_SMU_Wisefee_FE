@@ -1,5 +1,6 @@
 package com.example.wisefee.Subscribe
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.wisefee.R
@@ -14,5 +15,8 @@ class SubscribeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySubscribeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val intent = Intent(this, StoreActivity::class.java)
+        binding.subscribeJoinButton.setOnClickListener { startActivity(intent) }
     }
 }
