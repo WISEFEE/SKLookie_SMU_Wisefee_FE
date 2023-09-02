@@ -4,7 +4,7 @@ package com.example.wisefee
 import com.example.wisefee.Menu.ProductList
 import com.example.wisefee.Login.LoginResponse
 import com.example.wisefee.Login.SignUpConsumerResponse
-import com.example.wisefee.Login.SignUpConsumerResponseOrError
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.Field
@@ -27,7 +27,7 @@ interface RetrofitService {
         val password: String)
 
     @POST("/api/v1/member")
-    fun register( @Body signUpConsumerRequest: SignUpConsumerRequest): Call<SignUpConsumerResponseOrError>
+    fun register( @Body signUpConsumerRequest: SignUpConsumerRequest): Call<ResponseBody>
     data class SignUpConsumerRequest(
         val email: String,
         val password: String,
