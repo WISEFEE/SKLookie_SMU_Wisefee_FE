@@ -69,57 +69,159 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:orientation="vertical"
-        android:layout_gravity="center"
-        android:layout_marginTop="5dp">
+        android:orientation="horizontal"
+        android:layout_gravity="center">
 
-        <LinearLayout
+        <android.widget.Button
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/round_rectangle_button"
+            android:fontFamily="@font/roboto_regular"
+            android:gravity="center"
+            android:text="알림"
+            android:textColor="#3A4CA8"
+            android:textSize="15dp" />
 
-            <android.widget.Button
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="340dp"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginVertical="15dp"
+        android:background="@drawable/round_rectangle"
+        android:clipToOutline="true"
+        android:elevation="15dp"
+        android:orientation="vertical">
+
+        <ImageView
+
+            android:layout_width="match_parent"
+            android:layout_height="255dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image_05"
+            android:clipToOutline="true"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="LOOKIE CAFE"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="매장 내 텀블러 보유수는 N 개입니다."
+            android:textColor="@color/black"
+            android:textSize="12dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginVertical="15dp"
+        android:background="@drawable/round_rectangle"
+        android:clipToOutline="true"
+        android:elevation="15dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="주문 현황"
+            android:textSize="13dp"
+            android:gravity="center"
+            android:textColor="@color/black"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/round_rectangle_button"
-                android:fontFamily="@font/roboto_regular"
-                android:gravity="center"
-                android:text="주문 관리"
-                android:textColor="@color/black"
-                android:textSize="15dp" />
-            <android.widget.Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/round_rectangle_button"
-                android:fontFamily="@font/roboto_regular"
-                android:gravity="center"
-                android:text="주문 관리"
-                android:textColor="@color/black"
-                android:textSize="15dp" />
-            <android.widget.Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/round_rectangle_button"
-                android:fontFamily="@font/roboto_regular"
-                android:gravity="center"
-                android:text="주문 관리"
-                android:textColor="@color/black"
-                android:textSize="15dp" />
+                android:orientation="vertical"
+                android:layout_marginHorizontal="15dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="신규 주문"
+                    android:textSize="11dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="메뉴 준비중"
+                    android:textSize="11dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="수령 완료"
+                    android:textSize="11dp"/>
+            </LinearLayout>
 
-        </LinearLayout>
-
-
+        </FrameLayout>
 
 
 
 
     </LinearLayout>
+
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_gravity="bottom"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <ImageButton
+            android:id="@+id/home_button"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/home_vector"
+            android:background="@color/white"/>
+        <ImageButton
+            android:id="@+id/rentalTumbler_button"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/rental_vector"
+            android:background="@color/white"/>
+        <ImageButton
+            android:id="@+id/returnTumbler_button"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/return_tumbler_vector"
+            android:background="@color/white"/>
+        <ImageButton
+            android:id="@+id/myPage_button"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/mypage_vector"
+            android:background="@color/white"/>
+
+    </LinearLayout>
+
 
 
 
