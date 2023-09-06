@@ -14,8 +14,7 @@ class SignupActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.signupConsumer.setOnClickListener { startActivity(Intent(this, SignUpConsumerActivity::class.java)) }
-        binding.signupSeller.setOnClickListener { startActivity(Intent(this, SignupActivity::class.java)) }
-
+        binding.signupSeller.setOnClickListener { startActivity(Intent(this, SignUpSellerActivity::class.java)) }
 
     }
 }

@@ -7,7 +7,10 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.example.wisefee.MasterApplication
+import com.example.wisefee.R
 import com.example.wisefee.RetrofitService
+import com.example.wisefee.databinding.ActivitySignUpSellerBinding
+import com.example.wisefee.databinding.ActivitySignupBinding
 import com.example.wisefee.databinding.ActivitySignupConsumerBinding
 import okhttp3.ResponseBody
 import org.json.JSONObject
@@ -15,14 +18,14 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class SignUpConsumerActivity : AppCompatActivity() {
-    private lateinit var binding: ActivitySignupConsumerBinding
+class SignUpSellerActivity : AppCompatActivity() {
+    private lateinit var binding: ActivitySignUpSellerBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySignupConsumerBinding.inflate(layoutInflater)
+        binding = ActivitySignUpSellerBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        register(this@SignUpConsumerActivity)
+        register(this@SignUpSellerActivity)
     }
 
     fun register(activity: Activity) {
@@ -34,7 +37,7 @@ class SignUpConsumerActivity : AppCompatActivity() {
             val birth = binding.birth.text.toString()
             val phone = binding.phone.text.toString()
             val phoneOffice = binding.phoneOffice.text.toString()
-            val accountType = "CONSUMER"
+            val accountType = "SELLER"
             val authType = "Google"
             val isAllowPushMsg = if (binding.isAllowPushMsg.isChecked) "TRUE" else "FALSE"
             val isAuthEmail = "TRUE"
@@ -61,8 +64,9 @@ class SignUpConsumerActivity : AppCompatActivity() {
                 ) {
                     if (response.isSuccessful) {
                         Log.d("MyTag", "성공")
-                            Toast.makeText(activity, "가입에 성공하였습니다.", Toast.LENGTH_LONG).show()
-                            activity.startActivity(Intent(activity, LoginActivity::class.java))
+                        (application as MasterApplication).createRetrofit()
+                        Toast.makeText(activity, "가입에 성공하였습니다.", Toast.LENGTH_LONG).show()
+                        activity.startActivity(Intent(activity, LoginActivity::class.java))
                     }
 
                     else {
@@ -95,5 +99,4 @@ class SignUpConsumerActivity : AppCompatActivity() {
             })
         }
     }
-
 }
