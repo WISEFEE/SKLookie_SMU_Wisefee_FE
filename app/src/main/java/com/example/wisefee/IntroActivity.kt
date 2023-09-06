@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import com.example.wisefee.Login.LoginActivity
 import com.example.wisefee.Store.StoreActivity
 import com.example.wisefee.databinding.ActivityIntroBinding
@@ -23,10 +24,7 @@ class IntroActivity : AppCompatActivity() {
         var handler = Handler(Looper.getMainLooper())
         if ((application as MasterApplication).checkIsLogin()) {
             handler.postDelayed({
-
-//                var intent = Intent(this, MainActivity::class.java)
-
-                var intent = Intent(this, MainActivity::class.java)
+                var intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
             }, 1000)
         } else {

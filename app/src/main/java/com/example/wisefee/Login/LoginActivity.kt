@@ -38,6 +38,7 @@ class LoginActivity : AppCompatActivity() {
             val email = binding.idInputbox.text.toString()
             val password = binding.passwordInputbox.text.toString()
 
+
             val loginRequest = RetrofitService.LoginRequest(email, password)
 
             (application as MasterApplication).service.login(
