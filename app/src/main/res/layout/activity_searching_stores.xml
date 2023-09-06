@@ -77,7 +77,9 @@
                 android:fontFamily="@font/inter_regular"
                 android:layout_weight="1000"
                 android:textStyle="bold"
-                android:textColorHint="#A5A4A4"
+                android:textColorHint="#A5A4A4">
+
+            </EditText>
 
 
         </LinearLayout>
