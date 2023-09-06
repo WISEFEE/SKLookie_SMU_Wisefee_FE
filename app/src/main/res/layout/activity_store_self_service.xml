@@ -88,9 +88,12 @@
 
     </LinearLayout>
 
+
+
     <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_gravity="center">
 
         <LinearLayout
@@ -98,6 +101,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_marginHorizontal="30dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
@@ -318,51 +322,57 @@
             </LinearLayout>
             <!--     주간 반납량 끝       -->
 
-
-
         </LinearLayout>
     </ScrollView>
 
     <!--      footer      -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_gravity="bottom"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:orientation="horizontal"
-        android:weightSum="4">
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/home_button"
-            android:layout_weight="1"
+
+        <ImageView
+            android:id="@+id/home"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginVertical="10dp"
+            android:layout_weight="1"
             android:src="@drawable/home_vector"
-            android:background="@color/white"/>
-        <ImageButton
-            android:id="@+id/rentalTumbler_button"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/rental_vector"
-            android:background="@color/white"/>
-        <ImageButton
-            android:id="@+id/returnTumbler_button"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/return_tumbler_vector"
-            android:background="@color/white"/>
-        <ImageButton
-            android:id="@+id/myPage_button"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/mypage_vector"
-            android:background="@color/white"/>
-    </LinearLayout>
+            android:gravity="center"/>
 
+        <ImageView
+            android:id="@+id/rental"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginVertical="10dp"
+            android:layout_weight="1"
+            android:src="@drawable/rental"
+            android:gravity="center" />
+
+        <ImageView
+            android:id="@+id/return_tumbler"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginVertical="10dp"
+            android:layout_weight="1"
+            android:src="@drawable/return_tumbler"
+            android:gravity="center" />
+
+        <ImageView
+            android:id="@+id/mypage"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginVertical="10dp"
+            android:layout_weight="1"
+            android:src="@drawable/mypage"
+            android:gravity="center" />
+
+    </LinearLayout>
 
 </LinearLayout>
