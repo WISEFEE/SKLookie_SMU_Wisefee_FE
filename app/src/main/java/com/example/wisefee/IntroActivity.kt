@@ -5,11 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import com.example.wisefee.Cart.CartActivity
 import com.example.wisefee.Login.LoginActivity
-import com.example.wisefee.Menu.MenuActivity
+import com.example.wisefee.Store.StoreActivity
 import com.example.wisefee.databinding.ActivityIntroBinding
-import com.example.wisefee.databinding.ActivitySignupBinding
 
 class IntroActivity : AppCompatActivity() {
 
@@ -31,7 +29,7 @@ class IntroActivity : AppCompatActivity() {
         } else {
             handler.postDelayed({
 
-                var intent = Intent(this, activity_store::class.java)
+                var intent = Intent(this, StoreActivity::class.java)
 
                 startActivity(intent)
             }, 1000)
