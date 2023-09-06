@@ -2,7 +2,6 @@
     <string name="app_name">wisefee</string>
     <string name="boarding_content">와이즈피는 \n무분별하게 사용되는 \n일회용 컵 폐기량을 줄이고 \n텀블러 사용을 늘리기 위해 \n시작된 프로젝트입니다.</string>
     <string name="firebase_notification_channel_id">my_notification_channel</string>
-    <string name="title_activity_store_self_service">StoreSelfServiceActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
