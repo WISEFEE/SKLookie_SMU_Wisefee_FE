@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.wisefee.MainActivity
@@ -28,15 +27,7 @@ class LoginActivity : AppCompatActivity() {
 //        binding.loginNaver.setOnClickListener { startActivity(Intent(this, _::class.java)) }
 //        binding.loginGoogle.setOnClickListener { startActivity(Intent(this, _::class.java)) }
         binding.login.setOnClickListener { startActivity(Intent(this, LoginActivity::class.java)) }
-        binding.signup.setOnClickListener {
-            startActivity(
-                Intent(
-                    this,
-                    SignupActivity::class.java
-                )
-            )
-        }
-
+        binding.signup.setOnClickListener { startActivity(Intent(this, SignupActivity::class.java)) }
         setupListener(this@LoginActivity)
     }
 
@@ -47,12 +38,12 @@ class LoginActivity : AppCompatActivity() {
             val email = binding.idInputbox.text.toString()
             val password = binding.passwordInputbox.text.toString()
 
+
             val loginRequest = RetrofitService.LoginRequest(email, password)
 
             (application as MasterApplication).service.login(
                 loginRequest
             ).enqueue(object : Callback<LoginResponse> {
-
                 override fun onResponse(
                     call: Call<LoginResponse>,
                     response: Response<LoginResponse>
