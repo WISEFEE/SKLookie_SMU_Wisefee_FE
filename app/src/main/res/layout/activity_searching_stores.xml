@@ -67,15 +67,15 @@
                 android:layout_height="25dp"
                 android:layout_gravity="center_vertical"
 
-                android:layout_marginLeft="5dp"
                 android:layout_marginRight="20dp"
-                android:layout_weight="1000"
+                android:layout_marginLeft="5dp"
+                android:hint="검색"
+                android:textSize="14dp"
                 android:background="@color/white"
                 android:fontFamily="@font/inter_regular"
-                android:hint="검색"
-                android:textColorHint="#A5A4A4"
-                android:textSize="14dp"
-                android:textStyle="bold">
+                android:layout_weight="1000"
+                android:textStyle="bold"
+                android:textColorHint="#A5A4A4">
 
             </EditText>
 

@@ -30,6 +30,10 @@
         <activity
             android:name=".Mypage.MyPageActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".Store.StoreActivity"
+            android:exported="false" />
         <activity
             android:name=".Menu.QuantitySelectionActivity"
             android:exported="false" />
