@@ -10,6 +10,7 @@ import com.example.wisefee.Login.LoginActivity
 import com.example.wisefee.Menu.MenuActivity
 import com.example.wisefee.databinding.ActivityIntroBinding
 import com.example.wisefee.databinding.ActivitySignupBinding
+import org.mozilla.javascript.tools.jsc.Main
 
 class IntroActivity : AppCompatActivity() {
 
@@ -25,7 +26,7 @@ class IntroActivity : AppCompatActivity() {
 
 //                var intent = Intent(this, MainActivity::class.java)
 
-                var intent = Intent(this, LoginActivity::class.java)
+                var intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             }, 1000)
         } else {

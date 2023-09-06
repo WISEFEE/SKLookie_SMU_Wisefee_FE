@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:name=".MasterApplication"
@@ -18,13 +18,25 @@
         android:theme="@style/Theme.Wisefee"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-
         <activity
-            android:name="com.example.wisefee.Menu.QuantitySelectionActivity"
+            android:name=".Login.SignUpSellerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Return.ReturnTumblerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SearchingStores.SearchingStores"
+            android:exported="false" />
+        <activity
+            android:name=".Mypage.MyPageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Menu.QuantitySelectionActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+
         <service
             android:name=".MyFirebaseMessagingService"
             android:exported="false">
