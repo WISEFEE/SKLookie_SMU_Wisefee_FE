@@ -69,7 +69,7 @@
 
     <LinearLayout
         android:layout_width="372dp"
-        android:layout_height="40dp"
+        android:layout_height="35dp"
         android:orientation="horizontal"
         android:layout_gravity="center"
         android:background="@drawable/round_rectangle_button"
@@ -80,21 +80,21 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="알림"
-            android:background="#00ff0000"/>
+            android:background="@drawable/left_stroke"/>
 
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="주문 관리"
-            android:background="#00ff0000"/>
+            android:background="@drawable/left_stroke"/>
 
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="메뉴 관리"
-            android:background="#00ff0000"/>
+            android:background="@drawable/left_stroke"/>
 
         <Button
             android:layout_width="0dp"
