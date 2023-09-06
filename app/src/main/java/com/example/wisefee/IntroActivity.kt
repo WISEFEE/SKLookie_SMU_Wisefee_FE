@@ -23,13 +23,14 @@ class IntroActivity : AppCompatActivity() {
 
 //                var intent = Intent(this, MainActivity::class.java)
 
-                var intent = Intent(this, LoginActivity::class.java)
+                var intent = Intent(this, MenuActivity::class.java)
                 startActivity(intent)
             }, 1000)
         } else {
             handler.postDelayed({
-
                 var intent = Intent(this, StoreActivity::class.java)
+
+
 
                 startActivity(intent)
             }, 1000)
