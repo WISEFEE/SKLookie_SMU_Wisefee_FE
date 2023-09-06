@@ -80,6 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="알림"
+            android:textStyle="bold"
             android:background="@drawable/left_stroke"/>
 
         <Button
@@ -87,6 +88,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="주문 관리"
+            android:textStyle="bold"
             android:background="@drawable/left_stroke"/>
 
         <Button
@@ -94,6 +96,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="메뉴 관리"
+            android:textStyle="bold"
             android:background="@drawable/left_stroke"/>
 
         <Button
@@ -101,6 +104,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="정기구독"
+            android:textStyle="bold"
             android:background="#00ff0000"/>
 
     </LinearLayout>

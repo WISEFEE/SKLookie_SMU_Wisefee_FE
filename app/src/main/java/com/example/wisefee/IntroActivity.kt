@@ -8,6 +8,7 @@ import android.os.Looper
 import com.example.wisefee.Login.LoginActivity
 import com.example.wisefee.Menu.MenuActivity
 import com.example.wisefee.Store.StoreActivity
+import com.example.wisefee.Store.StoreSelfServiceActivity
 import com.example.wisefee.databinding.ActivityIntroBinding
 
 class IntroActivity : AppCompatActivity() {
@@ -29,7 +30,7 @@ class IntroActivity : AppCompatActivity() {
             }, 1000)
         } else {
             handler.postDelayed({
-                var intent = Intent(this, StoreActivity::class.java)
+                var intent = Intent(this, StoreSelfServiceActivity::class.java)
 
 
 

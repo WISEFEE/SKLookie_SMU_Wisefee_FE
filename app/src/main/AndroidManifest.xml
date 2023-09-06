@@ -19,6 +19,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Store.StoreSelfServiceActivity"
+            android:exported="false"
+            android:label="@string/title_activity_store_self_service" />
+        <activity
+            android:name=".Store.activity_store_self_service"
+            android:exported="false" />
+        <activity
             android:name=".Store.StoreActivity"
             android:exported="false" />
         <activity
