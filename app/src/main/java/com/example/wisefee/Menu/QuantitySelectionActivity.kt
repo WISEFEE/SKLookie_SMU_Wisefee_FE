@@ -89,9 +89,8 @@ class QuantitySelectionActivity : AppCompatActivity() {
         alertDialog.show()
     }
 
-       /* val intent = Intent(this, CartActivity::class.java)
-        intent.putExtra("cartItems", ArrayList(cartItems)) // ArrayList로 변환하여 전달
-        startActivity(intent)*/
+    /* val intent = Intent(this, CartActivity::class.java)
+     intent.putExtra("cartItems", ArrayList(cartItems)) // ArrayList로 변환하여 전달
+     startActivity(intent)*/
 
 }
-
