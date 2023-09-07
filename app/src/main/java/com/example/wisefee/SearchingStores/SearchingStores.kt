@@ -24,7 +24,10 @@ class SearchingStores : AppCompatActivity() {
         binding.returnTumbler.setOnClickListener { startActivity(Intent(this, ReturnTumblerActivity::class.java)) }
         binding.mypage.setOnClickListener { startActivity(Intent(this, MyPageActivity::class.java)) }
 
+    }
 
-
+    override fun onPause() {
+        super.onPause()
+        finish()
     }
 }

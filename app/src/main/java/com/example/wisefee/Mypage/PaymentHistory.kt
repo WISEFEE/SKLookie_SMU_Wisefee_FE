@@ -1,4 +1,4 @@
-package com.example.wisefee.mypage
+package com.example.wisefee.Mypage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,5 +12,7 @@ class PaymentHistory : AppCompatActivity() {
         binding = ActivityPaymentHistoryBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        binding.goBackButton.setOnClickListener { onBackPressed() }
     }
 }

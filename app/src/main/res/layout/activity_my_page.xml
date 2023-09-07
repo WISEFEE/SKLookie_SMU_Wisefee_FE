@@ -152,6 +152,7 @@
                     android:weightSum="5">
 
                     <ImageButton
+                        android:id="@+id/my_app_settings"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_margin="8dp"
@@ -180,6 +181,7 @@
                     android:weightSum="5">
 
                     <ImageButton
+                        android:id="@+id/my_subscriptions"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_margin="8dp"
@@ -209,6 +211,7 @@
                     android:weightSum="5">
 
                     <ImageButton
+                        android:id="@+id/my_payment_history"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_margin="8dp"
@@ -248,6 +251,7 @@
                     android:weightSum="5">
 
                     <ImageButton
+                        android:id="@+id/customer_inquiry"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_margin="8dp"
@@ -289,8 +293,8 @@
             android:layout_marginHorizontal="25dp"
             android:layout_marginVertical="10dp"
             android:layout_weight="1"
-            android:gravity="center"
-            android:src="@drawable/home_vector" />
+            android:src="@drawable/home"
+            android:gravity="center"/>
 
         <ImageView
             android:id="@+id/rental"
@@ -299,8 +303,8 @@
             android:layout_marginHorizontal="25dp"
             android:layout_marginVertical="10dp"
             android:layout_weight="1"
-            android:gravity="center"
-            android:src="@drawable/rental" />
+            android:src="@drawable/rental"
+            android:gravity="center" />
 
         <ImageView
             android:id="@+id/return_tumbler"
@@ -309,8 +313,8 @@
             android:layout_marginHorizontal="25dp"
             android:layout_marginVertical="10dp"
             android:layout_weight="1"
-            android:gravity="center"
-            android:src="@drawable/return_tumbler" />
+            android:src="@drawable/return_tumbler"
+            android:gravity="center" />
 
         <ImageView
             android:id="@+id/mypage"
@@ -319,10 +323,9 @@
             android:layout_marginHorizontal="25dp"
             android:layout_marginVertical="10dp"
             android:layout_weight="1"
-            android:gravity="center"
-            android:src="@drawable/mypage" />
+            android:src="@drawable/mypage"
+            android:gravity="center" />
 
     </LinearLayout>
-
 
 </LinearLayout>
