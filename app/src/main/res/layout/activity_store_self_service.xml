@@ -188,11 +188,42 @@
                     android:layout_marginHorizontal="20dp"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="115dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="10dp"
-                        android:src="@drawable/image_06" />
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="115dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="10dp"
+                            android:src="@drawable/image_06" />
+
+                        <LinearLayout
+                            android:layout_width="115dp"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="N"
+                                android:gravity="center"
+                                android:textColor="#1F753D"
+                                android:textStyle="bold"
+                                android:textSize="15dp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="개"
+                                android:gravity="center"
+                                android:textColor="#1F753D"
+                                android:textStyle="bold"
+                                android:textSize="15dp"/>
+                        </LinearLayout>
+                    </RelativeLayout>
+
+
+
 
                     <LinearLayout
                         android:layout_width="wrap_content"
