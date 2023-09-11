@@ -257,7 +257,7 @@
                         android:layout_marginLeft="30dp"
                         android:orientation="vertical">
 
-                        
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

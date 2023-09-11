@@ -88,7 +88,8 @@
                 android:layout_weight="1"
                 android:text="알림"
                 android:textStyle="bold"
-                android:background="@drawable/left_stroke"/>
+                android:background="@drawable/left_stroke"
+                android:id="@+id/store_alarm"/>
 
             <Button
                 android:layout_width="0dp"
