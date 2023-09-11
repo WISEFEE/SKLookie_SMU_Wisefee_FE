@@ -27,7 +27,7 @@ class MasterApplication : Application() {
             if (checkIsLogin()) {
                 getUserToken()?.let { accessToken ->
                     val requeset = original.newBuilder()
-                        .header("Authorization", "accessToken " + accessToken)
+                        .header("Authorization", "Bearer $accessToken")
                         .build()
                     it.proceed(requeset)
                 }
