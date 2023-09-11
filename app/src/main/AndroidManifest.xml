@@ -45,6 +45,9 @@
             android:exported="false" />
 
         <activity
+            android:name=".Alarm"
+            android:exported="false" />
+        <activity
             android:name=".Store.StoreSelfServiceActivity"
             android:exported="false" />
         <activity

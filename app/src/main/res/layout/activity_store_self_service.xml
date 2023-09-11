@@ -18,7 +18,7 @@
             android:src="@drawable/side_menu"
             android:layout_marginTop="27dp"
             android:layout_marginLeft="30dp"
-            android:background="#ffffff"/>
+            android:background="#ffffff" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -88,15 +88,20 @@
 
     </LinearLayout>
 
+
+
     <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_gravity="center">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_marginHorizontal="30dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
@@ -131,21 +136,29 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:layout_marginHorizontal="15dp">
+                    android:layout_marginHorizontal="15dp"
+                    android:orientation="horizontal">
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="12,345원"
-                        android:textSize="25dp"/>
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="12,345"
+                        android:textSize="25dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:text="원"
+                        android:textSize="25dp" />
+
                 </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="200dp"
                 android:layout_marginHorizontal="25dp"
                 android:layout_marginVertical="15dp"
                 android:background="@drawable/round_rectangle"
@@ -175,17 +188,49 @@
                     android:layout_marginHorizontal="20dp"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="115dp"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/image_06" />
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="115dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="10dp"
+                            android:src="@drawable/image_06" />
+
+                        <LinearLayout
+                            android:layout_width="115dp"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="N"
+                                android:gravity="center"
+                                android:textColor="#1F753D"
+                                android:textStyle="bold"
+                                android:textSize="15dp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="개"
+                                android:gravity="center"
+                                android:textColor="#1F753D"
+                                android:textStyle="bold"
+                                android:textSize="15dp"/>
+                        </LinearLayout>
+                    </RelativeLayout>
+
+
+
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:layout_marginLeft="40dp"
-                        android:layout_marginVertical="80dp">
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginVertical="40dp">
 
                         <TextView
                             android:layout_width="match_parent"
@@ -203,18 +248,15 @@
                             android:textColor="@color/black"
                             android:textStyle="bold"
                             android:textSize="15dp"/>
-
-
-
-
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginVertical="80dp"
-                        android:layout_marginLeft="40dp"
+                        android:layout_marginVertical="40dp"
+                        android:layout_marginLeft="30dp"
                         android:orientation="vertical">
+
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -232,7 +274,7 @@
 
                             <TextView
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="match_parent"
                                 android:gravity="center"
                                 android:text="개"
                                 android:textColor="@color/black"
@@ -256,77 +298,236 @@
 
                             <TextView
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="match_parent"
                                 android:text="개"
                                 android:textColor="@color/black"
                                 android:textSize="15dp"
                                 android:textStyle="bold" />
                         </LinearLayout>
-
                     </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <!--      주간 주문량       -->
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginHorizontal="25dp"
+                android:layout_marginVertical="15dp"
+                android:background="@drawable/round_rectangle"
+                android:clipToOutline="true"
+                android:elevation="15dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginHorizontal="15dp"
+                    android:orientation="vertical">
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:fontFamily="@font/holtwoodonesc_regular"
+                        android:text="주간 주문량"
+                        android:textColor="#3A4CA8"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginHorizontal="25dp"
+                android:layout_marginVertical="15dp"
+                android:background="@drawable/round_rectangle"
+                android:clipToOutline="true"
+                android:elevation="15dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginHorizontal="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:fontFamily="@font/holtwoodonesc_regular"
+                        android:text="주간 반납량"
+                        android:textColor="#3A4CA8"
+                        android:textStyle="bold"/>
                 </LinearLayout>
 
 
 
-
-
-
             </LinearLayout>
+            <!--     주간 반납량 끝       -->
 
         </LinearLayout>
-
     </ScrollView>
 
 
-
-
-
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_gravity="bottom"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:orientation="horizontal"
-        android:weightSum="4">
+        android:layout_width="wrap_content"
+        android:layout_marginHorizontal="25dp"
+        android:layout_height="100dp"
+        android:layout_marginVertical="15dp"
+        android:layout_gravity="center"
+        android:background="@drawable/round_rectangle"
+        android:clipToOutline="true"
+        android:elevation="15dp"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="주문 현황"
+            android:textSize="13dp"
+            android:gravity="center"
+            android:textColor="@color/black"/>
 
-        <ImageButton
-            android:id="@+id/home_button"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/home_vector"
-            android:background="@color/white"/>
-        <ImageButton
-            android:id="@+id/rentalTumbler_button"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/rental_vector"
-            android:background="@color/white"/>
-        <ImageButton
-            android:id="@+id/returnTumbler_button"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/return_tumbler_vector"
-            android:background="@color/white"/>
-        <ImageButton
-            android:id="@+id/myPage_button"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/mypage_vector"
-            android:background="@color/white"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="25dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="신규 주문"
+                    android:textSize="11dp"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="메뉴 준비중"
+                    android:textSize="11dp"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="수령 완료"
+                    android:textSize="11dp"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
 
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:orientation="horizontal"
+                android:layout_marginLeft="200dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="A "
+                        android:textSize="12dp"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="B "
+                        android:textSize="12dp"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="C "
+                        android:textSize="12dp"
+                        android:textColor="@color/black"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="건"
+                        android:textSize="11dp"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="건"
+                        android:textSize="11dp"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="건"
+                        android:textSize="11dp"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
     </LinearLayout>
 
+    <!--      footer      -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
 
 
+        <ImageView
+            android:id="@+id/home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginVertical="10dp"
+            android:layout_weight="1"
+            android:src="@drawable/home_vector"
+            android:gravity="center"/>
 
+        <ImageView
+            android:id="@+id/rental"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginVertical="10dp"
+            android:layout_weight="1"
+            android:src="@drawable/rental"
+            android:gravity="center" />
 
+        <ImageView
+            android:id="@+id/return_tumbler"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginVertical="10dp"
+            android:layout_weight="1"
+            android:src="@drawable/return_tumbler"
+            android:gravity="center" />
+
+        <ImageView
+            android:id="@+id/mypage"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginVertical="10dp"
+            android:layout_weight="1"
+            android:src="@drawable/mypage"
+            android:gravity="center" />
+
+    </LinearLayout>
 </LinearLayout>
