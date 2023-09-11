@@ -1,17 +1,19 @@
 package com.example.wisefee
 
 
+import com.example.wisefee.Login.LoginRequest
 import com.example.wisefee.Menu.ProductList
 import com.example.wisefee.Login.LoginResponse
-import com.example.wisefee.Login.SignUpConsumerResponse
+import com.example.wisefee.Login.MemberResponse
+import com.example.wisefee.Login.SignUpConsumerRequest
+import com.example.wisefee.Login.UpdateMemberRequest
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.Body
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
+import retrofit2.http.PUT
 import retrofit2.http.Path
 
 interface RetrofitService {
@@ -22,22 +24,14 @@ interface RetrofitService {
 
     @POST("/api/v1/auth/login")
     fun login ( @Body loginRequest: LoginRequest): Call<LoginResponse>
-    data class LoginRequest(
-        val email: String,
-        val password: String)
 
     @POST("/api/v1/member")
     fun register( @Body signUpConsumerRequest: SignUpConsumerRequest): Call<ResponseBody>
-    data class SignUpConsumerRequest(
-        val email: String,
-        val password: String,
-        val nickname: String,
-        val accountType: String,
-        val authType: String,
-        val birth: String,
-        val isAllowPushMsg: String,
-        val isAuthEmail: String,
-        val phone: String,
-        val phoneOffice: String)
+
+    @GET("/api/v1/member/{id}")
+    fun getMemberById(@Path("id") memberId: Int): Call<MemberResponse>
+
+    @PUT("/api/v1/member/{id}")
+    fun updateMember(@Body updateMemberRequest: UpdateMemberRequest, @Path("id") id: Int): Call<ResponseBody>
 
 }

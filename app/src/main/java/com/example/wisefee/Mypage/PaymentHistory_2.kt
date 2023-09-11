@@ -12,5 +12,7 @@ class PaymentHistory_2 : AppCompatActivity() {
         binding = ActivityPaymentHistory2Binding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        binding.goBackButton.setOnClickListener { onBackPressed() }
     }
 }

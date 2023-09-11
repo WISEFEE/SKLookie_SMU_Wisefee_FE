@@ -42,7 +42,7 @@ class SignUpSellerActivity : AppCompatActivity() {
             val isAllowPushMsg = if (binding.isAllowPushMsg.isChecked) "TRUE" else "FALSE"
             val isAuthEmail = "TRUE"
 
-            val signUpConsumerRequest = RetrofitService.SignUpConsumerRequest(
+            val signUpConsumerRequest = SignUpConsumerRequest(
                 email,
                 password,
                 nickname,
@@ -76,10 +76,11 @@ class SignUpSellerActivity : AppCompatActivity() {
                             val errorsArray = errorJson.getJSONArray("errors")
 
                             for (i in 0 until errorsArray.length()) {
-                                val error = errorsArray.getString(i)
+                                val errorObject = errorsArray.getJSONObject(i)
+                                val errorMessage = errorObject.getString("message")
                                 // 에러 메시지 처리 (예: 토스트 메시지로 표시)
                                 Log.d("MyTag", "This is a debug log message에러")
-                                Toast.makeText(activity, error, Toast.LENGTH_LONG).show()
+                                Toast.makeText(activity, errorMessage, Toast.LENGTH_LONG).show()
                             }
                         }
                         else{

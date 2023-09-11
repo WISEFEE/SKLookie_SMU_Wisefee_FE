@@ -13,6 +13,8 @@ class MySubscription_current : AppCompatActivity() {
         binding = ActivityMySubscriptionCurrentBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        binding.goBackButton.setOnClickListener { onBackPressed() }
     }
 }
 
