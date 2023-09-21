@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="16dp">
+
+    <!-- 이미지 -->
+    <ImageView
+        android:id="@+id/menuItemImage"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/coffee_ex"
+        android:layout_marginEnd="16dp" />
+
+    <!-- 메뉴명과 설명을 표시할 수 있는 레이아웃 -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <!-- 메뉴명 -->
+        <TextView
+            android:id="@+id/menuItemName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="메뉴명"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- 음료 설명 -->
+        <TextView
+            android:id="@+id/menuItemDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="음료 설명"
+            android:textSize="14sp" />
+    </LinearLayout>
+</LinearLayout>

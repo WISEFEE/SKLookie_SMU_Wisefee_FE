@@ -39,7 +39,6 @@ class MenuAdapter(private var products: List<Product>, private val productClickL
             binding.root.setOnClickListener {
                 productClickListener.onProductClick(product) // 클릭 이벤트 처리
             }
-         }
+        }
     }
 }
-
