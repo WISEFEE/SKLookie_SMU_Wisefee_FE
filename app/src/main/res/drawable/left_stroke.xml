@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:left="-2dp"
+        android:top="-2dp"
+        android:bottom="-2dp"> <!-- 왼쪽에 음수값을 설정하여 왼쪽 테두리를 숨깁니다. -->
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent" />
+            <stroke
+                android:width="2dp"
+            android:color="#D8D8D8"
+            android:right="2dp" />
+        </shape>
+    </item>
+</layer-list>

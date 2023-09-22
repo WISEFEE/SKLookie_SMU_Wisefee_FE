@@ -9,6 +9,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.example.wisefee.Mypage.MyPageActivity
+import com.example.wisefee.Return.ReturnTumblerActivity
+import com.example.wisefee.SearchingStores.SearchingStores
 import com.example.wisefee.databinding.ActivityMainBinding
 import com.example.wisefee.databinding.ItemNoticeBinding
 
@@ -52,10 +55,9 @@ class MainActivity : AppCompatActivity() {
         }, 5000) // 5초 후에 실행 시작 (조절 가능)
 
         binding.home.setColorFilter(ContextCompat.getColor(this, R.color.selection_color))
-        // 각각 Activity 들 여기에 연결해주세요.
-//        binding.rental.setOnClickListener { startActivity(Intent(this, RentalActivity::class.java)) }
-//        binding.returnTumbler.setOnClickListener { startActivity(Intent(this, ReturnTumblerActivity::class.java)) }
-//        binding.mypage.setOnClickListener { startActivity(Intent(this, MyPageActivity::class.java)) }
+        binding.rental.setOnClickListener { startActivity(Intent(this, SearchingStores::class.java)) }
+        binding.returnTumbler.setOnClickListener { startActivity(Intent(this, ReturnTumblerActivity::class.java)) }
+        binding.mypage.setOnClickListener { startActivity(Intent(this, MyPageActivity::class.java)) }
 
         // 매번 보여줄 건지, 1번만 보여줄건지
 //        initView()

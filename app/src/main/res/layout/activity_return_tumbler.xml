@@ -4,57 +4,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:weightSum="10">
+    android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_weight="1"
-        android:layout_height="0dp"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
 
         <ImageButton
             android:id="@+id/go_back_button"
-            android:layout_width="35dp"
-            android:layout_height="match_parent"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
             android:layout_gravity="left"
-            android:layout_weight="1"
-            android:layout_marginLeft="15dp"
-            android:src="@drawable/arrow_icon"
-            android:background="@color/white"/>
+            android:layout_marginLeft="30dp"
+            android:background="@color/white"
+            android:src="@drawable/arrow_icon" />
 
         <TextView
-            android:id="@+id/title_return"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="텀블러 반납"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:layout_gravity="center"
-            android:gravity="center_horizontal|center_vertical"
-            android:textSize="21sp"
-            android:layout_weight="2"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
             android:fontFamily="@font/inter_regular"
-            android:textFontWeight="600"
-            android:textColor="#3A4CA8"/>
+            android:padding="10dp"
+            android:text="텀블러 반납"
+            android:textColor="#3A4CA8"
+            android:textSize="24dp"
+            android:textStyle="bold" />
 
         <ImageButton
             android:id="@+id/notification_button"
             android:layout_width="35dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="end"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="right"
             android:layout_weight="1"
-            android:layout_marginRight="15dp"
+            android:layout_marginRight="30dp"
             android:src="@drawable/notification_vector"
             android:background="@color/white"/>
 
-    </LinearLayout>
+    </RelativeLayout>
+
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="8">
+        android:layout_weight="1"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -176,44 +179,51 @@
     </ScrollView>
 
     <LinearLayout
-
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_gravity="bottom"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:orientation="horizontal"
-        android:weightSum="4">
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/home_button"
-            android:layout_weight="1"
+
+        <ImageView
+            android:id="@+id/home"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:src="@drawable/home_vector"
-            android:background="@color/white"/>
-        <ImageButton
-            android:id="@+id/rentalTumbler_button"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginVertical="10dp"
             android:layout_weight="1"
+            android:gravity="center"
+            android:src="@drawable/home_vector" />
+
+        <ImageView
+            android:id="@+id/rental"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:src="@drawable/rental_vector"
-            android:background="@color/white"/>
-        <ImageButton
-            android:id="@+id/returnTumbler_button"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginVertical="10dp"
             android:layout_weight="1"
+            android:gravity="center"
+            android:src="@drawable/rental" />
+
+        <ImageView
+            android:id="@+id/return_tumbler"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:src="@drawable/return_tumbler_vector"
-            android:background="@color/white"/>
-        <ImageButton
-            android:id="@+id/myPage_button"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginVertical="10dp"
             android:layout_weight="1"
+            android:gravity="center"
+            android:src="@drawable/return_tumbler" />
+
+        <ImageView
+            android:id="@+id/mypage"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:src="@drawable/mypage_vector"
-            android:background="@color/white"/>
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginVertical="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:src="@drawable/mypage" />
 
     </LinearLayout>
 

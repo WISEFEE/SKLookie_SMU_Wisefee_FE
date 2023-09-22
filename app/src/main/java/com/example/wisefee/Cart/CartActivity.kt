@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wisefee.databinding.ActivityCartBinding
 import com.example.wisefee.databinding.BuyDialogConfirmBinding
 import com.example.wisefee.Payment.PaymentActivity
+import com.example.wisefee.RetrofitClient
+import com.example.wisefee.RetrofitClient.apiService
 
 class CartActivity : AppCompatActivity() {
     private val cartItems = mutableListOf<CartItem>()
@@ -18,28 +20,22 @@ class CartActivity : AppCompatActivity() {
         binding = ActivityCartBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // 기존의 cartItems를 불러온다.
-        val existingCartItems = intent.getSerializableExtra("cartItems") as? ArrayList<CartItem>
-        if (existingCartItems != null) {
-            cartItems.addAll(existingCartItems)
-        }
-
+        val apiService = RetrofitClient.apiService
         cartAdapter = CartAdapter(cartItems)
         binding.cartRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.cartRecyclerView.adapter = cartAdapter
 
+        val memberId = "1"
+        getCart(memberId)
 
-        /*
-        // 예시
-        val product = Product(id = 1, name = "아메리카노", price = 1000)
-        val cartItem = CartItem(product, quantity = 2)
-        cartItems.add(cartItem) //추가
-        cartAdapter.notifyDataSetChanged()  //리사이클뷰 변경적용
-        val product2 = Product(id = 2, name = "카페라떼", price = 3000)
-        val cartItem2 = CartItem(product2, quantity = 1)
-        cartItems.add(cartItem2) //추가
-        cartAdapter.notifyDataSetChanged()  //리사이클뷰 변경적용
-        */
+        // 기존의 cartItems를 불러온다.
+        //val existingCartItems = intent.getSerializableExtra("cartItems") as? ArrayList<CartItem>
+        //if (existingCartItems != null) {
+        //    cartItems.addAll(existingCartItems)
+       // }
+
+
+
 
         // 구매버튼
         binding.checkoutButton.setOnClickListener {

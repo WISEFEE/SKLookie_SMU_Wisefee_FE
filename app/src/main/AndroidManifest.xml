@@ -18,8 +18,46 @@
         android:theme="@style/Theme.Wisefee"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
         <activity
-            android:name=".activity_store"
+            android:name=".Mypage.MyPageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Mypage.AppSettings"
+            android:exported="false" />
+        <activity
+            android:name=".Mypage.CustomerInquiry"
+            android:exported="false" />
+        <activity
+            android:name=".Mypage.MySubscription_current"
+            android:exported="false" />
+        <activity
+            android:name=".Mypage.MySubscription_home"
+            android:exported="false" />
+        <activity
+            android:name=".Mypage.PaymentHistory"
+            android:exported="false" />
+        <activity
+            android:name=".Mypage.PaymentHistory_2"
+            android:exported="false" />
+        <activity
+            android:name=".Mypage.UserInfoEdit"
+            android:exported="false" />
+
+        <activity
+            android:name=".Store.StoreSelfServiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Login.SignUpSellerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Return.ReturnTumblerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SearchingStores.SearchingStores"
+            android:exported="false" />
+        <activity
+            android:name=".Store.StoreActivity"
             android:exported="false" />
         <activity
             android:name=".Menu.QuantitySelectionActivity"
