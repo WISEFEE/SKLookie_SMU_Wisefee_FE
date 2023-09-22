@@ -32,7 +32,8 @@ class IntroActivity : AppCompatActivity() {
         } else {
             handler.postDelayed({
 
-                var intent = Intent(this, MenuActivity::class.java)
+                var intent = Intent(this, StoreActivity::class.java)
+
 
                 startActivity(intent)
             }, 1000)

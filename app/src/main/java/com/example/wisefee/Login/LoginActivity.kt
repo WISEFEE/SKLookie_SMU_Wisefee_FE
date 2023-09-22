@@ -4,12 +4,14 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.wisefee.MainActivity
 import com.example.wisefee.MasterApplication
 import com.example.wisefee.RetrofitService
 import com.example.wisefee.databinding.ActivityLoginBinding
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -36,10 +38,11 @@ class LoginActivity : AppCompatActivity() {
         binding.login.setOnClickListener {
 
             val email = binding.idInputbox.text.toString()
+            val fcmToken = getSharedPreferences("token", Context.MODE_PRIVATE).getString("token", null) as String
             val password = binding.passwordInputbox.text.toString()
 
-
-            val loginRequest = RetrofitService.LoginRequest(email, password)
+            Log.d("tag", "$fcmToken")
+            val loginRequest = LoginRequest(email, fcmToken, password)
 
             (application as MasterApplication).service.login(
                 loginRequest
@@ -57,8 +60,15 @@ class LoginActivity : AppCompatActivity() {
                         Toast.makeText(activity, "로그인 하셨습니다.", Toast.LENGTH_LONG).show()
                         startActivity(Intent(activity, MainActivity::class.java))
                     } else {
-                        Toast.makeText(activity, "가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.", Toast.LENGTH_LONG)
-                            .show()
+                        val errorResponseBody = response.errorBody()?.string()
+                        if (errorResponseBody != null) {
+                            val errorJson = JSONObject(errorResponseBody)
+                            val errorMessage = errorJson.getString("message")
+
+                            // 에러 메시지 처리 (예: 토스트 메시지로 표시)
+                            Log.d("MyTag", errorMessage)
+                            Toast.makeText(activity, errorMessage, Toast.LENGTH_LONG).show()
+                        }
                     }
                 }
 

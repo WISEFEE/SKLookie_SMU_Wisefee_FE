@@ -20,6 +20,8 @@ class MyPageActivity : AppCompatActivity() {
         binding.mySubscriptions.setOnClickListener { startActivity(Intent(this, MySubscription_home::class.java)) }
         binding.myPaymentHistory.setOnClickListener { startActivity(Intent(this, PaymentHistory::class.java)) }
         binding.customerInquiry.setOnClickListener { startActivity(Intent(this, CustomerInquiry::class.java)) }
+        binding.userInfoEditBtn1.setOnClickListener { startActivity(Intent(this, UserInfoEdit::class.java)) }
+        binding.userInfoEditBtn2.setOnClickListener { startActivity(Intent(this, UserInfoEdit::class.java)) }
 
         binding.home.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
@@ -33,6 +35,7 @@ class MyPageActivity : AppCompatActivity() {
             this.finish()
         }
         binding.mypage.setImageResource(R.drawable.clicked_mypage)
+
 
     }
 
