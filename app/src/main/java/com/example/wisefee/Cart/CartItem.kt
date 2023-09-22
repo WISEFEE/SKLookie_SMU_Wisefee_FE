@@ -5,6 +5,12 @@ import com.example.wisefee.Menu.Product
 import java.io.Serializable
 
 data class CartItem(
+    val product: Product,
+    var quantity: Int,
+    var temperature: String,
+) : Serializable
+
+/*data class CartItem(
     val cafeId: Int,
     val cafeName: String,
     val cartStatus: String,
@@ -24,4 +30,4 @@ data class ProductOptChoice(
     val productOptChoicePrice: Int,
     val productOptId: Int,
     val productOptName: String
-)
+)*/
