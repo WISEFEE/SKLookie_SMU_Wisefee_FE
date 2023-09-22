@@ -13,7 +13,7 @@ class CartAdapter(private val cartItems: List<CartItem>) : RecyclerView.Adapter<
 
         fun bind(cartItem: CartItem) {
             binding.menuNameTextView.text = cartItem.product.productName
-            binding.quantityTextView.text = cartItem.quantity.toString()
+            binding.quantityTextView.text = "${cartItem.quantity}개"
             binding.menuPriceTextView.text = "${cartItem.product.productPrice}원"
         }
     }

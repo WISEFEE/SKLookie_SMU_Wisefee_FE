@@ -37,17 +37,7 @@
             android:textSize="24dp"
             android:textStyle="bold" />
 
-        <ImageButton
-            android:id="@+id/location_button_button"
-            android:layout_width="35dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_gravity="right"
-            android:layout_weight="1"
-            android:layout_marginRight="30dp"
-            android:src="@drawable/location"
-            android:background="@color/white"/>
+
 
     </RelativeLayout>
 
