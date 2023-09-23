@@ -1,7 +1,10 @@
-package com.example.wisefee.mypage
+package com.example.wisefee.Mypage
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import com.example.wisefee.Jwt_decoding
 import com.example.wisefee.databinding.ActivityCustomerInquiryBinding
 
 class CustomerInquiry : AppCompatActivity() {
@@ -12,5 +15,8 @@ class CustomerInquiry : AppCompatActivity() {
         binding = ActivityCustomerInquiryBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        binding.goBackButton.setOnClickListener { onBackPressed() }
+
     }
 }

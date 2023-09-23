@@ -6,7 +6,7 @@ data class Product(
     val productId: Int,
     val productInfo: String,
     val productName: String,
-    val productOptions: List<ProductOption>,
+    val productOptions: List<ProductOption>?,
     val productPrice: Int
 ) : Serializable
 

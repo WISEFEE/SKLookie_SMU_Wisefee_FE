@@ -23,6 +23,10 @@ class ReturnTumblerActivity : AppCompatActivity() {
         binding.returnTumbler.setColorFilter(ContextCompat.getColor(this, R.color.selection_color))
         binding.mypage.setOnClickListener { startActivity(Intent(this, MyPageActivity::class.java)) }
 
+    }
 
+    override fun onPause() {
+        super.onPause()
+        finish()
     }
 }

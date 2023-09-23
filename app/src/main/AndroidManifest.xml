@@ -23,6 +23,40 @@
             android:exported="false" />
         <activity
             android:name=".activity_order_main"
+            android:name=".Store.StoreMenuActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Mypage.MyPageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Mypage.AppSettings"
+            android:exported="false" />
+        <activity
+            android:name=".Mypage.CustomerInquiry"
+            android:exported="false" />
+        <activity
+            android:name=".Mypage.MySubscription_current"
+            android:exported="false" />
+        <activity
+            android:name=".Mypage.MySubscription_home"
+            android:exported="false" />
+        <activity
+            android:name=".Mypage.PaymentHistory"
+            android:exported="false" />
+        <activity
+            android:name=".Mypage.PaymentHistory_2"
+            android:exported="false" />
+        <activity
+            android:name=".Mypage.UserInfoEdit"
             android:exported="false" />
         <activity
             android:name=".Alarm"
@@ -38,9 +72,6 @@
             android:exported="false" />
         <activity
             android:name=".SearchingStores.SearchingStores"
-            android:exported="false" />
-        <activity
-            android:name=".Mypage.MyPageActivity"
             android:exported="false" />
         <activity
             android:name=".Store.StoreActivity"
@@ -69,11 +100,6 @@
         <activity
             android:name=".IntroActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Payment.PaymentActivity"

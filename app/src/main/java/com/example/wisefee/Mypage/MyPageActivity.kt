@@ -16,9 +16,30 @@ class MyPageActivity : AppCompatActivity() {
         binding = ActivityMyPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.home.setOnClickListener { startActivity(Intent(this, MainActivity::class.java)) }
-        binding.rental.setOnClickListener { startActivity(Intent(this, SearchingStores::class.java)) }
-        binding.returnTumbler.setOnClickListener { startActivity(Intent(this, ReturnTumblerActivity::class.java)) }
+        binding.myAppSettings.setOnClickListener { startActivity(Intent(this, AppSettings::class.java)) }
+        binding.mySubscriptions.setOnClickListener { startActivity(Intent(this, MySubscription_home::class.java)) }
+        binding.myPaymentHistory.setOnClickListener { startActivity(Intent(this, PaymentHistory::class.java)) }
+        binding.customerInquiry.setOnClickListener { startActivity(Intent(this, CustomerInquiry::class.java)) }
+        binding.userInfoEditBtn1.setOnClickListener { startActivity(Intent(this, UserInfoEdit::class.java)) }
+        binding.userInfoEditBtn2.setOnClickListener { startActivity(Intent(this, UserInfoEdit::class.java)) }
+
+        binding.home.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+            this.finish()
+        }
+        binding.rental.setOnClickListener {
+            startActivity(Intent(this, SearchingStores::class.java))
+            this.finish()
+        }
+        binding.returnTumbler.setOnClickListener { startActivity(Intent(this, ReturnTumblerActivity::class.java))
+            this.finish()
+        }
         binding.mypage.setImageResource(R.drawable.clicked_mypage)
+
+
+    }
+
+    override fun onPause() {
+        super.onPause()
     }
 }

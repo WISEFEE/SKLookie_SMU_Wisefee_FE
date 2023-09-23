@@ -26,7 +26,6 @@
             android:src="@drawable/arrow_icon" />
 
         <TextView
-            android:id="@+id/title_return"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -67,15 +66,15 @@
                 android:layout_height="25dp"
                 android:layout_gravity="center_vertical"
 
-                android:layout_marginRight="20dp"
                 android:layout_marginLeft="5dp"
-                android:hint="검색"
-                android:textSize="14dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1000"
                 android:background="@color/white"
                 android:fontFamily="@font/inter_regular"
-                android:layout_weight="1000"
-                android:textStyle="bold"
-                android:textColorHint="#A5A4A4">
+                android:hint="검색"
+                android:textColorHint="#A5A4A4"
+                android:textSize="14dp"
+                android:textStyle="bold">
 
             </EditText>
 
