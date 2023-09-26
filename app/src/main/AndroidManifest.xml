@@ -22,7 +22,6 @@
             android:name=".OrderMainActivity"
             android:exported="false" />
         <activity
-            android:name=".activity_order_main"
             android:name=".Store.StoreMenuActivity"
             android:exported="true">
             <intent-filter>
