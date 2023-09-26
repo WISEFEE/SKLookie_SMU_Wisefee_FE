@@ -7,6 +7,7 @@ import android.os.Bundle
 import com.example.wisefee.R
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 
 class StoreMenuActivity : AppCompatActivity() {
 
@@ -16,8 +17,9 @@ class StoreMenuActivity : AppCompatActivity() {
     private lateinit var menuDropdown: Spinner
     private lateinit var menuList: ListView
     private lateinit var addButton: Button
+    private lateinit var dropDownAddButton: Button
 
-    private val menuItems = arrayOf("COFFEE", "FOOD", "PRODUCT")
+    private var menuItems = mutableListOf("COFFEE", "FOOD", "PRODUCT")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +30,7 @@ class StoreMenuActivity : AppCompatActivity() {
         categoryOrderEditButton = findViewById(R.id.categoryOrderEditButton)
         menuDropdown = findViewById(R.id.menuDropdown)
         menuList = findViewById(R.id.menuList)
-        addButton = findViewById(R.id.addButton)
+        dropDownAddButton = findViewById(R.id.dropDownAddButton)
 
         // 드롭다운 메뉴 아이템 설정
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, menuItems)
@@ -50,9 +52,38 @@ class StoreMenuActivity : AppCompatActivity() {
         // 초기 메뉴 목록 설정
         updateMenuList(menuItems[0])
 
-        // + 버튼 클릭 이벤트 처리
-        addButton.setOnClickListener {
-            // 드롭다운 메뉴를 수정할 수 있는 로직을 여기에 추가
+        dropDownAddButton.setOnClickListener {
+            val alertDialog = AlertDialog.Builder(this)
+            alertDialog.setTitle("카테고리명 추가")
+            alertDialog.setMessage("추가할 카테고리 이름을 입력하세요: ")
+
+            val input = EditText(this)
+            val layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT
+            )
+            input.layoutParams = layoutParams
+            alertDialog.setView(input)
+
+            alertDialog.setPositiveButton("추가") { dialog, _ ->
+                val newMenuName = input.text.toString().trim()
+                if (newMenuName.isNotEmpty()) {
+                    menuItems.add(newMenuName) // 메뉴 아이템 목록에 추가
+                    val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, menuItems)
+                    menuDropdown.adapter = adapter
+                    menuDropdown.setSelection(menuItems.indexOf(newMenuName)) // 새로운 메뉴 선택
+                }
+                Toast.makeText(this, "추가되었습니다.", Toast.LENGTH_SHORT).show()
+                dialog.dismiss()
+            }
+
+            alertDialog.setNegativeButton("취소") { dialog, _ ->
+                dialog.dismiss()
+            }
+
+
+
+            alertDialog.show()
         }
     }
 
@@ -85,5 +116,41 @@ class StoreMenuActivity : AppCompatActivity() {
 
         val adapter = StoreMenuAdapter(this, menuListData)
         menuList.adapter = adapter
+
+        menuList.setOnItemClickListener { _, _, position, _ ->
+            val selectedItem = menuListData[position]
+            showEditDialog(selectedItem)
+        }
+    }
+
+    private fun showEditDialog(menuData: MenuData) {
+        val alertDialog = AlertDialog.Builder(this).create()
+        alertDialog.setView(layoutInflater.inflate(R.layout.edit_menu_dialog, null))
+
+        val nameEditText = alertDialog.findViewById<EditText>(R.id.editName)
+        val descriptionEditText = alertDialog.findViewById<EditText>(R.id.editDescription)
+
+        nameEditText?.setText(menuData.name)
+        descriptionEditText?.setText(menuData.description)
+
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "저장") { dialog, _ ->
+            val newName = nameEditText?.text.toString().trim()
+            val newDescription = descriptionEditText?.text.toString().trim()
+
+            // 이름과 설명을 업데이트합니다.
+            menuData.name = newName
+            menuData.description = newDescription
+
+            // 업데이트된 데이터를 어댑터에 알립니다.
+            (menuList.adapter as StoreMenuAdapter).notifyDataSetChanged()
+
+            dialog.dismiss()
+        }
+
+        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "취소") { dialog, _ ->
+            dialog.dismiss()
+        }
+
+        alertDialog.show()
     }
 }

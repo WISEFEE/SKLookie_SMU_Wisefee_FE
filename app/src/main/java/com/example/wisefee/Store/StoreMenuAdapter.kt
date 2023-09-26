@@ -31,4 +31,4 @@ class StoreMenuAdapter(context: Context, private val data: Array<MenuData>) :
     }
 }
 
-data class MenuData(val name: String, val description: String, val imageResId: Int)
+data class MenuData(var name: String, var description: String, var imageResId: Int)
