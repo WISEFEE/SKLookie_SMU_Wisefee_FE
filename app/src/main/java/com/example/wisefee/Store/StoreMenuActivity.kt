@@ -2,12 +2,14 @@ package com.example.wisefee.Store
 
 import MenuData
 import StoreMenuAdapter
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.wisefee.R
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
+
 
 class StoreMenuActivity : AppCompatActivity() {
 
@@ -18,6 +20,7 @@ class StoreMenuActivity : AppCompatActivity() {
     private lateinit var menuList: ListView
     private lateinit var addButton: Button
     private lateinit var dropDownAddButton: Button
+
 
     private var menuItems = mutableListOf("COFFEE", "FOOD", "PRODUCT")
 
@@ -31,6 +34,8 @@ class StoreMenuActivity : AppCompatActivity() {
         menuDropdown = findViewById(R.id.menuDropdown)
         menuList = findViewById(R.id.menuList)
         dropDownAddButton = findViewById(R.id.dropDownAddButton)
+
+
 
         // 드롭다운 메뉴 아이템 설정
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, menuItems)
@@ -85,6 +90,7 @@ class StoreMenuActivity : AppCompatActivity() {
 
             alertDialog.show()
         }
+
     }
 
     private fun updateMenuList(selectedMenu: String) {
