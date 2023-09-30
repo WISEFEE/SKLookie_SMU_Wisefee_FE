@@ -7,6 +7,8 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import com.example.wisefee.R
 import com.example.wisefee.databinding.ActivityOrderDetailBinding
 
 
@@ -88,6 +90,10 @@ class OrderDetailActivity : AppCompatActivity() {
                         .setMessage("주문 접수가 완료되었습니다.")
                         .setPositiveButton("확인") { innerDialog, _ ->
                             innerDialog.dismiss()
+                            // 버튼 텍스트 컬러
+                            binding.btnOrderSubmit.setTextColor(ContextCompat.getColor(this, R.color.success_text_color))
+                            // 버튼을 비활성화
+                            binding.btnOrderSubmit.isEnabled = false
                         }
                         .create()
 
@@ -112,6 +118,10 @@ class OrderDetailActivity : AppCompatActivity() {
                         .setMessage("주문 거절이 완료되었습니다.")
                         .setPositiveButton("확인") { innerDialog, _ ->
                             innerDialog.dismiss()
+                            // 버튼 텍스트 컬러
+                            binding.btnOrderSubmit.setTextColor(ContextCompat.getColor(this, R.color.success_text_color))
+                            // 버튼을 비활성화
+                            binding.btnOrderSubmit.isEnabled = false
                         }
                         .create()
 
@@ -137,6 +147,10 @@ class OrderDetailActivity : AppCompatActivity() {
                         .setMessage("수령 알림이 발송되었습니다.")
                         .setPositiveButton("확인") { innerDialog, _ ->
                             innerDialog.dismiss()
+                            // 버튼 텍스트 컬러
+                            binding.btnOrderSubmit.setTextColor(ContextCompat.getColor(this, R.color.success_text_color))
+                            // 버튼을 비활성화
+                            binding.btnOrderSubmit.isEnabled = false
                         }
                         .create()
 
