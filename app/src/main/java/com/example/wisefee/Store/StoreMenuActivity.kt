@@ -21,8 +21,9 @@ class StoreMenuActivity : AppCompatActivity() {
     private lateinit var addButton: Button
     private lateinit var dropDownAddButton: Button
 
-
     private var menuItems = mutableListOf("COFFEE", "FOOD", "PRODUCT")
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,11 +36,18 @@ class StoreMenuActivity : AppCompatActivity() {
         menuList = findViewById(R.id.menuList)
         dropDownAddButton = findViewById(R.id.dropDownAddButton)
 
-
+//        val customAdapter = CustomSpinnerAdapter(this, R.layout.custom_spinner_item, menuItems)
+//
+//        val spinner = findViewById<Spinner>(R.id.menuDropdown)
+//        spinner.adapter = customAdapter
 
         // 드롭다운 메뉴 아이템 설정
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, menuItems)
-        menuDropdown.adapter = adapter
+//        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, menuItems)
+//        menuDropdown.adapter = adapter
+
+        val customAdapter = CustomSpinnerAdapter(this, menuItems)
+        val spinner = findViewById<Spinner>(R.id.menuDropdown)
+        spinner.adapter = customAdapter
 
         // 드롭다운 메뉴 선택 이벤트 처리
         menuDropdown.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -143,11 +151,11 @@ class StoreMenuActivity : AppCompatActivity() {
             val newName = nameEditText?.text.toString().trim()
             val newDescription = descriptionEditText?.text.toString().trim()
 
-            // 이름과 설명을 업데이트합니다.
+            // 이름과 설명을 업데이트
             menuData.name = newName
             menuData.description = newDescription
 
-            // 업데이트된 데이터를 어댑터에 알립니다.
+            // 업데이트된 데이터를 어댑터에 알림
             (menuList.adapter as StoreMenuAdapter).notifyDataSetChanged()
 
             dialog.dismiss()

@@ -142,10 +142,11 @@
             android:layout_height="wrap_content">
             <Spinner
                 android:id="@+id/menuDropdown"
+                style="@style/CustomSpinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="16dp" />
+                android:popupBackground="#FFFFFF"
+                android:spinnerMode="dropdown" />
 
             <Button
                 android:id="@+id/dropDownAddButton"
