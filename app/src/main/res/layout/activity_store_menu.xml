@@ -108,42 +108,16 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <!-- 왼쪽 화살표 버튼 -->
-            <ImageButton
-                android:id="@+id/leftArrowButton"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@drawable/arrow_icon"
-                android:background="@drawable/button_background" />
-
-            <!-- 카테고리 편집 버튼 -->
-            <Button
-                android:id="@+id/categoryEditButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="카테고리 편집"
-                android:background="@drawable/button_background" />
-
-            <!-- 카테고리 순서 편집 버튼 -->
-            <Button
-                android:id="@+id/categoryOrderEditButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="카테고리 순서 편집"
-                android:background="@drawable/button_background" />
-
         </LinearLayout>
 
         <!-- 드롭다운 메뉴 -->
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="8dp">
 
-            <!-- Spinner와 + 버튼을 가로로 배치 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -152,7 +126,6 @@
 
                 <Spinner
                     android:id="@+id/menuDropdown"
-                    style="@style/CustomSpinner"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -170,40 +143,49 @@
                     android:layout_marginStart="8dp" />
             </LinearLayout>
 
-
             <!-- 메뉴 목록 -->
             <ListView
                 android:id="@+id/menuList"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:divider="@android:color/transparent"
                 android:dividerHeight="16dp"
                 android:background="@drawable/blue_border"/>
 
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/addMenuItemButton"
+            <!-- 메뉴 추가 버튼 -->
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:text="메뉴 추가"
-                android:layout_gravity="end"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:textSize="24sp"
-                android:textColor="#000"
-                android:backgroundTint="#FFF"/>
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/addMenuItemButton"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/button_background"
+                    android:text="메뉴 추가"
+                    android:textColor="#000"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/DeleteMenuItemButton"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/button_background"
+                    android:text="메뉴 삭제"
+                    android:textColor="#000"
+                    android:textSize="20sp" />
+            </LinearLayout>
 
         </LinearLayout>
-
-
-
     </LinearLayout>
 
 

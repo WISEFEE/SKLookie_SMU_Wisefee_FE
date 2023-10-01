@@ -31,9 +31,7 @@ class StoreMenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_store_menu)
 
-        leftArrowButton = findViewById(R.id.leftArrowButton)
-        categoryEditButton = findViewById(R.id.categoryEditButton)
-        categoryOrderEditButton = findViewById(R.id.categoryOrderEditButton)
+
         menuDropdown = findViewById(R.id.menuDropdown)
         menuList = findViewById(R.id.menuList)
         dropDownAddButton = findViewById(R.id.dropDownAddButton)
