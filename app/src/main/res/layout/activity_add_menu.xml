@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="20dp"
+    tools:context=".Store.AddMenuActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/side_menu"
+            android:layout_marginTop="27dp"
+            android:layout_marginLeft="30dp"
+            android:background="#ffffff"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="1dp"
+            android:fontFamily="@font/holtwoodonesc_regular"
+            android:paddingTop="10dp"
+            android:text="WISEFEE"
+            android:textColor="#3A4CA8"
+            android:textSize="38dp" />
+
+        <TextView
+            android:id="@+id/alarm"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/mdi_bell_outline" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/editMenuName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="메뉴명" />
+
+        <EditText
+            android:id="@+id/editDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="메뉴 설명" />
+
+        <EditText
+            android:id="@+id/editPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="가격" />
+
+        <EditText
+            android:id="@+id/editTemperature"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="음료 온도" />
+
+        <EditText
+            android:id="@+id/editOptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="추가 옵션" />
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="저장" />
+    </LinearLayout>
+
+</LinearLayout>

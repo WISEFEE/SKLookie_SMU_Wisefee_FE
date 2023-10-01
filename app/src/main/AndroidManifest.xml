@@ -20,8 +20,18 @@
         tools:targetApi="31">
         <activity
             android:name=".Order_store.OrderDetailActivity"
-            android:exported="true">
-
+            android:exported="true"/>
+      
+        <activity
+            android:name=".EditMenuActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Store.AddMenuActivity"
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -42,6 +52,9 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <activity
+            android:name=".Store.EditMenuActivity"
+            android:exported="true" />
         <activity
             android:name=".Mypage.MyPageActivity"
             android:exported="false" />
@@ -107,7 +120,7 @@
             android:exported="false" />
         <activity
             android:name=".IntroActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Payment.PaymentActivity"
             android:exported="false">
