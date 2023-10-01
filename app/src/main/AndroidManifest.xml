@@ -19,6 +19,10 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Order_store.OrderDetailActivity"
+            android:exported="true"/>
+      
+        <activity
             android:name=".EditMenuActivity"
             android:exported="false">
             <meta-data
