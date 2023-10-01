@@ -139,33 +139,69 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <Spinner
-                android:id="@+id/menuDropdown"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="16dp" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
 
-            <Button
-                android:id="@+id/dropDownAddButton"
-                android:layout_width="wrap_content"
+            <!-- Spinner와 + 버튼을 가로로 배치 -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="+"
-                android:background="@drawable/button_background" />
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <Spinner
+                    android:id="@+id/menuDropdown"
+                    style="@style/CustomSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:popupBackground="#FFFFFF"
+                    android:spinnerMode="dropdown" />
+
+                <Button
+                    android:id="@+id/dropDownAddButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+"
+                    android:background="@drawable/button_background"
+                    android:gravity="center"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+
+            <!-- 메뉴 목록 -->
+            <ListView
+                android:id="@+id/menuList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="16dp"
+                android:background="@drawable/blue_border"/>
+
+
         </LinearLayout>
 
-
-        <!-- 메뉴 목록 -->
-        <ListView
-            android:id="@+id/menuList"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/menuDropdown"
-            android:layout_marginTop="16dp"
-            android:divider="@android:color/transparent"
-            android:dividerHeight="16dp"
-            android:background="@drawable/blue_border"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/addMenuItemButton"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:text="메뉴 추가"
+                android:layout_gravity="end"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:textSize="24sp"
+                android:textColor="#000"
+                android:backgroundTint="#FFF"/>
+
+        </LinearLayout>
+
 
 
     </LinearLayout>
