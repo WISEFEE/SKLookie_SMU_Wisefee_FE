@@ -86,6 +86,21 @@ class StoreMenuActivity : AppCompatActivity() {
 
             alertDialog.show()
         }
+
+        val addMenuItemButton = findViewById<Button>(R.id.addMenuItemButton)
+
+        // + 버튼 클릭 이벤트 처리
+        addMenuItemButton.setOnClickListener {
+            val selectedCategory = menuDropdown.selectedItem.toString()
+            val intent = Intent(this, EditMenuActivity::class.java)
+            // 선택된 카테고리 정보를 EditMenuActivity로 전달
+            intent.putExtra("selectedCategory", selectedCategory)
+            startActivityForResult(intent, ADD_MENU_ITEM_REQUEST_CODE)
+        }
+    }
+
+    companion object {
+        private const val ADD_MENU_ITEM_REQUEST_CODE = 2
     }
 
     private fun updateMenuList(selectedMenu: String): StoreMenuAdapter {

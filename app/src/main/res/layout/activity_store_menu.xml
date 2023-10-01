@@ -175,11 +175,33 @@
             <ListView
                 android:id="@+id/menuList"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:divider="@android:color/transparent"
                 android:dividerHeight="16dp"
                 android:background="@drawable/blue_border"/>
+
+
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/addMenuItemButton"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:text="메뉴 추가"
+                android:layout_gravity="end"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:textSize="24sp"
+                android:textColor="#000"
+                android:backgroundTint="#FFF"/>
+
+        </LinearLayout>
+
 
 
     </LinearLayout>
