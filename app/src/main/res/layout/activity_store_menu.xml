@@ -52,49 +52,39 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_marginHorizontal="25dp"
-            android:layout_height="35dp"
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:background="@drawable/round_rectangle_button"
-            android:layout_marginTop="10dp">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
 
-            <Button
-                android:layout_width="0dp"
+            <ImageButton
+                android:id="@+id/go_back_button"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="left"
+                android:layout_marginLeft="30dp"
+                android:background="@color/white"
+                android:src="@drawable/arrow_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="카테고리 편집"
-                android:textStyle="bold"
-                android:background="@drawable/left_stroke"
-                android:id="@+id/store_alarm"/>
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/inter_regular"
+                android:padding="10dp"
+                android:text="가게 메뉴 / 카테고리 관리"
+                android:textColor="#3A4CA8"
+                android:textSize="24dp"
+                android:textStyle="bold" />
 
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="메뉴 편집"
-                android:textStyle="bold"
-                android:background="@drawable/left_stroke"/>
+        </RelativeLayout>
 
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="이미지 편집"
-                android:textStyle="bold"
-                android:background="@drawable/left_stroke"/>
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="저장"
-                android:textStyle="bold"
-                android:background="#00ff0000"/>
-
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -108,42 +98,16 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <!-- 왼쪽 화살표 버튼 -->
-            <ImageButton
-                android:id="@+id/leftArrowButton"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@drawable/arrow_icon"
-                android:background="@drawable/button_background" />
-
-            <!-- 카테고리 편집 버튼 -->
-            <Button
-                android:id="@+id/categoryEditButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="카테고리 편집"
-                android:background="@drawable/button_background" />
-
-            <!-- 카테고리 순서 편집 버튼 -->
-            <Button
-                android:id="@+id/categoryOrderEditButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="카테고리 순서 편집"
-                android:background="@drawable/button_background" />
-
         </LinearLayout>
 
         <!-- 드롭다운 메뉴 -->
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="8dp">
 
-            <!-- Spinner와 + 버튼을 가로로 배치 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -152,7 +116,6 @@
 
                 <Spinner
                     android:id="@+id/menuDropdown"
-                    style="@style/CustomSpinner"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -170,40 +133,49 @@
                     android:layout_marginStart="8dp" />
             </LinearLayout>
 
-
             <!-- 메뉴 목록 -->
             <ListView
                 android:id="@+id/menuList"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:divider="@android:color/transparent"
                 android:dividerHeight="16dp"
                 android:background="@drawable/blue_border"/>
 
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/addMenuItemButton"
+            <!-- 메뉴 추가 버튼 -->
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:text="메뉴 추가"
-                android:layout_gravity="end"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:textSize="24sp"
-                android:textColor="#000"
-                android:backgroundTint="#FFF"/>
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/addMenuItemButton"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/button_background"
+                    android:text="메뉴 추가"
+                    android:textColor="#000"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/DeleteMenuItemButton"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/button_background"
+                    android:text="메뉴 삭제"
+                    android:textColor="#000"
+                    android:textSize="20sp" />
+            </LinearLayout>
 
         </LinearLayout>
-
-
-
     </LinearLayout>
 
 
