@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingTop="20dp"
-    tools:context=".Store.AddMenuActivity">
+    android:padding="16dp"
+    android:gravity="">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,48 +42,50 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="30dp"
             android:background="@drawable/mdi_bell_outline" />
+
     </RelativeLayout>
 
-    <LinearLayout
+    <EditText
+        android:id="@+id/editMenuName"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:hint="메뉴 이름"
+        android:layout_marginBottom="16dp"/>
 
-        <EditText
-            android:id="@+id/editMenuName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="메뉴명" />
+    <EditText
+        android:id="@+id/editMenuDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="메뉴 설명"
+        android:layout_marginBottom="16dp"/>
 
-        <EditText
-            android:id="@+id/editDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="메뉴 설명" />
+    <EditText
+        android:id="@+id/editMenuPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="가격"
+        android:inputType="number"
+        android:layout_marginBottom="16dp"/>
 
-        <EditText
-            android:id="@+id/editPrice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="가격" />
+    <CheckBox
+        android:id="@+id/checkBoxIce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="아이스 여부"
+        android:layout_marginBottom="16dp"/>
 
-        <EditText
-            android:id="@+id/editTemperature"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="음료 온도" />
+    <EditText
+        android:id="@+id/editExtraOption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="추가 옵션 (선택)"
+        android:layout_marginBottom="16dp"/>
 
-        <EditText
-            android:id="@+id/editOptions"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="추가 옵션" />
-
-        <Button
-            android:id="@+id/saveButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="저장" />
-    </LinearLayout>
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="등록"
+        android:layout_marginTop="16dp"/>
 
 </LinearLayout>
