@@ -94,8 +94,6 @@ class StoreMenuActivity : AppCompatActivity() {
                 dialog.dismiss()
             }
 
-
-
             alertDialog.show()
         }
 
