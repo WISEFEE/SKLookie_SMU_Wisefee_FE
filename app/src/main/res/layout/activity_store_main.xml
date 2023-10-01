@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingTop="20dp"
-    tools:context=".Store.StoreActivity">
+    tools:context=".Store.StoreActivity"
+    android:background="@color/white">
 
 
     <RelativeLayout

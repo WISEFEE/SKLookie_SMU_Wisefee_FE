@@ -6,6 +6,6 @@
     <solid android:color="@color/white" />
     <!-- 테두리 스타일 유지 -->
     <stroke
-        android:width="3dp"
+        android:width="2dp"
         android:color="#D9D9D9" />
 </shape>

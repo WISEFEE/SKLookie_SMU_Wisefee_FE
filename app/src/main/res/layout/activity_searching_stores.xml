@@ -81,7 +81,50 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="가까운 매장"
+                android:textSize="15dp"
+                android:background="#00FFFFFF"
+                android:layout_gravity="bottom"
+                android:fontFamily="@font/inter"
+                android:textFontWeight="1000"
+                android:layout_marginLeft="28dp"
+                android:textColor="@color/blue"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="자주 가는 매장"
+                android:textSize="15dp"
+                android:background="#00FFFFFF"
+                android:layout_gravity="bottom"
+                android:fontFamily="@font/inter"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/success_text_color"/>
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#AEAEAE"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="5dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:background="@color/white"
+            android:padding="10dp"/>
+
     </LinearLayout>
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
