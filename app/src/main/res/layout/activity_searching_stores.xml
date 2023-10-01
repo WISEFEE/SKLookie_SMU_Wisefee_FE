@@ -73,7 +73,7 @@
                 android:fontFamily="@font/inter_regular"
                 android:hint="검색"
                 android:textColorHint="#A5A4A4"
-                android:textSize="14dp"
+                android:textSize="14sp"
                 android:textStyle="bold">
 
             </EditText>
@@ -89,7 +89,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:text="가까운 매장"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:background="#00FFFFFF"
                 android:layout_gravity="bottom"
                 android:fontFamily="@font/inter"
@@ -100,7 +100,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:text="자주 가는 매장"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:background="#00FFFFFF"
                 android:layout_gravity="bottom"
                 android:fontFamily="@font/inter"
@@ -115,12 +115,455 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="5dp"/>
 
-        <androidx.recyclerview.widget.RecyclerView
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="5dp"
+                android:padding="5dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_height="120dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/round_rectangle_notice"
+                    android:elevation="10dp"
+                    android:layout_marginTop="10dp">
+
+                    <ImageView
+                        android:layout_width="140dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/image_03"
+                        android:background="@drawable/round_rectangle_left"
+                        android:scaleType="centerCrop"
+                        android:clipToOutline="true"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="0dp"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="LOOKIE CAFE"
+                            android:textSize="17dp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/inter_regular"
+                            android:textFontWeight="1000"
+                            android:layout_marginTop="3dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="운영 시간 07:00 ~ 22:00"
+                            android:textSize="15sp"
+                            android:textColor="#616161"
+                            android:fontFamily="@font/inter_regular"
+                            android:textFontWeight="1000"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="13dp"
+                                android:text="대여 가능 수"
+                                android:textSize="13sp"
+                                android:textColor="#616161"
+                                android:fontFamily="@font/inter_regular"
+                                android:textFontWeight="1000" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="13dp"
+                                android:layout_marginLeft="20dp"
+                                android:text="40"
+                                android:textSize="13sp"
+                                android:textColor="@color/red"
+                                android:fontFamily="@font/inter_regular"
+                                android:textFontWeight="1000" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="13dp"
+                                android:layout_marginLeft="30dp"
+                                android:text="300m"
+                                android:textSize="23dp"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/inter_regular"
+                                android:textFontWeight="1000" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_height="120dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/round_rectangle_notice"
+                    android:elevation="10dp"
+                    android:layout_marginTop="10dp">
+
+                    <ImageView
+                        android:layout_width="140dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/image_03"
+                        android:background="@drawable/round_rectangle_left"
+                        android:scaleType="centerCrop"
+                        android:clipToOutline="true"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="0dp"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="LOOKIE CAFE"
+                            android:textSize="17dp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/inter_regular"
+                            android:textFontWeight="1000"
+                            android:layout_marginTop="3dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="운영 시간 07:00 ~ 22:00"
+                            android:textSize="15sp"
+                            android:textColor="#616161"
+                            android:fontFamily="@font/inter_regular"
+                            android:textFontWeight="1000"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="13dp"
+                                android:text="대여 가능 수"
+                                android:textSize="13sp"
+                                android:textColor="#616161"
+                                android:fontFamily="@font/inter_regular"
+                                android:textFontWeight="1000" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="13dp"
+                                android:layout_marginLeft="20dp"
+                                android:text="40"
+                                android:textSize="13sp"
+                                android:textColor="@color/red"
+                                android:fontFamily="@font/inter_regular"
+                                android:textFontWeight="1000" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="13dp"
+                                android:layout_marginLeft="30dp"
+                                android:text="300m"
+                                android:textSize="23dp"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/inter_regular"
+                                android:textFontWeight="1000" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_height="120dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/round_rectangle_notice"
+                    android:elevation="10dp"
+                    android:layout_marginTop="10dp">
+
+                    <ImageView
+                        android:layout_width="140dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/image_03"
+                        android:background="@drawable/round_rectangle_left"
+                        android:scaleType="centerCrop"
+                        android:clipToOutline="true"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="0dp"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="LOOKIE CAFE"
+                            android:textSize="17dp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/inter_regular"
+                            android:textFontWeight="1000"
+                            android:layout_marginTop="3dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="운영 시간 07:00 ~ 22:00"
+                            android:textSize="15sp"
+                            android:textColor="#616161"
+                            android:fontFamily="@font/inter_regular"
+                            android:textFontWeight="1000"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="13dp"
+                                android:text="대여 가능 수"
+                                android:textSize="13sp"
+                                android:textColor="#616161"
+                                android:fontFamily="@font/inter_regular"
+                                android:textFontWeight="1000" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="13dp"
+                                android:layout_marginLeft="20dp"
+                                android:text="40"
+                                android:textSize="13sp"
+                                android:textColor="@color/red"
+                                android:fontFamily="@font/inter_regular"
+                                android:textFontWeight="1000" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="13dp"
+                                android:layout_marginLeft="30dp"
+                                android:text="300m"
+                                android:textSize="23dp"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/inter_regular"
+                                android:textFontWeight="1000" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_height="120dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/round_rectangle_notice"
+                    android:elevation="10dp"
+                    android:layout_marginTop="10dp">
+
+                    <ImageView
+                        android:layout_width="140dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/image_03"
+                        android:background="@drawable/round_rectangle_left"
+                        android:scaleType="centerCrop"
+                        android:clipToOutline="true"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="0dp"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="LOOKIE CAFE"
+                            android:textSize="17dp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/inter_regular"
+                            android:textFontWeight="1000"
+                            android:layout_marginTop="3dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="운영 시간 07:00 ~ 22:00"
+                            android:textSize="15sp"
+                            android:textColor="#616161"
+                            android:fontFamily="@font/inter_regular"
+                            android:textFontWeight="1000"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="13dp"
+                                android:text="대여 가능 수"
+                                android:textSize="13sp"
+                                android:textColor="#616161"
+                                android:fontFamily="@font/inter_regular"
+                                android:textFontWeight="1000" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="13dp"
+                                android:layout_marginLeft="20dp"
+                                android:text="40"
+                                android:textSize="13sp"
+                                android:textColor="@color/red"
+                                android:fontFamily="@font/inter_regular"
+                                android:textFontWeight="1000" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="13dp"
+                                android:layout_marginLeft="30dp"
+                                android:text="300m"
+                                android:textSize="23dp"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/inter_regular"
+                                android:textFontWeight="1000" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_height="120dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/round_rectangle_notice"
+                    android:elevation="10dp"
+                    android:layout_marginTop="10dp">
+
+                    <ImageView
+                        android:layout_width="140dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/image_03"
+                        android:background="@drawable/round_rectangle_left"
+                        android:scaleType="centerCrop"
+                        android:clipToOutline="true"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="0dp"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="LOOKIE CAFE"
+                            android:textSize="17dp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/inter_regular"
+                            android:textFontWeight="1000"
+                            android:layout_marginTop="3dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="운영 시간 07:00 ~ 22:00"
+                            android:textSize="15sp"
+                            android:textColor="#616161"
+                            android:fontFamily="@font/inter_regular"
+                            android:textFontWeight="1000"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="13dp"
+                                android:text="대여 가능 수"
+                                android:textSize="13sp"
+                                android:textColor="#616161"
+                                android:fontFamily="@font/inter_regular"
+                                android:textFontWeight="1000" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="13dp"
+                                android:layout_marginLeft="20dp"
+                                android:text="40"
+                                android:textSize="13sp"
+                                android:textColor="@color/red"
+                                android:fontFamily="@font/inter_regular"
+                                android:textFontWeight="1000" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="13dp"
+                                android:layout_marginLeft="30dp"
+                                android:text="300m"
+                                android:textSize="23dp"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/inter_regular"
+                                android:textFontWeight="1000" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+
+
+        <!--ui보여주는용으로 recyclerview 대신 scorllview 넣어두었습니다. (searching_store_item.xml 만들어둠)-->
+        <!--<androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="20dp"
             android:background="@color/white"
-            android:padding="10dp"/>
+            android:padding="10dp"/>-->
 
     </LinearLayout>
 
