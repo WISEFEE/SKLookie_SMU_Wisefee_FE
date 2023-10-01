@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Menu.MenuActivity"
-    android:weightSum="10">
+    android:weightSum="10"
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -57,22 +58,26 @@
         android:layout_marginRight="20dp">
         <Button
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:background="@drawable/round_button"
+            android:layout_height="330dp"
+            android:background="@drawable/round_button_dash_line"
             android:text="현재 구독 중인\n정기 구독권이 없습니다."
-            android:layout_marginTop="10dp"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:layout_marginTop="15dp"
+            android:layout_marginHorizontal="15dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:elevation="30dp"/>
         <Button
             android:id="@+id/subscribeJoinButton"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_marginTop="30dp"
+            android:layout_marginHorizontal="15dp"
             android:background="@drawable/rounded_button"
             android:backgroundTint="#3F51B5"
             android:text="구독권 가입하기"
             android:textSize="18sp"
-            android:textColor="#ffffff"/>
+            android:textColor="#ffffff"
+            android:elevation="30dp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
