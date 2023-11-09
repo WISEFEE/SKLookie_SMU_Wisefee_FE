@@ -15,6 +15,7 @@ class CartAdapter(private val cartItems: List<CartItem>) : RecyclerView.Adapter<
             binding.menuNameTextView.text = cartItem.product.productName
             binding.quantityTextView.text = "${cartItem.quantity}개"
             binding.menuPriceTextView.text = "${cartItem.product.productPrice}원"
+            binding.temperatureTextView.text = cartItem.temperature
         }
     }
 
