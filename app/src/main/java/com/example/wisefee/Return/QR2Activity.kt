@@ -1,4 +1,4 @@
-package com.example.wisefee_return
+package com.example.wisefee.Return
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,7 +12,8 @@ import com.example.wisefee.SearchingStores.SearchingStores
 import com.example.wisefee.databinding.ActivityQrPopup2Binding
 import com.example.wisefee.databinding.ActivityQractivityBinding
 
-class QRActivity : AppCompatActivity() {
+//QRActivity가 매니패스트에서 인식이 안돼서 만듦.
+class QR2Activity : AppCompatActivity() {
     private lateinit var binding: ActivityQractivityBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
