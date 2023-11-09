@@ -42,11 +42,8 @@
         <activity
             android:name=".Store.StoreMenuActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
 
             <meta-data
                 android:name="android.app.lib_name"
@@ -93,7 +90,13 @@
             android:exported="false" />
         <activity
             android:name=".SearchingStores.SearchingStores"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Store.StoreActivity"
             android:exported="false" />
@@ -131,6 +134,7 @@
         <activity
             android:name=".Menu.MenuActivity"
             android:exported="true" />
+
         <activity
             android:name=".Cart.CartActivity"
             android:exported="true" />
