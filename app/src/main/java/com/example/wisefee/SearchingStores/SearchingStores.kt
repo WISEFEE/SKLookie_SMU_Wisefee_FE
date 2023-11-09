@@ -37,17 +37,7 @@ class SearchingStores : AppCompatActivity() {
     }
 
     private fun showPurchaseConfirmationPopup() {
-        /* val builder = AlertDialog.Builder(this)
-        builder.setMessage("구매 진행하시겠습니까?")
-            .setPositiveButton("예") { dialog, which ->
-                val menuIntent = Intent(this, MenuActivity::class.java)
-                startActivity(menuIntent)
-            }
-            .setNegativeButton("뒤로가기") { dialog, which ->
 
-            }
-            .show()
-    }*/
         val inflater = LayoutInflater.from(this)
         val customView = inflater.inflate(R.layout.custom_popup_searchingstore, null)
 
@@ -66,8 +56,7 @@ class SearchingStores : AppCompatActivity() {
 
         val btnNo = customView.findViewById<Button>(R.id.btnNo)
         btnNo.setOnClickListener {
-            // Handle 'No' button click
-            // 여기에 아무 동작 없이 팝업을 닫는 로직을 추가하세요
+
 
             alertDialog.dismiss()
         }
