@@ -5,10 +5,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wisefee.Cart.CartActivity
 import com.example.wisefee.Cart.CartItem
+import com.example.wisefee.MainActivity
+import com.example.wisefee.Mypage.MyPageActivity
+import com.example.wisefee.R
 import com.example.wisefee.RetrofitClient
+import com.example.wisefee.Return.ReturnTumblerActivity
 import com.example.wisefee.databinding.ActivityMenuBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -32,6 +37,12 @@ class MenuActivity : AppCompatActivity() {
         var intent = intent
         val existingCartItems = intent.getSerializableExtra("cartItems") as? ArrayList<CartItem>
 
+
+        binding.home.setOnClickListener { startActivity(Intent(this, MainActivity::class.java)) }
+        // 각각 Activity 들 여기에 연결해주세요.
+        binding.rental.setColorFilter(ContextCompat.getColor(this, R.color.selection_color))
+        binding.returnTumbler.setOnClickListener { startActivity(Intent(this, ReturnTumblerActivity::class.java)) }
+        binding.mypage.setOnClickListener { startActivity(Intent(this, MyPageActivity::class.java)) }
 
         //장바구니 버튼 전환
         binding.cartButton.setOnClickListener {
@@ -128,10 +139,14 @@ class MenuActivity : AppCompatActivity() {
     private fun getProductInfo(): List<Product> {
         // 목데이터
         return listOf(
-            Product(1, "커피","카페라떼", null, 1000),
-            Product(2, "커피","아이스 아메리카노", null, 2000),
-            Product(3, "커피","에스프레소", null, 3000),
-            Product(4, "에이드","자몽에이드", null, 4000)
+            Product(1, "커피","아메리카노", null, 1000),
+            Product(2, "커피","카페라떼", null, 2000),
+            Product(3, "커피","카라멜마끼아또", null, 3000),
+            Product(4, "커피","에스프레소", null, 3000),
+            Product(5, "에이드","자몽에이드", null, 4000),
+            Product(6, "에이드","청포도에이드", null, 4000),
+            Product(7, "프라푸치노","자바칩프라푸치노", null, 4500),
+            Product(8, "프라푸치노","카라멜프라푸치노", null, 4500)
             // ...
         )
     }

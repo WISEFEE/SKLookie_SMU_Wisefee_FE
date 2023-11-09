@@ -96,7 +96,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/inter_regular"
-                        android:text="카부 카페"
+                        android:text="메가 커피"
                         android:textColor="#393939"
                         android:textFontWeight="800"
                         android:textSize="18dp" />
@@ -137,7 +137,7 @@
                         android:layout_marginLeft="70dp"
                         android:layout_marginTop="56dp"
                         android:fontFamily="@font/inter_regular"
-                        android:text="23.06.19"
+                        android:text="23.12.01"
                         android:textColor="#ff0000"
                         android:textFontWeight="600"
                         android:textSize="10dp" />
@@ -156,9 +156,9 @@
                     <android.widget.Button
                         android:id="@+id/return_button"
                         android:layout_width="50dp"
-                        android:layout_height="30dp"
+                        android:layout_height="20dp"
                         android:layout_marginLeft="133dp"
-                        android:layout_marginTop="56dp"
+                        android:layout_marginTop="70dp"
                         android:background="@drawable/round_rectangle"
                         android:backgroundTint="@color/blue"
 

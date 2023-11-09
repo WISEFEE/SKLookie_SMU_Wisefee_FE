@@ -1,0 +1,56 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="30dp"
+    android:padding="20dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="결제 완료되었습니다!"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/blue"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.2"
+            android:gravity="right"
+            android:text="반납 예정일"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/success_text_color"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="12월 1일"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/red"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/homeBackBtn"
+        android:layout_width="200dp"
+        android:background="@drawable/round_rectangle"
+        android:backgroundTint="@color/blue"
+        android:layout_height="35dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="5dp"
+        android:text="홈으로 돌아가기"
+        android:textSize="15dp"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:layout_gravity="center"/>
+
+
+</LinearLayout>

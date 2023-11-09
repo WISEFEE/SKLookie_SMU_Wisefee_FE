@@ -20,8 +20,8 @@
         tools:targetApi="31">
         <activity
             android:name=".Order_store.OrderDetailActivity"
-            android:exported="true"/>
-      
+            android:exported="true" />
+
         <activity
             android:name=".EditMenuActivity"
             android:exported="false">
@@ -93,7 +93,8 @@
             android:exported="false" />
         <activity
             android:name=".SearchingStores.SearchingStores"
-            android:exported="false" />
+            android:exported="true" />
+
         <activity
             android:name=".Store.StoreActivity"
             android:exported="false" />
@@ -131,6 +132,7 @@
         <activity
             android:name=".Menu.MenuActivity"
             android:exported="true" />
+
         <activity
             android:name=".Cart.CartActivity"
             android:exported="true" />
@@ -145,6 +147,9 @@
             android:exported="false" />
         <activity
             android:name=".Boarding.TwoBoarding"
+            android:exported="false" />
+        <activity
+            android:name=".Return.QR2Activity"
             android:exported="false" />
     </application>
 

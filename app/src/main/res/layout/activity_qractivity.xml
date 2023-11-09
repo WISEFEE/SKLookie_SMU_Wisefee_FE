@@ -85,15 +85,14 @@
                 android:textSize="11sp" />
 
             <android.widget.Button
-                android:id="@+id/no_button"
-
+                android:id="@+id/request_button"
                 android:layout_gravity="center"
-                android:layout_width="120dp"
+                android:layout_width="200dp"
                 android:layout_height="30dp"
                 android:background="@drawable/round_rectangle"
                 android:layout_marginTop="155dp"
                 android:singleLine="true"
-                android:text="승인완료"
+                android:text="반납 승인 요청"
                 android:textColor="#FFFFFF"
                 android:textFontWeight="800"
                 android:textSize="16sp"

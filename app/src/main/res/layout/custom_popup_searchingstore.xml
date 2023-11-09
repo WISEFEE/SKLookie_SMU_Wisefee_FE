@@ -1,0 +1,81 @@
+<!-- custom_popup_layout.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="30dp"
+    android:padding="20dp">
+
+    <!-- Add your custom views and widgets here -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="메가 커피\n대여 가능 텀블러 수"
+        android:textSize="25dp"
+        android:textColor="@color/blue"
+        android:textStyle="bold"
+        android:gravity="center"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1.2"
+            android:layout_height="wrap_content"
+            android:text="33"
+            android:textSize="25dp"
+            android:textColor="@color/red"
+            android:textStyle="bold"
+            android:gravity="right"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="개"
+            android:textSize="20dp"
+            android:textColor="#716969"
+            android:textStyle="bold"
+            android:gravity="left"/>
+    </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:background="@drawable/round_rectangle"
+        android:backgroundTint="@color/blue"
+        android:layout_height="35dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="5dp"
+        android:text="구매를 진행하시겠습니까?"
+        android:textSize="15dp"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:gravity="center"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_marginTop="15dp">
+        <Button
+            android:id="@+id/btnYes"
+            android:background="@drawable/login_button2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="30dp"
+            android:layout_marginRight="10dp"
+            android:text="예" />
+
+        <Button
+            android:id="@+id/btnNo"
+            android:background="@drawable/login_button2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="30dp"
+            android:layout_marginRight="10dp"
+            android:text="뒤로가기" />
+    </LinearLayout>
+
+</LinearLayout>

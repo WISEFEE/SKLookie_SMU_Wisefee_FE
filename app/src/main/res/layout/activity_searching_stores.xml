@@ -80,6 +80,93 @@
 
 
         </LinearLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/storeButton"
+                    android:layout_width="350dp"
+                    android:layout_height="115dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/round_rectangle_notice"
+                    android:orientation="horizontal"
+                    android:padding="0dp">
+
+
+                    <ImageView
+                        android:id="@+id/coffee_1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical|left"
+                        android:layout_weight="1"
+                        android:background="@drawable/round_rectangle_left"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/image_03"
+                        android:clipToOutline="true"/>
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.5"
+                        android:padding="13dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/inter_regular"
+                            android:text= "메가 커피"
+                            android:textColor="#393939"
+                            android:textFontWeight="800"
+                            android:textSize="18dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="30dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="운영시간 7:00 ~ 22:00 "
+                            android:textColor="#393939"
+                            android:textFontWeight="600"
+                            android:textSize="10dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="73dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="대여 가능 수 "
+                            android:textColor="#393939"
+                            android:textFontWeight="600"
+                            android:textSize="10dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="70dp"
+                            android:layout_marginTop="74dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="33"
+                            android:textColor="#ff0000"
+                            android:textFontWeight="600"
+                            android:textSize="10dp" />
+
+
+
+                    </FrameLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </ScrollView>
 
     </LinearLayout>
 
