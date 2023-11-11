@@ -30,7 +30,6 @@ interface RetrofitService {
     @GET("/api/v1/consumer/cart/{memberId}")
     fun getCart(@Path("memberId") memberId: String): Call<List<CartItem>>
 
-
     @POST("/api/v1/auth/login")
     fun login ( @Body loginRequest: LoginRequest): Call<LoginResponse>
 
