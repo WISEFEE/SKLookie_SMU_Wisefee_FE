@@ -18,6 +18,23 @@ class StoreActivity : AppCompatActivity() {
         binding = ActivityStoreMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.manageOrderButton.setOnClickListener {
+            // 새로운 화면으로 이동하는 코드를 여기에 추가
+            val intent = Intent(this, StoreSelfServiceActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.manageMenuButton.setOnClickListener {
+            // 새로운 화면으로 이동하는 코드를 여기에 추가
+            val intent = Intent(this, StoreMenuActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.home.setOnClickListener {
+            // 새로운 화면으로 이동하는 코드를 여기에 추가
+            val intent = Intent(this, StoreActivity::class.java)
+            startActivity(intent)
+        }
 
         binding.storeAlarm.setOnClickListener { startActivity(Intent(this,  Alarm::class.java)) }
     }

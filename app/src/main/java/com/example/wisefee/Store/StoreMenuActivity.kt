@@ -10,6 +10,8 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.example.wisefee.R
+import com.example.wisefee.databinding.ActivityStoreMainBinding
+import com.example.wisefee.databinding.ActivityStoreMenuBinding
 
 @Suppress("DEPRECATION")
 class StoreMenuActivity : AppCompatActivity() {
@@ -23,6 +25,7 @@ class StoreMenuActivity : AppCompatActivity() {
     private lateinit var menuList: ListView
     private lateinit var addButton: Button
     private lateinit var dropDownAddButton: Button
+    private lateinit var binding: ActivityStoreMenuBinding
 
     private var menuItems = mutableListOf("COFFEE", "FOOD", "PRODUCT")
     private lateinit var menuAdapter: StoreMenuAdapter
@@ -30,6 +33,9 @@ class StoreMenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_store_menu)
+
+        binding = ActivityStoreMenuBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
 
         menuDropdown = findViewById(R.id.menuDropdown)
@@ -95,6 +101,19 @@ class StoreMenuActivity : AppCompatActivity() {
             intent.putExtra("selectedCategory", selectedCategory)
             startActivityForResult(intent, ADD_MENU_ITEM_REQUEST_CODE)
         }
+
+        binding.goBackButton.setOnClickListener {
+            // 새로운 화면으로 이동하는 코드를 여기에 추가
+            val intent = Intent(this, StoreActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.home.setOnClickListener {
+            // 새로운 화면으로 이동하는 코드를 여기에 추가
+            val intent = Intent(this, StoreActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     companion object {
