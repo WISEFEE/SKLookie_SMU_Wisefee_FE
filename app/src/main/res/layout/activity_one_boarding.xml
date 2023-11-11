@@ -1,52 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/boarding1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    tools:context=".Boarding.OneBoarding"
-    android:id="@+id/boarding1">
+    tools:context=".Boarding.OneBoarding">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="250dp"
+        android:background="@drawable/boarding_plastic" />
+
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/textview1"
+        android:layout_below="@+id/imageView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/roboto_regular"
         android:gravity="center"
-        android:text="스타트 1"
+        android:paddingVertical="15dp"
+        android:text="한국의 1인당 플라스틱 \n 연간소비량은 1312개로, \n 하루에 3.6개의 플라스틱을  \n 소비합니다."
         android:textAlignment="center"
         android:textColor="#3F51B5"
-        android:textSize="15dp" />
+        android:textSize="16dp"
+        android:textStyle="bold"
+        tools:ignore="RtlCompat" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_below="@+id/textview1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="8"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:paddingTop="20dp"
-            android:text="@string/boarding_content"
-            android:textAlignment="center"
-            android:textColor="#3F51B5"
-            android:textSize="15dp"
-            android:gravity="center"
-            tools:ignore="RtlCompat"
-            android:layout_marginLeft="60dp"/>
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/roboto_regular"
+        android:gravity="center"
+        android:text="(출처: 플라스틱 대한민국 2.0)"
+        android:textAlignment="center"
+        android:textColor="#A8A8A8"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        tools:ignore="RtlCompat" />
 
-        <Button
-            android:id="@+id/nextbtn"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="24dp"
-            android:layout_marginRight="20dp"
-            android:layout_gravity="center_vertical"
-            android:background="@drawable/icon_next"
-            android:backgroundTint="#3F51B5"/>
-    </LinearLayout>
+    <Button
+        android:id="@+id/nextbtn"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/icon_next"
+        android:backgroundTint="#3F51B5" />
 
-
-</LinearLayout>
+</RelativeLayout>

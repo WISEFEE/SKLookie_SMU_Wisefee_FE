@@ -7,6 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="background_white">#00000000</color>
 
     // wisefee UI 기준 색상
     <color name="selection_color">#F9AA34</color>

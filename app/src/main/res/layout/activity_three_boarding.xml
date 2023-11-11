@@ -1,50 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
     tools:context=".Boarding.ThreeBoarding"
     android:id="@+id/boarding3">
 
+
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/textview1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="280dp"
+        android:fontFamily="@font/holtwoodonesc_regular"
+        android:text="WISEFEE"
+        android:textColor="#3A4CA8"
+        android:textSize="38dp" />
+
+    <TextView
+        android:id="@+id/textview2"
+        android:layout_below="@+id/textview1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/roboto_regular"
         android:gravity="center"
-        android:text="스타트 3"
+        android:paddingVertical="15dp"
+        android:text="와이즈피는 \n 이러한 무분별하게 사용되는 \n 일회용 컵 폐기량을 줄이고 \n 텀블러 사용을 늘리기 위해 \n 시작된 프로젝트입니다. "
         android:textAlignment="center"
         android:textColor="#3F51B5"
-        android:textSize="15dp" />
+        android:textSize="16dp"
+        android:textStyle="bold"
+        tools:ignore="RtlCompat" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Button
+        android:background="@color/background_white"
+        android:id="@+id/startbtn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="8"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:paddingTop="20dp"
-            android:text="@string/boarding_content"
-            android:textAlignment="center"
-            android:textColor="#3F51B5"
-            android:textSize="15dp"
-            android:gravity="center"
-            tools:ignore="RtlCompat"
-            android:layout_marginLeft="60dp"/>
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="280dp"
+        android:fontFamily="@font/holtwoodonesc_regular"
+        android:text="시작하기"
+        android:textColor="#3A4CA8"
+        android:textSize="16dp"
+        android:stateListAnimator="@null"/>
 
-        <Button
-            android:id="@+id/nextbtn"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="24dp"
-            android:layout_marginRight="20dp"
-            android:layout_gravity="center_vertical"
-            android:background="@drawable/icon_next"
-            android:backgroundTint="#3F51B5"/>
-    </LinearLayout>
-</LinearLayout>
+</RelativeLayout>

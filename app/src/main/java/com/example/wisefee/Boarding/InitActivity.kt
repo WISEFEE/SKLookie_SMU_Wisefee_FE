@@ -1,5 +1,7 @@
 package com.example.wisefee.Boarding
 
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager2.widget.ViewPager2
@@ -36,5 +38,6 @@ class InitActivity : AppCompatActivity() {
         }.attach()
 
     }
+
 
 }

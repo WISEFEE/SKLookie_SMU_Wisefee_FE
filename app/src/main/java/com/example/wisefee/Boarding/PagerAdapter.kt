@@ -1,5 +1,7 @@
 package com.example.wisefee.Boarding
 
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -26,4 +28,5 @@ class PagerAdapter(activity: FragmentActivity) : FragmentStateAdapter(activity) 
         notifyItemRemoved(fragments.size)
         //TODO: notifyItemRemoved!!
     }
+
 }

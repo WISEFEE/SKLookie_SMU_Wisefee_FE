@@ -16,7 +16,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class LoginActivity : AppCompatActivity() {
+class   LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,10 +24,6 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-//        binding.loginKakao.setOnClickListener { startActivity(Intent(this, _::class.java)) }
-//        binding.loginNaver.setOnClickListener { startActivity(Intent(this, _::class.java)) }
-//        binding.loginGoogle.setOnClickListener { startActivity(Intent(this, _::class.java)) }
         binding.login.setOnClickListener { startActivity(Intent(this, LoginActivity::class.java)) }
         binding.signup.setOnClickListener { startActivity(Intent(this, SignupActivity::class.java)) }
         setupListener(this@LoginActivity)

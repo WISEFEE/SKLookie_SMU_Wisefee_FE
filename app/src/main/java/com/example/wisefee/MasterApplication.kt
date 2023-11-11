@@ -58,7 +58,6 @@ class MasterApplication : Application() {
             return true
         else
             return false
-        //return true
     }
 
     fun getUserToken(): String? {
