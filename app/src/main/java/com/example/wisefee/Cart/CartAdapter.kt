@@ -4,18 +4,25 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wisefee.databinding.CartItemLayoutBinding
-
-class CartAdapter(private val cartItems: List<CartItem>) : RecyclerView.Adapter<CartAdapter.CartViewHolder>(){
-
+import com.example.wisefee.dto.CartProduct
+class CartAdapter(private val cartItems: List<CartProduct>) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
     inner class CartViewHolder(private val binding: CartItemLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(cartItem: CartItem) {
-            binding.menuNameTextView.text = cartItem.product.productName
-            binding.quantityTextView.text = "${cartItem.quantity}개"
-            binding.menuPriceTextView.text = "${cartItem.product.productPrice}원"
-            binding.temperatureTextView.text = cartItem.temperature
+        fun bind(cartProduct: CartProduct) {
+            binding.apply {
+                menuNameTextView.text = cartProduct.productName
+                quantityTextView.text = "${cartProduct.productQuantity}개"
+                var choiceOptionName = ""
+                var choiceOptionPrice = 0
+                for (productOptionChoice in cartProduct.productOptChoices!!) {
+                    choiceOptionName += "${productOptionChoice.productOptChoiceName} / "
+                    choiceOptionPrice += productOptionChoice.productOptChoicePrice
+                }
+                menuPriceTextView.text = "${cartProduct.productQuantity * (cartProduct.productPrice + choiceOptionPrice)}원"
+                choiceOption.text = choiceOptionName
+            }
         }
     }
 

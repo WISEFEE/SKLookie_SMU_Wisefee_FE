@@ -9,14 +9,15 @@ import com.example.wisefee.Login.MemberResponse
 import com.example.wisefee.Login.SignUpConsumerRequest
 import com.example.wisefee.Login.UpdateMemberRequest
 import com.example.wisefee.dto.AddressInfoDTO
-import com.example.wisefee.dto.CartProductInfoDTO
+import com.example.wisefee.dto.CartProduct
+import com.example.wisefee.dto.CartProductRequestDTO
+import com.example.wisefee.dto.CartProductResponseDTO
 import com.example.wisefee.dto.ProductInfoDTO
 import com.example.wisefee.dto.SearchStoresResponseDTO
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
-import retrofit2.http.Header
 import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
@@ -45,9 +46,9 @@ interface RetrofitService {
     @GET("/api/v1/consumer/cafe/{cafeId}/product")
     fun getProducts(@Path("cafeId") cafeId: Int): Call<ProductInfoDTO>
     @POST("/api/v1/consumer/cart/{memberId}")
-    fun addCartProduct(@Path("memberId") memberId: Int, @Body cartProductInfo: CartProductInfoDTO): Call<ResponseBody>
+    fun addCartProduct(@Path("memberId") memberId: Int, @Body cartProductInfo: CartProductRequestDTO): Call<ResponseBody>
     @GET("/api/v1/consumer/cart/{memberId}")
-    fun getCart(@Path("memberId") memberId: String): Call<List<CartItem>>
+    fun getCart(@Path("memberId") memberId: Int): Call<List<CartProduct>>
 
 
 }

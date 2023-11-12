@@ -1,6 +1,5 @@
 package com.example.wisefee.Menu
 
-import android.app.Activity
 import android.content.Intent
 import android.content.res.Resources
 import android.graphics.Typeface
@@ -22,7 +21,7 @@ import com.example.wisefee.Jwt_decoding
 import com.example.wisefee.MasterApplication
 import com.example.wisefee.R
 import com.example.wisefee.databinding.ActivityQuantitySelectionBinding
-import com.example.wisefee.dto.CartProductInfoDTO
+import com.example.wisefee.dto.CartProductRequestDTO
 import com.example.wisefee.dto.Product
 import com.example.wisefee.dto.ProductOption
 import okhttp3.ResponseBody
@@ -165,7 +164,7 @@ class QuantitySelectionActivity : AppCompatActivity() {
             Log.d("selected_radio", "Group: $groupName, Selected Option: $selectedOptionId")
         }
 
-        val cartProductInfoDTO = CartProductInfoDTO(
+        val cartProductInfoDTO = CartProductRequestDTO(
             cafeId = cafeId,
             productId = productId,
             productOptChoices = productOptChoices,
@@ -174,7 +173,7 @@ class QuantitySelectionActivity : AppCompatActivity() {
         masterApplication.service.addCartProduct(getUserId(), cartProductInfoDTO)
             .enqueue(object : Callback<ResponseBody> {
                 override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
-                    if (response.isSuccessful) showSuccessMessageAndNavigateToCart(activity)
+                    if (response.isSuccessful) showSuccessMessageAndNavigateToCart(activity, cafeId)
                     else handleErrorResponse()
                 }
                 override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
@@ -182,9 +181,11 @@ class QuantitySelectionActivity : AppCompatActivity() {
                 }
             })
     }
-    private fun showSuccessMessageAndNavigateToCart(activity: QuantitySelectionActivity) {
+    private fun showSuccessMessageAndNavigateToCart(activity: QuantitySelectionActivity, cafeId: Int) {
         Toast.makeText(activity, "장바구니에 상품을 추가했습니다.", Toast.LENGTH_LONG).show()
-        activity.startActivity(Intent(activity, CartActivity::class.java))
+        val intent = Intent(activity, CartActivity::class.java)
+        intent.putExtra("cafeId", cafeId) // cafeId를 Intent에 추가
+        activity.startActivity(intent)
     }
 
     private fun handleErrorResponse() {
