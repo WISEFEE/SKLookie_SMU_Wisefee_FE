@@ -1,8 +1,8 @@
 package com.example.wisefee.Menu
 
+import android.app.Activity
 import android.content.Intent
 import android.content.res.Resources
-import android.graphics.Color
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,50 +17,51 @@ import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import com.example.wisefee.MainActivity
+import com.example.wisefee.Cart.CartActivity
+import com.example.wisefee.Jwt_decoding
 import com.example.wisefee.MasterApplication
-import com.example.wisefee.Mypage.MyPageActivity
 import com.example.wisefee.R
-import com.example.wisefee.Return.ReturnTumblerActivity
 import com.example.wisefee.databinding.ActivityQuantitySelectionBinding
+import com.example.wisefee.dto.CartProductInfoDTO
 import com.example.wisefee.dto.Product
 import com.example.wisefee.dto.ProductOption
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class QuantitySelectionActivity : AppCompatActivity() {
     private lateinit var binding: ActivityQuantitySelectionBinding
     private val selectedOptionIds = mutableMapOf<String, Int>()
+    private lateinit var masterApplication: MasterApplication
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityQuantitySelectionBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        val product = getProductFromIntent()
-
         initialize()
 
-        if (product != null) {
-            getCartProducts(product)
-        }
+
+        val intent = intent
+        val product = intent.getSerializableExtra("product") as? Product
+        val cafeId = intent.getIntExtra("cafeId", 0)
+        if (product != null)
+            getCartProducts(product, cafeId, this@QuantitySelectionActivity)
     }
 
-    private fun getProductFromIntent(): Product? {
-        val intent = intent
-        return intent.getSerializableExtra("product") as? Product
-    }
 
     private fun initialize() {
         binding.home.setOnClickListener { finish() } // Use finish() to close the activity
         binding.rental.setColorFilter(ContextCompat.getColor(this, R.color.selection_color))
-        // Add other listeners as needed
+        masterApplication = application as MasterApplication
     }
 
-    private fun getCartProducts(product: Product) {
+    private fun getCartProducts(product: Product, cafeId: Int, activity: QuantitySelectionActivity) {
         binding.productNameTextView.text = product.productName
         binding.productPriceTextView.text = "${product.productPrice} 원"
         createDynamicRadioGroups(product.productOptions!!)
-        setCartAddButtonListener()
+        setCartAddButtonListener(product.productId, cafeId, activity)
     }
 
     private fun createDynamicRadioGroups(products: List<ProductOption>) {
@@ -121,7 +122,7 @@ class QuantitySelectionActivity : AppCompatActivity() {
         return groupContainer
     }
 
-    private fun setCartAddButtonListener() {
+    private fun setCartAddButtonListener(productId: Int, cafeId: Int, activity: QuantitySelectionActivity) {
         val cartAddButton = findViewById<Button>(R.id.cartAddButton)
         val quantityEditText = findViewById<EditText>(R.id.quantityEditText)
 
@@ -142,7 +143,7 @@ class QuantitySelectionActivity : AppCompatActivity() {
             }
 
             // Continue processing with the valid quantity
-            printSelectedValues()
+            printSelectedValues(productId, cafeId, quantityValue, activity)
         }
     }
 
@@ -156,14 +157,63 @@ class QuantitySelectionActivity : AppCompatActivity() {
         return selectedOptionIds.toMap()
     }
 
-    private fun printSelectedValues() {
+    private fun printSelectedValues(productId: Int, cafeId: Int, quantity: Int, activity: QuantitySelectionActivity) {
         val selected = getSelectedValues()
+        val productOptChoices = mutableListOf<Int>()
         for ((groupName, selectedOptionId) in selected) {
-            // TODO ID들 정보가지고 장바구니 추가 API 호출.
+            productOptChoices.add(selectedOptionId)
             Log.d("selected_radio", "Group: $groupName, Selected Option: $selectedOptionId")
         }
+
+        val cartProductInfoDTO = CartProductInfoDTO(
+            cafeId = cafeId,
+            productId = productId,
+            productOptChoices = productOptChoices,
+            productQuantity = quantity
+        )
+        masterApplication.service.addCartProduct(getUserId(), cartProductInfoDTO)
+            .enqueue(object : Callback<ResponseBody> {
+                override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                    if (response.isSuccessful) showSuccessMessageAndNavigateToCart(activity)
+                    else handleErrorResponse()
+                }
+                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                    Log.d("addCartProduct", "error")
+                }
+            })
+    }
+    private fun showSuccessMessageAndNavigateToCart(activity: QuantitySelectionActivity) {
+        Toast.makeText(activity, "장바구니에 상품을 추가했습니다.", Toast.LENGTH_LONG).show()
+        activity.startActivity(Intent(activity, CartActivity::class.java))
     }
 
+    private fun handleErrorResponse() {
+        Log.d("addCartProduct", "error")
+    }
+
+    private fun getUserId(): Int {
+        val jwtToken = masterApplication.getUserToken()
+
+        if (jwtToken == null) {
+            Log.d("decode", "JWT token is null")
+            return 0
+        }
+
+        // jwt decoding
+        val decodeClaims = Jwt_decoding(jwtToken)
+        if (decodeClaims == null) {
+            Log.d("decode", "Failed decoding JWT token")
+            return 0
+        }
+
+        // get userId from jwt
+        val userId = decodeClaims.optInt("userId")
+        if (userId == 0) {
+            Log.d("decode", "Invalid user id")
+            return 0
+        }
+        return userId
+    }
     private fun createGroupNameTextView(groupName: String): TextView {
         return TextView(this).apply {
             text = groupName

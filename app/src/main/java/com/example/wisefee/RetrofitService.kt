@@ -9,6 +9,7 @@ import com.example.wisefee.Login.MemberResponse
 import com.example.wisefee.Login.SignUpConsumerRequest
 import com.example.wisefee.Login.UpdateMemberRequest
 import com.example.wisefee.dto.AddressInfoDTO
+import com.example.wisefee.dto.CartProductInfoDTO
 import com.example.wisefee.dto.ProductInfoDTO
 import com.example.wisefee.dto.SearchStoresResponseDTO
 import okhttp3.ResponseBody
@@ -21,17 +22,7 @@ import retrofit2.http.PUT
 import retrofit2.http.Path
 
 interface RetrofitService {
-    @GET("/api/v1/consumer/{cafeId}/product")
-    fun getProductsForCafe(
-        @Header("Authorization") authorization: String,
-        @Path("cafeId") cafeId: Int): Call<ProductInfoDTO>
-
-    @POST("/api/v1/consumer/cart/{memberId}")
-    fun addToCart(@Path("memberId") memberId: String, @Body cartItem: CartItem): Call<ResponseBody>
-
-    @GET("/api/v1/consumer/cart/{memberId}")
-    fun getCart(@Path("memberId") memberId: String): Call<List<CartItem>>
-
+    // common
     @POST("/api/v1/auth/login")
     fun login ( @Body loginRequest: LoginRequest): Call<LoginResponse>
 
@@ -43,11 +34,20 @@ interface RetrofitService {
 
     @PUT("/api/v1/member/{id}")
     fun updateMember(@Body updateMemberRequest: UpdateMemberRequest, @Path("id") id: Int): Call<ResponseBody>
-    @GET("/api/v1/consumer/cafe")
-    fun getCafes(): Call<SearchStoresResponseDTO>
+
+    // seller
     @GET("/api/v1/address/{id}")
     fun getAddress(@Path("id") addressId: Int): Call <AddressInfoDTO>
+
+    // consumer
+    @GET("/api/v1/consumer/cafe")
+    fun getCafes(): Call<SearchStoresResponseDTO>
     @GET("/api/v1/consumer/cafe/{cafeId}/product")
     fun getProducts(@Path("cafeId") cafeId: Int): Call<ProductInfoDTO>
+    @POST("/api/v1/consumer/cart/{memberId}")
+    fun addCartProduct(@Path("memberId") memberId: Int, @Body cartProductInfo: CartProductInfoDTO): Call<ResponseBody>
+    @GET("/api/v1/consumer/cart/{memberId}")
+    fun getCart(@Path("memberId") memberId: String): Call<List<CartItem>>
+
 
 }
