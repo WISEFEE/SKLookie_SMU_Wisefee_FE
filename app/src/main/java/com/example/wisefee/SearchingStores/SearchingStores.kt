@@ -140,6 +140,3 @@ class SearchingStores : AppCompatActivity() {
     }
 }
 
-private fun <T> Call<T>.enqueue(callback: Callback<SearchStoresResponseDTO>) {
-
-}
