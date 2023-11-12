@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wisefee.databinding.MenuItemLayoutBinding
+import com.example.wisefee.dto.Product
 
 
 //private val onProductClickListener: (product: Product) -> Unit

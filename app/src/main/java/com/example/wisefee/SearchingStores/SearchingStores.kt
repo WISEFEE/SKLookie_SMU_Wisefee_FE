@@ -31,15 +31,16 @@ class SearchingStores : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySearchingStoresBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        masterApplication = application as MasterApplication
-
         initializeUI()
         bindingStores()
 
     }
+    // set footer
     private fun initializeUI() {
+        binding = ActivitySearchingStoresBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        masterApplication = application as MasterApplication
+
         binding.home.setOnClickListener { startActivity(Intent(this, MainActivity::class.java)) }
         binding.rental.setColorFilter(ContextCompat.getColor(this, R.color.selection_color))
         binding.returnTumbler.setOnClickListener { startActivity(Intent(this, ReturnTumblerActivity::class.java)) }
@@ -119,10 +120,11 @@ class SearchingStores : AppCompatActivity() {
 
         val btnYes = customView.findViewById<Button>(R.id.btnYes)
         btnYes.setOnClickListener {
-            // TODO 카페메뉴 구현
+            // 메뉴선택 창 이동
             val menuIntent = Intent(this, MenuActivity::class.java)
-            startActivity(menuIntent)
+            menuIntent.putExtra("cafeId", cafeId)
 
+            startActivity(menuIntent)
             alertDialog.dismiss()
         }
 

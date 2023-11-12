@@ -64,7 +64,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="60dp"
                     android:fontFamily="@font/inter_regular"
-                    android:text="ㅇㅇ시 ㅁㅁ동 000 ㅂㅂ상가 "
+                    android:text=""
                     android:textColor="#393939"
                     android:textFontWeight="600"
                     android:textSize="10dp" />

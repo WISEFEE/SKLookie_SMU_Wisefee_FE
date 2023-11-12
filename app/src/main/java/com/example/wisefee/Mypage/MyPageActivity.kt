@@ -1,6 +1,5 @@
 package com.example.wisefee.Mypage
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -26,18 +25,15 @@ class MyPageActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        initialize()
+        bindingName()
+    }
+
+    private fun initialize() {
         binding = ActivityMyPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
         masterApplication = application as MasterApplication
 
-        // init UI
-        initializeUI()
-
-        // binding nick_name
-        bindingName()
-    }
-
-    private fun initializeUI() {
         binding.apply {
             myAppSettings.setOnClickListener { startActivity(Intent(this@MyPageActivity, AppSettings::class.java)) }
             mySubscriptions.setOnClickListener { startActivity(Intent(this@MyPageActivity, MySubscription_home::class.java)) }

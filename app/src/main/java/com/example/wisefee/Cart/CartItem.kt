@@ -1,7 +1,7 @@
 package com.example.wisefee.Cart
 
-import com.example.wisefee.Menu.Product
 
+import com.example.wisefee.dto.Product
 import java.io.Serializable
 
 data class CartItem(

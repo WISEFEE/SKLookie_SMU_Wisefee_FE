@@ -91,45 +91,28 @@
             android:inputType="number"
             android:layout_marginBottom="16dp"
             android:layout_gravity="center"/>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="4px"
             android:background="#3F51B5"/>
-        <TextView
-            android:layout_width="wrap_content"
+
+
+        <!-- 동적으로 생성되는 라디오 그룹들 -->
+        <LinearLayout
+            android:id="@+id/dynamicRadioGroupsContainer"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="음료 온도"
-            android:layout_marginTop="25dp"
-            android:layout_marginLeft="20dp"
-            android:textSize="16sp"
-            android:textColor="#3F51B5"
-            android:textStyle="bold"/>
-        <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:layout_marginBottom="10dp">
-            <RadioButton
-                android:id="@+id/iceButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ice"
-                android:layout_marginRight="20dp"
-                android:textSize="15sp"/>
-            <RadioButton
-                android:id="@+id/hotButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="hot"
-                android:layout_marginLeft="20dp"
-                android:textSize="15sp"/>
-        </RadioGroup>
+            android:orientation="vertical"/>
+
+        <!-- 각 라디오 그룹 사이의 구분선 -->
         <View
             android:layout_width="match_parent"
-            android:layout_height="4px"
-            android:background="#3F51B5"
-            android:layout_marginTop="15dp"/>
+            android:layout_height="2px"
+            android:background="#3F51B5"/>
+
+
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"

@@ -4,12 +4,12 @@ package com.example.wisefee
 
 import com.example.wisefee.Cart.CartItem
 import com.example.wisefee.Login.LoginRequest
-import com.example.wisefee.Menu.ProductList
 import com.example.wisefee.Login.LoginResponse
 import com.example.wisefee.Login.MemberResponse
 import com.example.wisefee.Login.SignUpConsumerRequest
 import com.example.wisefee.Login.UpdateMemberRequest
 import com.example.wisefee.dto.AddressInfoDTO
+import com.example.wisefee.dto.ProductInfoDTO
 import com.example.wisefee.dto.SearchStoresResponseDTO
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -24,7 +24,7 @@ interface RetrofitService {
     @GET("/api/v1/consumer/{cafeId}/product")
     fun getProductsForCafe(
         @Header("Authorization") authorization: String,
-        @Path("cafeId") cafeId: Int): Call<ProductList>
+        @Path("cafeId") cafeId: Int): Call<ProductInfoDTO>
 
     @POST("/api/v1/consumer/cart/{memberId}")
     fun addToCart(@Path("memberId") memberId: String, @Body cartItem: CartItem): Call<ResponseBody>
@@ -47,5 +47,7 @@ interface RetrofitService {
     fun getCafes(): Call<SearchStoresResponseDTO>
     @GET("/api/v1/address/{id}")
     fun getAddress(@Path("id") addressId: Int): Call <AddressInfoDTO>
+    @GET("/api/v1/consumer/cafe/{cafeId}/product")
+    fun getProducts(@Path("cafeId") cafeId: Int): Call<ProductInfoDTO>
 
 }
