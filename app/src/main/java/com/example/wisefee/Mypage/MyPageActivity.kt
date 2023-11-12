@@ -13,12 +13,14 @@ import com.example.wisefee.R
 import com.example.wisefee.Return.ReturnTumblerActivity
 import com.example.wisefee.SearchingStores.SearchingStores
 import com.example.wisefee.databinding.ActivityMyPageBinding
-import com.example.wisefee.dto.MyActivityRequestDto
+import com.example.wisefee.dto.MyPageResponseDTO
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class MyPageActivity : AppCompatActivity() {
+
+
     private lateinit var binding: ActivityMyPageBinding
     private lateinit var masterApplication: MasterApplication
 
@@ -91,7 +93,7 @@ class MyPageActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     response.body()?.let { memberInfo ->
                         // update userInfo
-                        val userInfo = MyActivityRequestDto(
+                        val userInfo = MyPageResponseDTO(
                             nickname = memberInfo.nickname ?: " "
                         )
                         // binding name
@@ -106,7 +108,7 @@ class MyPageActivity : AppCompatActivity() {
         })
     }
 
-    private fun displayUserInfo(userInfo: MyActivityRequestDto) {
+    private fun displayUserInfo(userInfo: MyPageResponseDTO) {
         binding.nickName.text = userInfo.nickname
     }
 

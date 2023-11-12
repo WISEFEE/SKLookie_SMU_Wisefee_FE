@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/storeButton"
+            android:layout_width="350dp"
+            android:layout_height="115dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:background="@drawable/round_rectangle_notice"
+            android:orientation="horizontal"
+            android:padding="0dp">
+
+
+            <ImageView
+                android:id="@+id/cafe_image"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical|left"
+                android:layout_weight="1"
+                android:background="@drawable/round_rectangle_left"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/image_03"
+                android:clipToOutline="true"
+                android:contentDescription="TODO" />
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:padding="13dp">
+
+                <TextView
+                    android:id="@+id/cafe_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_regular"
+                    android:text= "메가 커피"
+                    android:textColor="#393939"
+                    android:textFontWeight="800"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="홍길동 메가 커피점입니다. :)"
+                    android:textColor="#393939"
+                    android:textFontWeight="600"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:id="@+id/address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="60dp"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="ㅇㅇ시 ㅁㅁ동 000 ㅂㅂ상가 "
+                    android:textColor="#393939"
+                    android:textFontWeight="600"
+                    android:textSize="10dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="73dp"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="Tel."
+                    android:textColor="#393939"
+                    android:textFontWeight="600"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:id="@+id/tel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="74dp"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="010-1234-5678"
+                    android:textColor="#ff0000"
+                    android:textFontWeight="600"
+                    android:textSize="10dp" />
+                <!--TODO 백엔드 텀블러 기능 구현 안됨.-->
+                <!--                        <TextView-->
+                <!--                            android:layout_width="wrap_content"-->
+                <!--                            android:layout_height="match_parent"-->
+                <!--                            android:layout_marginTop="73dp"-->
+                <!--                            android:fontFamily="@font/inter_regular"-->
+                <!--                            android:text="대여 가능 수 "-->
+                <!--                            android:textColor="#393939"-->
+                <!--                            android:textFontWeight="600"-->
+                <!--                            android:textSize="10dp" />-->
+                <!--                        <TextView-->
+                <!--                            android:layout_width="wrap_content"-->
+                <!--                            android:layout_height="wrap_content"-->
+                <!--                            android:layout_marginLeft="70dp"-->
+                <!--                            android:layout_marginTop="74dp"-->
+                <!--                            android:fontFamily="@font/inter_regular"-->
+                <!--                            android:text="33"-->
+                <!--                            android:textColor="#ff0000"-->
+                <!--                            android:textFontWeight="600"-->
+                <!--                            android:textSize="10dp" />-->
+
+
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>

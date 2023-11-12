@@ -9,6 +9,8 @@ import com.example.wisefee.Login.LoginResponse
 import com.example.wisefee.Login.MemberResponse
 import com.example.wisefee.Login.SignUpConsumerRequest
 import com.example.wisefee.Login.UpdateMemberRequest
+import com.example.wisefee.dto.AddressInfoDTO
+import com.example.wisefee.dto.SearchStoresResponseDTO
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.Body
@@ -41,5 +43,9 @@ interface RetrofitService {
 
     @PUT("/api/v1/member/{id}")
     fun updateMember(@Body updateMemberRequest: UpdateMemberRequest, @Path("id") id: Int): Call<ResponseBody>
+    @GET("/api/v1/consumer/cafe")
+    fun getCafes(): Call<SearchStoresResponseDTO>
+    @GET("/api/v1/address/{id}")
+    fun getAddress(@Path("id") addressId: Int): Call <AddressInfoDTO>
 
 }
