@@ -11,6 +11,7 @@ import com.example.wisefee.MasterApplication
 import com.example.wisefee.Mypage.MyPageActivity
 import com.example.wisefee.R
 import com.example.wisefee.Return.ReturnTumblerActivity
+import com.example.wisefee.SearchingStores.SearchingStores
 import com.example.wisefee.databinding.ActivityMenuBinding
 import com.example.wisefee.dto.Product
 import com.example.wisefee.dto.ProductInfoDTO
@@ -29,14 +30,19 @@ class MenuActivity : AppCompatActivity() {
         val intent = intent
         val cafeId = intent.getIntExtra("cafeId", 0)
 
-        initialize()
+        initialize(cafeId)
         getProducts(cafeId)
 
     }
-    private fun initialize() {
+    private fun initialize(cafeId: Int) {
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
         masterApplication = application as MasterApplication
+
+        // 뒤로가기 버튼
+        binding.goBackButton.setOnClickListener {
+            startActivity(Intent(this, SearchingStores::class.java))
+        }
 
         binding.home.setOnClickListener { startActivity(Intent(this, MainActivity::class.java)) }
         binding.rental.setColorFilter(ContextCompat.getColor(this, R.color.selection_color))

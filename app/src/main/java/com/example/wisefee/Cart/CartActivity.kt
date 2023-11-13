@@ -19,6 +19,7 @@ import com.example.wisefee.R
 import com.example.wisefee.Return.ReturnTumblerActivity
 import com.example.wisefee.dto.CartProduct
 import com.example.wisefee.dto.CartProductResponseDTO
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -54,13 +55,9 @@ class CartActivity : AppCompatActivity() {
                 call: Call<List<CartProduct>>,
                 response: Response<List<CartProduct>>
             ) {
-                Log.d("cartProduct", "4")
-
                 if (response.isSuccessful) {
-                    Log.d("cartProduct", "4")
                     val cartProductInfo = response.body()
                     if (cartProductInfo != null) {
-                        Log.d("cartProduct", "5")
                         displayCartProductList(cartProductInfo, cafeId)
                     }
                 } else {
@@ -74,12 +71,35 @@ class CartActivity : AppCompatActivity() {
     }
 
     private fun displayCartProductList(products: List<CartProduct>, cafeId: Int) {
-        Log.d("cartProduct", products.toString())
         cartAdapter = CartAdapter(products)
         binding.cartRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.cartRecyclerView.adapter = cartAdapter
 
         // TODO 장바구니 총금액, 개수 등 마무리 계산
+        masterApplication.service.getCartTotalPrice(getUserId())
+            .enqueue(object : Callback<ResponseBody> {
+                override fun onResponse(
+                    call: Call<ResponseBody>,
+                    response: Response<ResponseBody>
+                ) {
+                    if (response.isSuccessful) {
+                        val price = response.body()?.string()?.toIntOrNull()
+                        if (price != null) {
+                            binding.priceTextView.text = "${price.toString()}원"
+                            // TODO 보증금, 구독권할인 반영 금액해서 업뎃
+                            binding.totalPriceTextView.text = "${(price.toInt() + 1000).toString() }원"
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                    TODO("Not yet implemented")
+                }
+
+            })
+        // TODO 보증금 가격 정해지면 업뎃
+        binding.depositTextView.text = "${"1000"}원"
+        binding.countTextView.text = "총 ${products.size}개"
 
         // 뒤로가기 버튼
         binding.goBackButton.setOnClickListener {
@@ -87,6 +107,7 @@ class CartActivity : AppCompatActivity() {
             intent.putExtra("cafeId", cafeId)
             startActivity(intent)
         }
+
         // 구매버튼
         binding.checkoutButton.setOnClickListener {
             showBuyDialog()

@@ -18,8 +18,11 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.wisefee.Cart.CartActivity
 import com.example.wisefee.Jwt_decoding
+import com.example.wisefee.MainActivity
 import com.example.wisefee.MasterApplication
+import com.example.wisefee.Mypage.MyPageActivity
 import com.example.wisefee.R
+import com.example.wisefee.Return.ReturnTumblerActivity
 import com.example.wisefee.databinding.ActivityQuantitySelectionBinding
 import com.example.wisefee.dto.CartProductRequestDTO
 import com.example.wisefee.dto.Product
@@ -39,21 +42,36 @@ class QuantitySelectionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityQuantitySelectionBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        initialize()
-
 
         val intent = intent
         val product = intent.getSerializableExtra("product") as? Product
         val cafeId = intent.getIntExtra("cafeId", 0)
+
+        initialize(cafeId)
         if (product != null)
             getCartProducts(product, cafeId, this@QuantitySelectionActivity)
     }
 
 
-    private fun initialize() {
+    private fun initialize(cafeId: Int) {
         binding.home.setOnClickListener { finish() } // Use finish() to close the activity
         binding.rental.setColorFilter(ContextCompat.getColor(this, R.color.selection_color))
         masterApplication = application as MasterApplication
+
+        // 뒤로가기 버튼
+        binding.goBackButton.setOnClickListener {
+            val intent = Intent(this, MenuActivity::class.java)
+            intent.putExtra("cafeId", cafeId)
+            startActivity(intent)
+        }
+
+        binding.home.setOnClickListener { startActivity(Intent(this, MainActivity::class.java)) }
+        binding.rental.setColorFilter(ContextCompat.getColor(this, R.color.selection_color))
+        binding.returnTumbler.setOnClickListener { startActivity(Intent(this, ReturnTumblerActivity::class.java)) }
+        binding.mypage.setOnClickListener { startActivity(Intent(this, MyPageActivity::class.java)) }
+
+
+
     }
 
     private fun getCartProducts(product: Product, cafeId: Int, activity: QuantitySelectionActivity) {

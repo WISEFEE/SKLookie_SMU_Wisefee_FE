@@ -49,6 +49,8 @@ interface RetrofitService {
     fun addCartProduct(@Path("memberId") memberId: Int, @Body cartProductInfo: CartProductRequestDTO): Call<ResponseBody>
     @GET("/api/v1/consumer/cart/{memberId}")
     fun getCart(@Path("memberId") memberId: Int): Call<List<CartProduct>>
+    @GET("/api/v1/consumer/cart/price/{memberId}")
+    fun getCartTotalPrice(@Path("memberId") memberId: Int): Call<ResponseBody>
 
 
 }
