@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.example.wisefee.Jwt_decoding
+import com.example.wisefee.jwtDecoding
 import com.example.wisefee.Login.MemberResponse
 import com.example.wisefee.MainActivity
 import com.example.wisefee.MasterApplication
@@ -36,7 +36,7 @@ class MyPageActivity : AppCompatActivity() {
 
         binding.apply {
             myAppSettings.setOnClickListener { startActivity(Intent(this@MyPageActivity, AppSettings::class.java)) }
-            mySubscriptions.setOnClickListener { startActivity(Intent(this@MyPageActivity, MySubscription_home::class.java)) }
+            mySubscriptions.setOnClickListener { startActivity(Intent(this@MyPageActivity, MySubscriptionHome::class.java)) }
             myPaymentHistory.setOnClickListener { startActivity(Intent(this@MyPageActivity, PaymentHistory::class.java)) }
             customerInquiry.setOnClickListener { startActivity(Intent(this@MyPageActivity, CustomerInquiry::class.java)) }
             userInfoEditBtn1.setOnClickListener { startActivity(Intent(this@MyPageActivity, UserInfoEdit::class.java)) }
@@ -67,7 +67,7 @@ class MyPageActivity : AppCompatActivity() {
         }
 
         // jwt decoding
-        val decodeClaims = Jwt_decoding(jwtToken)
+        val decodeClaims = jwtDecoding(jwtToken)
         if (decodeClaims == null) {
             Log.d("decode", "Failed decoding JWT token")
             return

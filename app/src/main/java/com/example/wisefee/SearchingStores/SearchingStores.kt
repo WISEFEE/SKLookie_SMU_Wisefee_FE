@@ -1,15 +1,20 @@
 package com.example.wisefee.SearchingStores
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DecodeFormat
+import com.bumptech.glide.request.RequestOptions
 import com.example.wisefee.MainActivity
 import com.example.wisefee.MasterApplication
 import com.example.wisefee.Menu.MenuActivity
@@ -19,11 +24,16 @@ import com.example.wisefee.Return.ReturnTumblerActivity
 import com.example.wisefee.databinding.ActivitySearchingStoresBinding
 import com.example.wisefee.dto.AddressInfoDTO
 import com.example.wisefee.dto.Cafe
-import com.example.wisefee.dto.MyPageResponseDTO
 import com.example.wisefee.dto.SearchStoresResponseDTO
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.InputStream
 
 class SearchingStores : AppCompatActivity() {
     private lateinit var binding: ActivitySearchingStoresBinding
@@ -66,6 +76,7 @@ class SearchingStores : AppCompatActivity() {
         })
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     private fun displayCafeList(cafes: List<Cafe>) {
         val cafeListContainer = findViewById<LinearLayout>(R.id.cafeListContainer)
 
@@ -81,10 +92,7 @@ class SearchingStores : AppCompatActivity() {
             cafeView.findViewById<TextView>(R.id.tel).text = cafe.cafePhone
 
             masterApplication.service.getAddress(cafe.addressId).enqueue(object : Callback<AddressInfoDTO> {
-                override fun onResponse(
-                    call: Call<AddressInfoDTO>,
-                    response: Response<AddressInfoDTO>
-                ) {
+                override fun onResponse(call: Call<AddressInfoDTO>, response: Response<AddressInfoDTO>) {
                     if (response.isSuccessful) {
                         response.body()?.let { addressInfo ->
                             cafeView.findViewById<TextView>(R.id.address).text = addressInfo.addressDetail
@@ -96,16 +104,37 @@ class SearchingStores : AppCompatActivity() {
                 }
             })
 
+            val imageView = cafeView.findViewById<ImageView>(R.id.cafe_image) // 수정된 부분
 
+            if (cafe.cafeImages.isNotEmpty()) {
+                masterApplication.service.getFile(cafe.cafeImages[0].toInt()).enqueue(object : Callback<ResponseBody> {
+                    override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                        if (response.isSuccessful) {
+                            // 이미지 다운로드 및 표시
+                            val inputStream = response.body()?.byteStream()
+                            if (inputStream != null) {
+                                GlobalScope.launch(Dispatchers.Main) {
+                                    val bitmap = BitmapFactory.decodeStream(inputStream)
+                                    imageView.setImageBitmap(bitmap)
+                                }
+                            }
+                        }
+                    }
+
+                    override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                        Log.d("SearchingStores", "failed loading cafe image", t)
+                    }
+                })
+            }
 
             cafeListContainer.addView(cafeView)
             cafeView.findViewById<LinearLayout>(R.id.storeButton).setOnClickListener {
                 // storeButton 레이아웃 전체를 클릭할 때 이벤트 처리
                 showPurchaseConfirmationPopup(cafe.cafeId, cafe.title)
             }
-
         }
     }
+
     private fun showPurchaseConfirmationPopup(cafeId: Int, title: String) {
 
         val inflater = LayoutInflater.from(this)

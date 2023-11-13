@@ -17,7 +17,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.wisefee.Cart.CartActivity
-import com.example.wisefee.Jwt_decoding
+import com.example.wisefee.jwtDecoding
 import com.example.wisefee.MainActivity
 import com.example.wisefee.MasterApplication
 import com.example.wisefee.Mypage.MyPageActivity
@@ -64,6 +64,7 @@ class QuantitySelectionActivity : AppCompatActivity() {
             intent.putExtra("cafeId", cafeId)
             startActivity(intent)
         }
+
 
         binding.home.setOnClickListener { startActivity(Intent(this, MainActivity::class.java)) }
         binding.rental.setColorFilter(ContextCompat.getColor(this, R.color.selection_color))
@@ -219,7 +220,7 @@ class QuantitySelectionActivity : AppCompatActivity() {
         }
 
         // jwt decoding
-        val decodeClaims = Jwt_decoding(jwtToken)
+        val decodeClaims = jwtDecoding(jwtToken)
         if (decodeClaims == null) {
             Log.d("decode", "Failed decoding JWT token")
             return 0

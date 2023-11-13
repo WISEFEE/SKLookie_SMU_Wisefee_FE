@@ -1,8 +1,5 @@
 package com.example.wisefee
 
-
-
-import com.example.wisefee.Cart.CartItem
 import com.example.wisefee.Login.LoginRequest
 import com.example.wisefee.Login.LoginResponse
 import com.example.wisefee.Login.MemberResponse
@@ -11,7 +8,6 @@ import com.example.wisefee.Login.UpdateMemberRequest
 import com.example.wisefee.dto.AddressInfoDTO
 import com.example.wisefee.dto.CartProduct
 import com.example.wisefee.dto.CartProductRequestDTO
-import com.example.wisefee.dto.CartProductResponseDTO
 import com.example.wisefee.dto.ProductInfoDTO
 import com.example.wisefee.dto.SearchStoresResponseDTO
 import okhttp3.ResponseBody
@@ -51,6 +47,6 @@ interface RetrofitService {
     fun getCart(@Path("memberId") memberId: Int): Call<List<CartProduct>>
     @GET("/api/v1/consumer/cart/price/{memberId}")
     fun getCartTotalPrice(@Path("memberId") memberId: Int): Call<ResponseBody>
-
-
+    @GET("api/v1/file/{id}")
+    fun getFile(@Path("id") id: Int): Call<ResponseBody>
 }

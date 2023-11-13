@@ -25,11 +25,11 @@ class MasterApplication : Application() {
         val header = Interceptor {
             val original = it.request()
             if (checkIsLogin()) {
-                getUserToken()?.let { accessToken ->
-                    val requeset = original.newBuilder()
+                getUserToken().let { accessToken ->
+                    val request = original.newBuilder()
                         .header("Authorization", "Bearer $accessToken")
                         .build()
-                    it.proceed(requeset)
+                    it.proceed(request)
                 }
             } else {
                 it.proceed(original)
@@ -53,18 +53,15 @@ class MasterApplication : Application() {
     fun checkIsLogin(): Boolean {
 
         val sp = getSharedPreferences("login_sp", Context.MODE_PRIVATE)
-        var accessToken = sp.getString("accessToken", "null")
-        if (accessToken != "null")
-            return true
-        else
-            return false
+        val accessToken = sp.getString("accessToken", "null")
+        return accessToken != "null"
     }
 
     fun getUserToken(): String? {
         val sp = getSharedPreferences("login_sp", Context.MODE_PRIVATE)
         val accessToken = sp.getString("accessToken", "null")
-        if (accessToken == "null") return null
-        else return accessToken
+        return if (accessToken == "null") null
+        else accessToken
     }
 
 }

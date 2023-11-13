@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.wisefee.Cart.CartActivity
 import com.example.wisefee.MainActivity
 import com.example.wisefee.MasterApplication
 import com.example.wisefee.Mypage.MyPageActivity
@@ -40,10 +41,16 @@ class MenuActivity : AppCompatActivity() {
         masterApplication = application as MasterApplication
 
         // 뒤로가기 버튼
+        binding.cartButton.setOnClickListener {
+            val intent = Intent(this, CartActivity::class.java)
+            intent.putExtra("cafeId", cafeId)
+            startActivity(intent)
+        }
+
+        // 뒤로가기 버튼
         binding.goBackButton.setOnClickListener {
             startActivity(Intent(this, SearchingStores::class.java))
         }
-
         binding.home.setOnClickListener { startActivity(Intent(this, MainActivity::class.java)) }
         binding.rental.setColorFilter(ContextCompat.getColor(this, R.color.selection_color))
         binding.returnTumbler.setOnClickListener { startActivity(Intent(this, ReturnTumblerActivity::class.java)) }

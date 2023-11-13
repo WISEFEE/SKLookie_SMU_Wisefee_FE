@@ -60,7 +60,7 @@
             android:name=".Mypage.MySubscription_current"
             android:exported="false" />
         <activity
-            android:name=".Mypage.MySubscription_home"
+            android:name=".Mypage.MySubscriptionHome"
             android:exported="false" />
         <activity
             android:name=".Mypage.PaymentHistory"

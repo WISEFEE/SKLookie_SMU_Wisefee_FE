@@ -18,10 +18,9 @@ import com.example.wisefee.databinding.ItemNoticeBinding
 class MainActivity : AppCompatActivity() {
 
     lateinit var handler: Handler
-    lateinit var handlerThread: HandlerThread
+    private lateinit var handlerThread: HandlerThread
     private lateinit var binding: ActivityMainBinding
 
-    // 나중에 서버에서 받을 것. 목데이터
     private val noticeList = listOf(
         "\uD83D\uDE18\uD83D\uDCE2 오늘같이 무더운 날, 수박주스는 어떠세요?",
         "공지사항2",
@@ -59,7 +58,6 @@ class MainActivity : AppCompatActivity() {
         binding.returnTumbler.setOnClickListener { startActivity(Intent(this, ReturnTumblerActivity::class.java)) }
         binding.mypage.setOnClickListener { startActivity(Intent(this, MyPageActivity::class.java)) }
 
-        // 매번 보여줄 건지, 1번만 보여줄건지
 //        initView()
     }
 
@@ -75,7 +73,7 @@ class MainActivity : AppCompatActivity() {
 
 class NoticeAdapter(private val noticeList: List<String>) : RecyclerView.Adapter<NoticeAdapter.NoticeViewHolder>() {
 
-    inner class NoticeViewHolder(private val binding: ItemNoticeBinding) :
+    inner class NoticeViewHolder(val binding: ItemNoticeBinding) :
         RecyclerView.ViewHolder(binding.root) {
         val noticeTextView = binding.noticeTextView
     }

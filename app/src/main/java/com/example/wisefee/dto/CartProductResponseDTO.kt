@@ -2,10 +2,6 @@ package com.example.wisefee.dto
 
 import java.io.Serializable
 
-data class CartProductResponseDTO(
-    val products: List<CartProduct>
-): Serializable
-
 data class CartProduct(
     val cafeId: Int,
     val cafeName: String,

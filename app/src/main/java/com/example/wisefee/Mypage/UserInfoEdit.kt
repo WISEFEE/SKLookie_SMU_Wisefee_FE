@@ -7,8 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import com.example.wisefee.Jwt_decoding
-import com.example.wisefee.Login.LoginActivity
+import com.example.wisefee.jwtDecoding
 import com.example.wisefee.Login.MemberResponse
 import com.example.wisefee.Login.UpdateMemberRequest
 import com.example.wisefee.MainActivity
@@ -64,7 +63,7 @@ class UserInfoEdit : AppCompatActivity() {
         val jwtToken: String? =
             getSharedPreferences("login_sp", Context.MODE_PRIVATE).getString("accessToken", null)
         if (jwtToken != null) {
-            val decodedClaims = Jwt_decoding(jwtToken)
+            val decodedClaims = jwtDecoding(jwtToken)
             if (decodedClaims != null) {
                 val userId = decodedClaims.optInt("userId") // 사용자 ID
                 if (userId != 0) { // 또는 다른 유효한 기본값
@@ -153,7 +152,7 @@ class UserInfoEdit : AppCompatActivity() {
         val jwtToken: String? =
             getSharedPreferences("login_sp", Context.MODE_PRIVATE).getString("accessToken", null)
         if (jwtToken != null) {
-            val decodedClaims = Jwt_decoding(jwtToken)
+            val decodedClaims = jwtDecoding(jwtToken)
             if (decodedClaims != null) {
                 val userId = decodedClaims.optInt("userId") // 사용자 ID
                 if (userId != 0) {

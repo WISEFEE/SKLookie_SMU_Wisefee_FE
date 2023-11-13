@@ -47,7 +47,7 @@
             android:orientation="vertical"
             android:layout_marginHorizontal="20dp">
 
-            // 회원 닉네임
+<!--             회원 닉네임-->
             <EditText
                 android:id="@+id/nickname"
                 android:layout_width="match_parent"
@@ -60,7 +60,7 @@
                 android:background="@drawable/text_box"
                 android:inputType="textPersonName" />
 
-            // 이메일
+<!--            // 이메일-->
             <EditText
                 android:id="@+id/email"
                 android:layout_width="match_parent"
@@ -83,7 +83,7 @@
                 android:text="이메일 인증 여부 동의"
                 android:checked="false" />
 
-            // 회원 비밀번호
+<!--            // 회원 비밀번호-->
             <EditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
@@ -95,10 +95,10 @@
                 android:textColorHint="#DADADA"
                 android:background="@drawable/text_box"
                 android:inputType="textPersonName" />
-            영문 대,소문자와 숫자, 특수기호가 적어도 1개 이상씩 포함된 8자 ~ 20자의 비밀번호
+<!--            영문 대,소문자와 숫자, 특수기호가 적어도 1개 이상씩 포함된 8자 ~ 20자의 비밀번호-->
 
 
-            // 회원 연락처
+<!--            // 회원 연락처-->
             <EditText
                 android:id="@+id/phone"
                 android:layout_width="match_parent"
@@ -111,7 +111,7 @@
                 android:background="@drawable/text_box"
                 android:inputType="textPersonName" />
 
-            // 회원 사무용 연락처
+<!--            // 회원 사무용 연락처-->
             <EditText
                 android:id="@+id/phoneOffice"
                 android:layout_width="match_parent"
@@ -124,7 +124,7 @@
                 android:background="@drawable/text_box"
                 android:inputType="textPersonName" />
 
-            // 회원 생년월일
+<!--            // 회원 생년월일-->
             <EditText
                 android:id="@+id/birth"
                 android:layout_width="match_parent"

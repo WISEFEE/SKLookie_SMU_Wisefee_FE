@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.wisefee.Jwt_decoding
+import com.example.wisefee.jwtDecoding
 import com.example.wisefee.MainActivity
 import com.example.wisefee.MasterApplication
 import com.example.wisefee.Menu.MenuActivity
@@ -18,7 +18,6 @@ import com.example.wisefee.Payment.PaymentActivity
 import com.example.wisefee.R
 import com.example.wisefee.Return.ReturnTumblerActivity
 import com.example.wisefee.dto.CartProduct
-import com.example.wisefee.dto.CartProductResponseDTO
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
@@ -46,8 +45,8 @@ class CartActivity : AppCompatActivity() {
         binding.rental.setColorFilter(ContextCompat.getColor(this, R.color.selection_color))
         binding.returnTumbler.setOnClickListener { startActivity(Intent(this, ReturnTumblerActivity::class.java)) }
         binding.mypage.setOnClickListener { startActivity(Intent(this, MyPageActivity::class.java)) }
-
     }
+
     private fun getProducts(cafeId: Int) {
         val userId = getUserId()
         masterApplication.service.getCart(userId).enqueue(object : Callback<List<CartProduct>> {
@@ -75,7 +74,6 @@ class CartActivity : AppCompatActivity() {
         binding.cartRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.cartRecyclerView.adapter = cartAdapter
 
-        // TODO 장바구니 총금액, 개수 등 마무리 계산
         masterApplication.service.getCartTotalPrice(getUserId())
             .enqueue(object : Callback<ResponseBody> {
                 override fun onResponse(
@@ -93,7 +91,7 @@ class CartActivity : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                    TODO("Not yet implemented")
+                    Log.d("CartActivity", "error")
                 }
 
             })
@@ -101,35 +99,17 @@ class CartActivity : AppCompatActivity() {
         binding.depositTextView.text = "${"1000"}원"
         binding.countTextView.text = "총 ${products.size}개"
 
-        // 뒤로가기 버튼
         binding.goBackButton.setOnClickListener {
             val intent = Intent(this, MenuActivity::class.java)
             intent.putExtra("cafeId", cafeId)
             startActivity(intent)
         }
 
-        // 구매버튼
         binding.checkoutButton.setOnClickListener {
             showBuyDialog()
         }
-//        updateTotalPrice() // 초기화 시 총 금액 업데이트
     }
-    //초기화 시 총 금액 업데이트
-//    private fun updateTotalPrice() {
-//        var totalPrice = 0
-//        var total = 0
-//        var quantity = 0
-//        for (cartItem in cartItems) {
-//            totalPrice += cartItem.product.productPrice * cartItem.quantity
-//            quantity += cartItem.quantity
-//        }
-//        total = totalPrice + 1000
-//        binding.priceTextView.text = "${totalPrice}원"
-//        binding.totalPriceTextView.text = "${total}원"
-//        binding.countTextView.text = "총 ${quantity}개"
-//    }
 
-    //구매여부 버튼
     private fun showBuyDialog() {
         val dialogBinding = BuyDialogConfirmBinding.inflate(layoutInflater)
         val dialogBuilder = AlertDialog.Builder(this)
@@ -158,7 +138,7 @@ class CartActivity : AppCompatActivity() {
         }
 
         // jwt decoding
-        val decodeClaims = Jwt_decoding(jwtToken)
+        val decodeClaims = jwtDecoding(jwtToken)
         if (decodeClaims == null) {
             Log.d("decode", "Failed decoding JWT token")
             return 0

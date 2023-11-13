@@ -3,7 +3,7 @@ import android.util.Base64
 import org.json.JSONObject
 
 
-fun Jwt_decoding(jwtToken: String?): JSONObject? {
+fun jwtDecoding(jwtToken: String?): JSONObject? {
     try {
         if (jwtToken != null) {
             val parts = jwtToken.split(".")
