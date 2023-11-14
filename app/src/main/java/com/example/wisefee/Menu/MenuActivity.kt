@@ -12,11 +12,10 @@ import com.example.wisefee.MasterApplication
 import com.example.wisefee.Mypage.MyPageActivity
 import com.example.wisefee.R
 import com.example.wisefee.Return.ReturnTumblerActivity
-import com.example.wisefee.SearchingStores.SearchingStores
+import com.example.wisefee.SearchingStores.SearchingStoresActivity
 import com.example.wisefee.databinding.ActivityMenuBinding
 import com.example.wisefee.dto.Product
 import com.example.wisefee.dto.ProductInfoDTO
-import com.example.wisefee.dto.ProductOption
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -49,7 +48,7 @@ class MenuActivity : AppCompatActivity() {
 
         // 뒤로가기 버튼
         binding.goBackButton.setOnClickListener {
-            startActivity(Intent(this, SearchingStores::class.java))
+            startActivity(Intent(this, SearchingStoresActivity::class.java))
         }
         binding.home.setOnClickListener { startActivity(Intent(this, MainActivity::class.java)) }
         binding.rental.setColorFilter(ContextCompat.getColor(this, R.color.selection_color))

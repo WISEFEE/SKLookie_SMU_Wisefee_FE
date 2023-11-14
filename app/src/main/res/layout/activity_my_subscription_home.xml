@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Mypage.MySubscriptionHome"
+    tools:context=".Subscribe.MySubscriptionHomeActivity"
     android:orientation="vertical"
     android:background="@color/white">
 
@@ -26,6 +26,7 @@
             android:src="@drawable/arrow_icon" />
 
         <TextView
+            android:id="@+id/sub_cafe_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -62,14 +63,17 @@
                 android:elevation="10dp">
 
                 <ImageView
+                    android:id="@+id/sub_cafe_image"
                     android:layout_width="match_parent"
-                    android:layout_height="260dp"
-                    android:src="@drawable/image_01"
-                    android:scaleType="centerCrop"
+                    android:layout_height="257dp"
                     android:background="@drawable/round_rectangle_top"
-                    android:clipToOutline="true"/>
+                    android:clipToOutline="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/image_01" />
+
 
                 <TextView
+                    android:id="@+id/subscribe_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="260dp"
@@ -80,6 +84,7 @@
                     android:text="1단계 구독권"
                     android:textColor="#202020"/>
                 <TextView
+                    android:id="@+id/sub_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="290dp"
@@ -102,14 +107,12 @@
                     android:textColor="@color/white"
                     android:textSize="12dp"
                     android:elevation="15dp"/>
+
                 <Button
                     android:id="@+id/button_to_subscription1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#00FFFFFF"/>
-                
-                
-
+                    android:background="#00FFFFFF" />
 
 
             </FrameLayout>

@@ -8,10 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.wisefee.IntroActivity
 import com.example.wisefee.Login.LoginActivity
-import com.example.wisefee.MainActivity
-import com.example.wisefee.SearchingStores.SearchingStores
 import com.example.wisefee.databinding.ActivityThreeBoardingBinding
 
 class ThreeBoarding : Fragment() {

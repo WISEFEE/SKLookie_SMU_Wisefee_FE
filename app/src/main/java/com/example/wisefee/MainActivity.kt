@@ -11,7 +11,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wisefee.Mypage.MyPageActivity
 import com.example.wisefee.Return.ReturnTumblerActivity
-import com.example.wisefee.SearchingStores.SearchingStores
+import com.example.wisefee.SearchingStores.SearchingStoresActivity
 import com.example.wisefee.databinding.ActivityMainBinding
 import com.example.wisefee.databinding.ItemNoticeBinding
 
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         }, 5000) // 5초 후에 실행 시작 (조절 가능)
 
         binding.home.setColorFilter(ContextCompat.getColor(this, R.color.selection_color))
-        binding.rental.setOnClickListener { startActivity(Intent(this, SearchingStores::class.java)) }
+        binding.rental.setOnClickListener { startActivity(Intent(this, SearchingStoresActivity::class.java)) }
         binding.returnTumbler.setOnClickListener { startActivity(Intent(this, ReturnTumblerActivity::class.java)) }
         binding.mypage.setOnClickListener { startActivity(Intent(this, MyPageActivity::class.java)) }
 

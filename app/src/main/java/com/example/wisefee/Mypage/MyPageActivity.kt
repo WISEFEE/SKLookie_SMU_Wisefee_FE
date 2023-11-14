@@ -10,9 +10,12 @@ import com.example.wisefee.MainActivity
 import com.example.wisefee.MasterApplication
 import com.example.wisefee.R
 import com.example.wisefee.Return.ReturnTumblerActivity
-import com.example.wisefee.SearchingStores.SearchingStores
+import com.example.wisefee.SearchingStores.SearchingStoresActivity
+import com.example.wisefee.Subscribe.MySubscriptionHomeActivity
+import com.example.wisefee.Subscribe.MySubscriptionNoActivity
 import com.example.wisefee.databinding.ActivityMyPageBinding
 import com.example.wisefee.dto.MyPageResponseDTO
+import com.example.wisefee.dto.SubscribeResponseDTO
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -34,28 +37,51 @@ class MyPageActivity : AppCompatActivity() {
         setContentView(binding.root)
         masterApplication = application as MasterApplication
 
-        binding.apply {
-            myAppSettings.setOnClickListener { startActivity(Intent(this@MyPageActivity, AppSettings::class.java)) }
-            mySubscriptions.setOnClickListener { startActivity(Intent(this@MyPageActivity, MySubscriptionHome::class.java)) }
-            myPaymentHistory.setOnClickListener { startActivity(Intent(this@MyPageActivity, PaymentHistory::class.java)) }
-            customerInquiry.setOnClickListener { startActivity(Intent(this@MyPageActivity, CustomerInquiry::class.java)) }
-            userInfoEditBtn1.setOnClickListener { startActivity(Intent(this@MyPageActivity, UserInfoEdit::class.java)) }
-            userInfoEditBtn2.setOnClickListener { startActivity(Intent(this@MyPageActivity, UserInfoEdit::class.java)) }
+        binding.myAppSettings.setOnClickListener { startActivity(Intent(this@MyPageActivity, AppSettings::class.java)) }
 
-            home.setOnClickListener {
-                startActivity(Intent(this@MyPageActivity, MainActivity::class.java))
-                finish()
-            }
-            rental.setOnClickListener {
-                startActivity(Intent(this@MyPageActivity, SearchingStores::class.java))
-                finish()
-            }
-            returnTumbler.setOnClickListener {
-                startActivity(Intent(this@MyPageActivity, ReturnTumblerActivity::class.java))
-                finish()
-            }
-            mypage.setImageResource(R.drawable.clicked_mypage)
+        binding.mySubscriptions.setOnClickListener {
+            masterApplication.service.getSubscribeInfo().enqueue(object : Callback<SubscribeResponseDTO> {
+                override fun onResponse(
+                    call: Call<SubscribeResponseDTO>,
+                    response: Response<SubscribeResponseDTO>
+                ) {
+                    if (response.isSuccessful) {
+                        val subscribeInfo = response.body()?.cafes
+                        if (subscribeInfo.isNullOrEmpty()) {
+                            // 구독 안했을때
+                            startActivity(Intent(this@MyPageActivity, MySubscriptionNoActivity::class.java))
+                        } else {
+                            // 구독 했을때
+                            startActivity(Intent(this@MyPageActivity, MySubscriptionHomeActivity::class.java))
+                        }
+                    }
+                }
+                override fun onFailure(call: Call<SubscribeResponseDTO>, t: Throwable) {
+                    Log.d("SearchingStores", "failed loading cafe image", t)
+                }
+            })
+
+            startActivity(Intent(this@MyPageActivity, MySubscriptionHomeActivity::class.java))
         }
+
+        binding.myPaymentHistory.setOnClickListener { startActivity(Intent(this@MyPageActivity, PaymentHistory::class.java)) }
+        binding.customerInquiry.setOnClickListener { startActivity(Intent(this@MyPageActivity, CustomerInquiry::class.java)) }
+        binding.userInfoEditBtn1.setOnClickListener { startActivity(Intent(this@MyPageActivity, UserInfoEdit::class.java)) }
+        binding.userInfoEditBtn2.setOnClickListener { startActivity(Intent(this@MyPageActivity, UserInfoEdit::class.java)) }
+
+        binding.home.setOnClickListener {
+            startActivity(Intent(this@MyPageActivity, MainActivity::class.java))
+            finish()
+        }
+        binding.rental.setOnClickListener {
+            startActivity(Intent(this@MyPageActivity, SearchingStoresActivity::class.java))
+            finish()
+        }
+        binding.returnTumbler.setOnClickListener {
+            startActivity(Intent(this@MyPageActivity, ReturnTumblerActivity::class.java))
+            finish()
+        }
+        binding.mypage.setImageResource(R.drawable.clicked_mypage)
     }
 
     private fun bindingName() {

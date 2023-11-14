@@ -57,10 +57,13 @@
             android:name=".Mypage.CustomerInquiry"
             android:exported="false" />
         <activity
-            android:name=".Mypage.MySubscription_current"
+            android:name=".Subscribe.MySubscriptionNoActivity"
             android:exported="false" />
         <activity
-            android:name=".Mypage.MySubscriptionHome"
+            android:name=".Subscribe.SearchingSubscribeStoresActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Subscribe.MySubscriptionHomeActivity"
             android:exported="false" />
         <activity
             android:name=".Mypage.PaymentHistory"
@@ -84,7 +87,7 @@
             android:name=".Return.ReturnTumblerActivity"
             android:exported="false" />
         <activity
-            android:name=".SearchingStores.SearchingStores"
+            android:name=".SearchingStores.SearchingStoresActivity"
             android:exported="true" />
 
         <activity

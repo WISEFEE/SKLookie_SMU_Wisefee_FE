@@ -10,6 +10,8 @@ import com.example.wisefee.dto.CartProduct
 import com.example.wisefee.dto.CartProductRequestDTO
 import com.example.wisefee.dto.ProductInfoDTO
 import com.example.wisefee.dto.SearchStoresResponseDTO
+import com.example.wisefee.dto.SubscribeHistoryDTO
+import com.example.wisefee.dto.SubscribeResponseDTO
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.Body
@@ -47,6 +49,10 @@ interface RetrofitService {
     fun getCart(@Path("memberId") memberId: Int): Call<List<CartProduct>>
     @GET("/api/v1/consumer/cart/price/{memberId}")
     fun getCartTotalPrice(@Path("memberId") memberId: Int): Call<ResponseBody>
-    @GET("api/v1/file/{id}")
+    @GET("/api/v1/file/{id}")
     fun getFile(@Path("id") id: Int): Call<ResponseBody>
+    @GET("/api/v1/consumer/subscribe/cafe")
+    fun getSubscribeInfo(): Call<SubscribeResponseDTO>
+    @GET("/api/v1/consumer/subscribe")
+    fun getSubscribeHistory(): Call<SubscribeHistoryDTO>
 }

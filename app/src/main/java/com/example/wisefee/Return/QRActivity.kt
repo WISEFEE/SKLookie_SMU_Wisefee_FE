@@ -8,7 +8,7 @@ import androidx.core.content.ContextCompat
 import com.example.wisefee.MainActivity
 import com.example.wisefee.Mypage.MyPageActivity
 import com.example.wisefee.R
-import com.example.wisefee.SearchingStores.SearchingStores
+import com.example.wisefee.SearchingStores.SearchingStoresActivity
 import com.example.wisefee.databinding.ActivityQrPopup2Binding
 import com.example.wisefee.databinding.ActivityQractivityBinding
 
@@ -22,7 +22,7 @@ class QRActivity : AppCompatActivity() {
         setContentView(view)
 
         binding.home.setOnClickListener { startActivity(Intent(this, MainActivity::class.java)) }
-        binding.rental.setOnClickListener { startActivity(Intent(this, SearchingStores::class.java)) }
+        binding.rental.setOnClickListener { startActivity(Intent(this, SearchingStoresActivity::class.java)) }
         binding.returnTumbler.setColorFilter(ContextCompat.getColor(this, R.color.selection_color))
         binding.mypage.setOnClickListener { startActivity(Intent(this, MyPageActivity::class.java)) }
 
