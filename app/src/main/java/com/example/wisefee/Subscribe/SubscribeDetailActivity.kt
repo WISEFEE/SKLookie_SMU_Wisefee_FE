@@ -67,7 +67,6 @@ class SubscribeDetailActivity : AppCompatActivity() {
                 override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                     Log.d("SubscribeDetailActivity", "error")
                 }
-
             })
 
         }

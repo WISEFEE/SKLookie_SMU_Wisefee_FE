@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wisefee.jwtDecoding
@@ -18,6 +19,8 @@ import com.example.wisefee.Payment.PaymentActivity
 import com.example.wisefee.R
 import com.example.wisefee.Return.ReturnTumblerActivity
 import com.example.wisefee.dto.CartProduct
+import com.example.wisefee.dto.SubscribeHistory
+import com.example.wisefee.dto.SubscribeHistoryDTO
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
@@ -74,30 +77,88 @@ class CartActivity : AppCompatActivity() {
         binding.cartRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.cartRecyclerView.adapter = cartAdapter
 
-        masterApplication.service.getCartTotalPrice(getUserId())
-            .enqueue(object : Callback<ResponseBody> {
-                override fun onResponse(
-                    call: Call<ResponseBody>,
-                    response: Response<ResponseBody>
-                ) {
-                    if (response.isSuccessful) {
-                        val price = response.body()?.string()?.toIntOrNull()
-                        if (price != null) {
-                            binding.priceTextView.text = "${price.toString()}원"
-                            // TODO 보증금, 구독권할인 반영 금액해서 업뎃
-                            binding.totalPriceTextView.text = "${(price.toInt() + 1000).toString() }원"
+        masterApplication.service.getSubscribeHistory().enqueue(object :
+            Callback<SubscribeHistoryDTO> {
+            override fun onResponse(
+                call: Call<SubscribeHistoryDTO>,
+                response: Response<SubscribeHistoryDTO>
+            ) {
+                if (response.isSuccessful) {
+
+                    val subCafe = response.body()
+                    if (subCafe != null) {
+                        if (subCafe.subscribes.isNotEmpty()) {
+                            val subCafeInfo = subCafe.subscribes[0]
+                            // 구독 했을 때
+                            calcCartWithSub(subCafeInfo)
+                        } else {
+                            // 구독 안했을 때
+                            calcCartWithoutSub()
                         }
                     }
                 }
+            }
 
-                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                    Log.d("CartActivity", "error")
-                }
+            private fun calcCartWithoutSub() {
+                masterApplication.service.getCartTotalPrice(getUserId())
+                    .enqueue(object : Callback<ResponseBody> {
+                        override fun onResponse(
+                            call: Call<ResponseBody>,
+                            response: Response<ResponseBody>
+                        ) {
+                            if (response.isSuccessful) {
+                                val price = response.body()?.string()?.toIntOrNull()
+                                if (price != null) {
+                                    binding.priceTextView.text = "${price.toString()}원"
+                                    binding.totalPriceTextView.text =
+                                        "${(price.toInt() + 1000).toString()}원"
 
-            })
-        // TODO 보증금 가격 정해지면 업뎃
-        binding.depositTextView.text = "${"1000"}원"
-        binding.countTextView.text = "총 ${products.size}개"
+                                    binding.depositTextView.text = "${"1000"}원"
+                                    binding.countTextView.text = "총 ${products.size}개"
+
+                                }
+                            }
+                        }
+
+                        override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                            Log.d("CartActivity", "error")
+                        }
+
+                    })
+            }
+
+            private fun calcCartWithSub(subCafeInfo: SubscribeHistory) {
+                masterApplication.service.getCartTotalPriceWithSubscribe(
+                    getUserId(),
+                    subCafeInfo.subId
+                )
+                    .enqueue(object : Callback<ResponseBody> {
+                        override fun onResponse(
+                            call: Call<ResponseBody>,
+                            response: Response<ResponseBody>
+                        ) {
+                            if (response.isSuccessful) {
+                                val price = response.body()?.string()?.toIntOrNull()
+                                if (price != null) {
+                                    binding.priceTextView.text = "${price.toString()}원"
+                                    binding.totalPriceTextView.text =
+                                        "${(price.toInt()).toString()}원"
+                                    binding.depositTextView.text = "${"0"}원"
+                                    binding.countTextView.text = "총 ${products.size}개"
+                                }
+                            }
+                        }
+
+                        override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                            Log.d("CartActivity", "error")
+                        }
+                    })
+            }
+
+            override fun onFailure(call: Call<SubscribeHistoryDTO>, t: Throwable) {
+                Log.d("mySubHomeActivity", "error")
+            }
+        })
 
         binding.goBackButton.setOnClickListener {
             val intent = Intent(this, MenuActivity::class.java)

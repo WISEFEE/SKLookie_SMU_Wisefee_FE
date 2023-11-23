@@ -28,7 +28,6 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MySubscriptionHomeActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMySubscriptionHomeBinding
     private lateinit var masterApplication: MasterApplication
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,7 +37,7 @@ class MySubscriptionHomeActivity : AppCompatActivity() {
         bindingImage(cafeView)
     }
 
-    // TODO 사용자는 구독권 1개만 가질 수 있다고 가정하고 진행함.
+    // 사용자는 구독권 1개만 가질 수 있다고 가정하고 진행함.
     private fun bindingImage(cafeView: View){
         masterApplication.service.getSubscribeInfo().enqueue(object : Callback<SubscribeResponseDTO> {
             override fun onResponse(
@@ -62,9 +61,6 @@ class MySubscriptionHomeActivity : AppCompatActivity() {
     }
 
     private fun bindingSubTickets(cafeView: View, subId1: Int, subId2: Int) {
-//        // TODO 여기에 2단계, 3단계 구독권 ListUp하기!!
-//        // subTicketName(o), subTicketPrice(o), subTicketMinUserCount ~ subTicketMaxUserCount, subTicketBaseDiscountRate,
-//        // /api/v1/subTicketType 써서 넣기.
         masterApplication.service.getSubTicketType().enqueue(object :
             Callback<List<SubTicketTypeDTO>> {
             override fun onResponse(
@@ -111,8 +107,6 @@ class MySubscriptionHomeActivity : AppCompatActivity() {
                     val paymentMethod = subCafe?.paymentDto?.paymentMethod ?: ""
                     cafeView.findViewById<TextView>(R.id.sub_info).text = "$subTicketPrice, $paymentMethod"
 
-                    Log.d("adsfadsf", subCafe?.subId.toString())
-
                     // 구독한 ticket 에 따라 list 되는 구독권 지정
                     if (subCafe?.subTicketDto?.subTicketId == 1) bindingSubTickets(cafeView, 1, 2)
                     if (subCafe?.subTicketDto?.subTicketId == 2) bindingSubTickets(cafeView, 0, 2)
@@ -155,6 +149,8 @@ class MySubscriptionHomeActivity : AppCompatActivity() {
             })
 
         }
+
+
     }
     private fun initialize(cafeView: View) {
 //        binding = ActivityMySubscriptionHomeBinding.inflate(layoutInflater)

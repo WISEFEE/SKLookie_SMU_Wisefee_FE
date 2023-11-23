@@ -15,6 +15,7 @@ import com.example.wisefee.dto.SubTicketTypeDTO
 import com.example.wisefee.dto.SubscribeHistoryDTO
 import com.example.wisefee.dto.SubscribeRequestDTO
 import com.example.wisefee.dto.SubscribeResponseDTO
+import com.google.android.gms.common.internal.safeparcel.SafeParcelable.Param
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.Body
@@ -22,6 +23,7 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface RetrofitService {
     // common
@@ -49,6 +51,9 @@ interface RetrofitService {
     fun getCart(@Path("memberId") memberId: Int): Call<List<CartProduct>>
     @GET("/api/v1/consumer/cart/price/{memberId}")
     fun getCartTotalPrice(@Path("memberId") memberId: Int): Call<ResponseBody>
+    @GET("/api/v1/consumer/cart/price/sub-ticket/{memberId}")
+    fun getCartTotalPriceWithSubscribe(@Path("memberId") memberId: Int, @Query("subscribeId") subscribeId: Int): Call<ResponseBody>
+
     @GET("/api/v1/file/{id}")
     fun getFile(@Path("id") id: Int): Call<ResponseBody>
     @GET("/api/v1/consumer/subscribe/cafe")
