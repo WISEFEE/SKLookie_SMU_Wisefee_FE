@@ -18,6 +18,7 @@ import com.example.wisefee.MasterApplication
 import com.example.wisefee.Mypage.MyPageActivity
 import com.example.wisefee.R
 import com.example.wisefee.Return.ReturnTumblerActivity
+import com.example.wisefee.SearchingStores.SearchingStoresActivity
 import com.example.wisefee.databinding.ActivitySearchingStoresSubscribeBinding
 import com.example.wisefee.dto.AddressInfoDTO
 import com.example.wisefee.dto.Cafe
@@ -41,6 +42,9 @@ class SearchingSubscribeStoresActivity : AppCompatActivity() {
         initialize()
         bindingStores()
 
+
+        // TODO 눌렀을 때 구독권 3개 보여주고, 카페에 구독 되도록 하기. 구독권 보여주는거 레이아웃 찾아야함.
+
     }
         // set footer
     private fun initialize() {
@@ -49,9 +53,9 @@ class SearchingSubscribeStoresActivity : AppCompatActivity() {
         masterApplication = application as MasterApplication
 
         binding.home.setOnClickListener { startActivity(Intent(this, MainActivity::class.java)) }
-        binding.rental.setColorFilter(ContextCompat.getColor(this, R.color.selection_color))
+        binding.rental.setOnClickListener { startActivity(Intent(this, SearchingStoresActivity::class.java)) }
         binding.returnTumbler.setOnClickListener { startActivity(Intent(this, ReturnTumblerActivity::class.java)) }
-        binding.mypage.setOnClickListener { startActivity(Intent(this, MyPageActivity::class.java)) }
+        binding.mypage.setImageResource(R.drawable.clicked_mypage)
     }
 
     private fun bindingStores() {

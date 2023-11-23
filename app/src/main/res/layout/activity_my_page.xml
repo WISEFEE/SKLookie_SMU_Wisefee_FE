@@ -113,6 +113,26 @@
                         android:scaleType="fitStart"
                         android:src="@drawable/icon_next" />
 
+                    <Button
+                        android:id="@+id/user_info_sign_out_btn1"
+                        style="@style/UnderLine"
+                        android:layout_width="43dp"
+                        android:layout_height="wrap_content"
+                        android:background="#00000000"
+                        android:gravity="left"
+                        android:paddingTop="5dp"
+                        android:text="로그아웃"
+                        android:textSize="11dp" />
+
+                    <ImageButton
+                        android:id="@+id/user_info_sign_out_btn2"
+                        android:layout_width="32dp"
+                        android:layout_height="13dp"
+                        android:layout_gravity="center"
+                        android:background="#00000000"
+                        android:scaleType="fitStart"
+                        android:src="@drawable/icon_next" />
+
                 </LinearLayout>
 
 

@@ -10,6 +10,8 @@ import com.example.wisefee.dto.CartProduct
 import com.example.wisefee.dto.CartProductRequestDTO
 import com.example.wisefee.dto.ProductInfoDTO
 import com.example.wisefee.dto.SearchStoresResponseDTO
+import com.example.wisefee.dto.SubTicketDto
+import com.example.wisefee.dto.SubTicketTypeDTO
 import com.example.wisefee.dto.SubscribeHistoryDTO
 import com.example.wisefee.dto.SubscribeResponseDTO
 import okhttp3.ResponseBody
@@ -24,13 +26,10 @@ interface RetrofitService {
     // common
     @POST("/api/v1/auth/login")
     fun login ( @Body loginRequest: LoginRequest): Call<LoginResponse>
-
     @POST("/api/v1/member")
     fun register( @Body signUpConsumerRequest: SignUpConsumerRequest): Call<ResponseBody>
-
     @GET("/api/v1/member/{id}")
     fun getMemberById(@Path("id") memberId: Int): Call<MemberResponse>
-
     @PUT("/api/v1/member/{id}")
     fun updateMember(@Body updateMemberRequest: UpdateMemberRequest, @Path("id") id: Int): Call<ResponseBody>
 
@@ -55,4 +54,6 @@ interface RetrofitService {
     fun getSubscribeInfo(): Call<SubscribeResponseDTO>
     @GET("/api/v1/consumer/subscribe")
     fun getSubscribeHistory(): Call<SubscribeHistoryDTO>
+    @GET("/api/v1/subTicketType")
+    fun getSubTicketType(): Call<List<SubTicketTypeDTO>>
 }

@@ -126,6 +126,7 @@
                 android:layout_marginTop="10dp">
 
                 <ImageView
+                    android:id="@+id/sub_cafe_image_2"
                     android:layout_width="140dp"
                     android:layout_height="match_parent"
                     android:src="@drawable/image_03"
@@ -141,6 +142,7 @@
                     android:padding="12dp">
 
                     <TextView
+                        android:id="@+id/sub_cafe_name_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="2단계 구독권"
@@ -150,7 +152,7 @@
                         android:textFontWeight="1000"
                         android:layout_marginTop="3dp"/>
                     <TextView
-                        android:id="@+id/subscribe2_price"
+                        android:id="@+id/sub_cafe_price_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="가격"
@@ -162,20 +164,20 @@
                         android:id="@+id/the_number_of_available_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="대여 가능한 텀블러"
+                        android:text="인원: 1명 ~ 5명"
                         android:textSize="13dp"
                         android:textColor="#616161"
                         android:fontFamily="@font/inter_regular"
                         android:textFontWeight="1000"/>
                     <TextView
+                        android:id="@+id/sub_cafe_discount_rate_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="할인률"
                         android:textSize="13dp"
                         android:textColor="#616161"
                         android:fontFamily="@font/inter_regular"
-                        android:textFontWeight="1000"
-                        android:id="@+id/discount_rate_2"/>
+                        android:textFontWeight="1000"/>
 
                 </LinearLayout>
 
@@ -204,6 +206,7 @@
                 android:layout_marginTop="10dp">
 
                 <ImageView
+                    android:id="@+id/sub_cafe_image_3"
                     android:layout_width="140dp"
                     android:layout_height="match_parent"
                     android:src="@drawable/image_03"
@@ -219,6 +222,7 @@
                     android:padding="12dp">
 
                     <TextView
+                        android:id="@+id/sub_cafe_name_3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="3단계 구독권"
@@ -228,7 +232,7 @@
                         android:textFontWeight="1000"
                         android:layout_marginTop="3dp"/>
                     <TextView
-                        android:id="@+id/subscribe3_price"
+                        android:id="@+id/sub_cafe_price_3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="가격"
@@ -240,20 +244,20 @@
                         android:id="@+id/the_number_of_available_3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="대여 가능한 텀블러"
+                        android:text="인원: 1명 ~ 5명"
                         android:textSize="13dp"
                         android:textColor="#616161"
                         android:fontFamily="@font/inter_regular"
                         android:textFontWeight="1000"/>
                     <TextView
+                        android:id="@+id/sub_cafe_discount_rate_3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="할인률"
                         android:textSize="13dp"
                         android:textColor="#616161"
                         android:fontFamily="@font/inter_regular"
-                        android:textFontWeight="1000"
-                        android:id="@+id/discount_rate_3"/>
+                        android:textFontWeight="1000"/>
 
                 </LinearLayout>
 

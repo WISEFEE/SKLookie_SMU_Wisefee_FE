@@ -18,7 +18,6 @@ class MySubscriptionNoActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySubscribeBinding.inflate(layoutInflater)
         initialize()
 
     }

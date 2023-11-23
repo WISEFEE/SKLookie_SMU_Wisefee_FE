@@ -1,9 +1,12 @@
 package com.example.wisefee.Mypage
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.wisefee.Login.LoginActivity
 import com.example.wisefee.jwtDecoding
 import com.example.wisefee.Login.MemberResponse
 import com.example.wisefee.MainActivity
@@ -60,14 +63,23 @@ class MyPageActivity : AppCompatActivity() {
                     Log.d("SearchingStores", "failed loading cafe image", t)
                 }
             })
-
-            startActivity(Intent(this@MyPageActivity, MySubscriptionHomeActivity::class.java))
         }
 
         binding.myPaymentHistory.setOnClickListener { startActivity(Intent(this@MyPageActivity, PaymentHistory::class.java)) }
         binding.customerInquiry.setOnClickListener { startActivity(Intent(this@MyPageActivity, CustomerInquiry::class.java)) }
         binding.userInfoEditBtn1.setOnClickListener { startActivity(Intent(this@MyPageActivity, UserInfoEdit::class.java)) }
         binding.userInfoEditBtn2.setOnClickListener { startActivity(Intent(this@MyPageActivity, UserInfoEdit::class.java)) }
+
+        binding.userInfoSignOutBtn1.setOnClickListener { startActivity(Intent(this@MyPageActivity, LoginActivity::class.java))
+            getSharedPreferences("login_sp", Context.MODE_PRIVATE).edit().remove("accessToken").apply()
+            Toast.makeText(this@MyPageActivity, "로그아웃 되었습니다.", Toast.LENGTH_LONG).show()
+        }
+        binding.userInfoSignOutBtn2.setOnClickListener { startActivity(Intent(this@MyPageActivity, LoginActivity::class.java))
+            getSharedPreferences("login_sp", Context.MODE_PRIVATE).edit().remove("accessToken").apply()
+            Toast.makeText(this@MyPageActivity, "로그아웃 되었습니다.", Toast.LENGTH_LONG).show()
+        }
+
+
 
         binding.home.setOnClickListener {
             startActivity(Intent(this@MyPageActivity, MainActivity::class.java))

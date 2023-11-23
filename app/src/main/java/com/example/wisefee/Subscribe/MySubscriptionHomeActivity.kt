@@ -16,6 +16,7 @@ import com.example.wisefee.Return.ReturnTumblerActivity
 import com.example.wisefee.SearchingStores.SearchingStoresActivity
 import com.example.wisefee.databinding.ActivityMySubscriptionHomeBinding
 import com.example.wisefee.dto.SubCafe
+import com.example.wisefee.dto.SubTicketTypeDTO
 import com.example.wisefee.dto.SubscribeHistoryDTO
 import com.example.wisefee.dto.SubscribeResponseDTO
 import kotlinx.coroutines.DelicateCoroutinesApi
@@ -33,13 +34,13 @@ class MySubscriptionHomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initialize()
-        bindingImage()
+        val cafeView = layoutInflater.inflate(R.layout.activity_my_subscription_home , null)
+        initialize(cafeView)
+        bindingImage(cafeView)
     }
 
     // TODO 사용자는 구독권 1개만 가질 수 있다고 가정하고 진행함.
-    private fun bindingImage(){
-        val cafeView = layoutInflater.inflate(R.layout.activity_my_subscription_home , null)
+    private fun bindingImage(cafeView: View){
         masterApplication.service.getSubscribeInfo().enqueue(object : Callback<SubscribeResponseDTO> {
             override fun onResponse(
                 call: Call<SubscribeResponseDTO>,
@@ -58,14 +59,48 @@ class MySubscriptionHomeActivity : AppCompatActivity() {
             }
         })
 
-        getCafeHistoryInfo(cafeView)
-
-        // TODO 여기에 2단계, 3단계 구독권 ListUp하기!!
-        // /api/v1/subTicketType 써서 넣기.
+        bindingCafeHistoryInfo(cafeView)
+        bindingSubTickets(cafeView)
 
         setContentView(cafeView)
     }
-    private fun getCafeHistoryInfo(cafeView: View) {
+
+    private fun bindingSubTickets(cafeView: View) {
+//        // TODO 여기에 2단계, 3단계 구독권 ListUp하기!!
+//        // subTicketName(o), subTicketPrice(o), subTicketMinUserCount ~ subTicketMaxUserCount, subTicketBaseDiscountRate,
+//        // /api/v1/subTicketType 써서 넣기.
+        masterApplication.service.getSubTicketType().enqueue(object :
+            Callback<List<SubTicketTypeDTO>> {
+            override fun onResponse(
+                call: Call<List<SubTicketTypeDTO>>,
+                response: Response<List<SubTicketTypeDTO>>
+            ) {
+                if (response.isSuccessful) {
+                    val subTickets = response.body()
+                    if (!subTickets.isNullOrEmpty()) {
+                        cafeView.findViewById<TextView>(R.id.sub_cafe_name_2).text = subTickets[1].subTicketName
+                        cafeView.findViewById<TextView>(R.id.sub_cafe_name_3).text = subTickets[2].subTicketName
+
+                        cafeView.findViewById<TextView>(R.id.sub_cafe_price_2).text = "가격: " + subTickets[1].subTicketPrice
+                        cafeView.findViewById<TextView>(R.id.sub_cafe_price_3).text = "가격: " + subTickets[2].subTicketPrice
+
+                        cafeView.findViewById<TextView>(R.id.the_number_of_available_2).text = "인원: " + subTickets[1].subTicketMinUserCount + " ~ " + subTickets[1].subTicketMaxUserCount
+                        cafeView.findViewById<TextView>(R.id.the_number_of_available_3).text = "인원: " + subTickets[2].subTicketMinUserCount + " ~ " + subTickets[2].subTicketMaxUserCount
+
+                        cafeView.findViewById<TextView>(R.id.sub_cafe_discount_rate_2).text = "할인율: " + subTickets[1].subTicketBaseDiscountRate + "%"
+                        cafeView.findViewById<TextView>(R.id.sub_cafe_discount_rate_3).text = "할인율: " + subTickets[2].subTicketBaseDiscountRate + "%"
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<List<SubTicketTypeDTO>>, t: Throwable) {
+                Log.d("bindingSubTickets", "error")
+            }
+
+        })
+    }
+
+    private fun bindingCafeHistoryInfo(cafeView: View) {
         masterApplication.service.getSubscribeHistory().enqueue(object :
             Callback<SubscribeHistoryDTO> {
             override fun onResponse(
@@ -90,6 +125,9 @@ class MySubscriptionHomeActivity : AppCompatActivity() {
     @OptIn(DelicateCoroutinesApi::class)
     private fun bindingCafeImg(cafe: SubCafe, cafeView: View) {
         val imageView = cafeView.findViewById<ImageView>(R.id.sub_cafe_image)
+        val imageView1 = cafeView.findViewById<ImageView>(R.id.sub_cafe_image_2)
+        val imageView2 = cafeView.findViewById<ImageView>(R.id.sub_cafe_image_3)
+
         if (cafe.cafeImages.isNotEmpty()) {
             masterApplication.service.getFile(cafe.cafeImages[0]).enqueue(object :
                 Callback<ResponseBody> {
@@ -101,6 +139,8 @@ class MySubscriptionHomeActivity : AppCompatActivity() {
                             GlobalScope.launch(Dispatchers.Main) {
                                 val bitmap = BitmapFactory.decodeStream(inputStream)
                                 imageView.setImageBitmap(bitmap)
+                                imageView1.setImageBitmap(bitmap)
+                                imageView2.setImageBitmap(bitmap)
                             }
                         }
                     }
@@ -112,16 +152,15 @@ class MySubscriptionHomeActivity : AppCompatActivity() {
 
         }
     }
-    private fun initialize() {
+    private fun initialize(cafeView: View) {
         binding = ActivityMySubscriptionHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         masterApplication = application as MasterApplication
 
-        binding.home.setOnClickListener { startActivity(Intent(this, MainActivity::class.java)) }
-        binding.rental.setOnClickListener { startActivity(Intent(this, SearchingStoresActivity::class.java)) }
-        binding.returnTumbler.setOnClickListener { startActivity(Intent(this, ReturnTumblerActivity::class.java)) }
-        binding.mypage.setImageResource(R.drawable.clicked_mypage)
-
-        binding.goBackButton.setOnClickListener { startActivity(Intent(this, MyPageActivity::class.java)) }
+        cafeView.findViewById<ImageView>(R.id.home).setOnClickListener {startActivity(Intent(this, MainActivity::class.java))}
+        cafeView.findViewById<ImageView>(R.id.rental).setOnClickListener { startActivity(Intent(this, SearchingStoresActivity::class.java)) }
+        cafeView.findViewById<ImageView>(R.id.return_tumbler).setOnClickListener { startActivity(Intent(this, ReturnTumblerActivity::class.java)) }
+        cafeView.findViewById<ImageView>(R.id.mypage).setImageResource(R.drawable.clicked_mypage)
+        cafeView.findViewById<ImageView>(R.id.go_back_button).setOnClickListener { startActivity(Intent(this, MyPageActivity::class.java)) }
     }
 }
