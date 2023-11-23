@@ -103,7 +103,7 @@ class SearchingStoresActivity : AppCompatActivity() {
             val imageView = cafeView.findViewById<ImageView>(R.id.cafe_image) // 수정된 부분
 
             if (cafe.cafeImages.isNotEmpty()) {
-                masterApplication.service.getFile(cafe.cafeImages[0].toInt()).enqueue(object : Callback<ResponseBody> {
+                masterApplication.service.getFile(cafe.cafeImages[0]).enqueue(object : Callback<ResponseBody> {
                     override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                         if (response.isSuccessful) {
                             // 이미지 다운로드 및 표시

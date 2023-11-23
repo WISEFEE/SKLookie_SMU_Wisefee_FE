@@ -42,9 +42,6 @@ class SearchingSubscribeStoresActivity : AppCompatActivity() {
         initialize()
         bindingStores()
 
-
-        // TODO 눌렀을 때 구독권 3개 보여주고, 카페에 구독 되도록 하기. 구독권 보여주는거 레이아웃 찾아야함.
-
     }
         // set footer
     private fun initialize() {
@@ -56,6 +53,7 @@ class SearchingSubscribeStoresActivity : AppCompatActivity() {
         binding.rental.setOnClickListener { startActivity(Intent(this, SearchingStoresActivity::class.java)) }
         binding.returnTumbler.setOnClickListener { startActivity(Intent(this, ReturnTumblerActivity::class.java)) }
         binding.mypage.setImageResource(R.drawable.clicked_mypage)
+        binding.goBackButton.setOnClickListener { startActivity(Intent(this, MySubscriptionNoActivity::class.java)) }
     }
 
     private fun bindingStores() {
@@ -99,7 +97,9 @@ class SearchingSubscribeStoresActivity : AppCompatActivity() {
 
             cafeListContainer.addView(cafeView)
             cafeView.findViewById<LinearLayout>(R.id.storeButton).setOnClickListener {
-                showPurchaseConfirmationPopup(cafe.cafeId, cafe.title)
+                val intent = Intent(this, SubscribeListActivity::class.java)
+                intent.putExtra("cafe", cafe)
+                startActivity(intent)
             }
         }
     }
@@ -108,7 +108,7 @@ class SearchingSubscribeStoresActivity : AppCompatActivity() {
         val imageView = cafeView.findViewById<ImageView>(R.id.cafe_image)
 
         if (cafe.cafeImages.isNotEmpty()) {
-            masterApplication.service.getFile(cafe.cafeImages[0].toInt()).enqueue(object : Callback<ResponseBody> {
+            masterApplication.service.getFile(cafe.cafeImages[0]).enqueue(object : Callback<ResponseBody> {
                 override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                     if (response.isSuccessful) {
                         // 이미지 다운로드 및 표시
@@ -142,36 +142,6 @@ class SearchingSubscribeStoresActivity : AppCompatActivity() {
             }
         })
     }
-
-    private fun showPurchaseConfirmationPopup(cafeId: Int, title: String) {
-
-        val inflater = LayoutInflater.from(this)
-        val customView = inflater.inflate(R.layout.custom_popup_searchingstore, null)
-        val builder = AlertDialog.Builder(this)
-        builder.setView(customView)
-
-        val alertDialog = builder.create()
-
-        val titleTextView = customView.findViewById<TextView>(R.id.title)
-        titleTextView.text = title  // 매개변수로 전달받은 title로 설정
-
-        val btnYes = customView.findViewById<Button>(R.id.btnYes)
-        btnYes.setOnClickListener {
-            // 메뉴선택 창 이동
-            val menuIntent = Intent(this, SubscribeListActivity::class.java)
-            menuIntent.putExtra("cafeId", cafeId)
-
-            startActivity(menuIntent)
-            alertDialog.dismiss()
-        }
-
-        val btnNo = customView.findViewById<Button>(R.id.btnNo)
-        btnNo.setOnClickListener {
-            alertDialog.dismiss()
-        }
-        alertDialog.show()
-    }
-
 
     override fun onPause() {
         super.onPause()

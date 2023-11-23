@@ -7,9 +7,9 @@ data class Cafe(
     val title: String,
     val content: String,
     val cafePhone: String,
-    val cafeImages: List<String>,
+    val cafeImages: List<Int>,
     val addressId: Int
-)
+): Serializable
 
 data class SearchStoresResponseDTO(
     val hasNext: Boolean,

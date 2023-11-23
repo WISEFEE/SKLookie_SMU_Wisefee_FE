@@ -133,6 +133,13 @@
         <activity
             android:name=".Menu.MenuActivity"
             android:exported="true" />
+        <activity
+            android:name=".Subscribe.SubscribeListActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Subscribe.SubscribeDetailActivity"
+            android:exported="true" />
+
 
         <activity
             android:name=".Cart.CartActivity"
