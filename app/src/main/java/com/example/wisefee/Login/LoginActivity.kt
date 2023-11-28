@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.wisefee.MainActivity
 import com.example.wisefee.MasterApplication
 import com.example.wisefee.RetrofitService
+import com.example.wisefee.Store.StoreActivity
 import com.example.wisefee.databinding.ActivityLoginBinding
 import org.json.JSONObject
 import retrofit2.Call
@@ -37,6 +38,12 @@ class   LoginActivity : AppCompatActivity() {
             val fcmToken = getSharedPreferences("token", Context.MODE_PRIVATE).getString("token", null) as String
             val password = binding.passwordInputbox.text.toString()
 
+            val accountType = when {
+                binding.accountTypeConsumer.isChecked -> "consumer"
+                binding.accountTypeSeller.isChecked -> "seller"
+                else -> "consumer"
+            }
+
             Log.d("tag", "$fcmToken")
             val loginRequest = LoginRequest(email, fcmToken, password)
 
@@ -54,7 +61,14 @@ class   LoginActivity : AppCompatActivity() {
                         saveUserToken(accessToken, activity)
                         (application as MasterApplication).createRetrofit()
                         Toast.makeText(activity, "로그인 하셨습니다.", Toast.LENGTH_LONG).show()
-                        startActivity(Intent(activity, MainActivity::class.java))
+
+                        if (accountType == "consumer") {
+                            startActivity(Intent(activity, MainActivity::class.java))
+                        } else {
+                            startActivity(Intent(activity, StoreActivity::class.java))
+                        }
+
+
                     } else {
                         val errorResponseBody = response.errorBody()?.string()
                         if (errorResponseBody != null) {

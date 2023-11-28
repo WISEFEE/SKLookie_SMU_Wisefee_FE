@@ -143,7 +143,12 @@ class CartActivity : AppCompatActivity() {
                                     // TODO 보증금 가격 뺀 가격으로 update 필요
                                     binding.totalPriceTextView.text = "${(price.toInt())}원"
                                     binding.depositTextView.text = "${"0"}원"
-                                    binding.countTextView.text = "총 ${products.size}개"
+
+                                    var totalQuantity = 0
+                                    for (product in products) {
+                                        totalQuantity += product.productQuantity
+                                    }
+                                    binding.countTextView.text = "총 ${totalQuantity}개"
 
                                     bindingTotalPrice(price)
 
