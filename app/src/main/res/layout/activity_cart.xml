@@ -91,6 +91,7 @@
                     android:textColor="#3F51B5"
                     android:textStyle="bold"
                     android:textSize="18sp" />
+
                 <TextView
                     android:id="@+id/priceTextView"
                     android:layout_width="0dp"
@@ -123,6 +124,33 @@
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="1000원"
+                    android:textSize="18sp"
+                    android:textColor="#807E7E"
+                    android:gravity="right"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp"
+                android:paddingRight="20dp"
+                android:paddingLeft="20dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="할인 금액"
+                    android:textColor="#3F51B5"
+                    android:textStyle="bold"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/discount_money"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="300원"
                     android:textSize="18sp"
                     android:textColor="#807E7E"
                     android:gravity="right"/>

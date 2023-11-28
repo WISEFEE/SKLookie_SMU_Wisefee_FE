@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.example.wisefee.MainActivity
 import com.example.wisefee.MasterApplication
+import com.example.wisefee.Menu.MenuActivity
 import com.example.wisefee.Mypage.MyPageActivity
 import com.example.wisefee.R
 import com.example.wisefee.Return.ReturnTumblerActivity
@@ -35,6 +36,14 @@ class MySubscriptionHomeActivity : AppCompatActivity() {
         val cafeView = layoutInflater.inflate(R.layout.activity_my_subscription_home , null)
         initialize(cafeView)
         bindingImage(cafeView)
+    }
+
+    private fun order(cafeView: View, cafeId: Int) {
+        cafeView.findViewById<TextView>(R.id.orderButton).setOnClickListener{
+            val intent = Intent(this, MenuActivity::class.java);
+            intent.putExtra("cafeId", cafeId)
+            startActivity(intent)
+        }
     }
 
     // 사용자는 구독권 1개만 가질 수 있다고 가정하고 진행함.
@@ -107,10 +116,12 @@ class MySubscriptionHomeActivity : AppCompatActivity() {
                     val paymentMethod = subCafe?.paymentDto?.paymentMethod ?: ""
                     cafeView.findViewById<TextView>(R.id.sub_info).text = "$subTicketPrice, $paymentMethod"
 
+                    order(cafeView, subCafe!!.cafeId)
+
                     // 구독한 ticket 에 따라 list 되는 구독권 지정
-                    if (subCafe?.subTicketDto?.subTicketId == 1) bindingSubTickets(cafeView, 1, 2)
-                    if (subCafe?.subTicketDto?.subTicketId == 2) bindingSubTickets(cafeView, 0, 2)
-                    if (subCafe?.subTicketDto?.subTicketId == 3) bindingSubTickets(cafeView, 0, 1)
+                    if (subCafe.subTicketDto.subTicketId == 1) bindingSubTickets(cafeView, 1, 2)
+                    if (subCafe.subTicketDto.subTicketId == 2) bindingSubTickets(cafeView, 0, 2)
+                    if (subCafe.subTicketDto.subTicketId == 3) bindingSubTickets(cafeView, 0, 1)
 
                 }
             }

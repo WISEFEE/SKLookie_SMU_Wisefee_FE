@@ -109,13 +109,12 @@ class CartActivity : AppCompatActivity() {
                             if (response.isSuccessful) {
                                 val price = response.body()?.string()?.toIntOrNull()
                                 if (price != null) {
-                                    binding.priceTextView.text = "${price.toString()}원"
+                                    binding.priceTextView.text = "${price}원"
                                     binding.totalPriceTextView.text =
-                                        "${(price.toInt() + 1000).toString()}원"
+                                        "${(price.toInt() + 1000)}원"
 
                                     binding.depositTextView.text = "${"1000"}원"
                                     binding.countTextView.text = "총 ${products.size}개"
-
                                 }
                             }
                         }
@@ -140,11 +139,14 @@ class CartActivity : AppCompatActivity() {
                             if (response.isSuccessful) {
                                 val price = response.body()?.string()?.toIntOrNull()
                                 if (price != null) {
-                                    binding.priceTextView.text = "${price.toString()}원"
-                                    binding.totalPriceTextView.text =
-                                        "${(price.toInt()).toString()}원"
+//                                    binding.priceTextView.text = "${price}원"
+                                    // TODO 보증금 가격 뺀 가격으로 update 필요
+                                    binding.totalPriceTextView.text = "${(price.toInt())}원"
                                     binding.depositTextView.text = "${"0"}원"
                                     binding.countTextView.text = "총 ${products.size}개"
+
+                                    bindingTotalPrice(price)
+
                                 }
                             }
                         }
@@ -189,6 +191,30 @@ class CartActivity : AppCompatActivity() {
 
         alertDialog.show()
     }
+
+    private fun bindingTotalPrice(subPrice: Int) {
+        masterApplication.service.getCartTotalPrice(getUserId())
+            .enqueue(object : Callback<ResponseBody> {
+                override fun onResponse(
+                    call: Call<ResponseBody>,
+                    response: Response<ResponseBody>
+                ) {
+                    if (response.isSuccessful) {
+                        val price = response.body()?.string()?.toIntOrNull()
+                        if (price != null) {
+                            binding.priceTextView.text = "${price}원"
+                            binding.discountMoney.text = "${price-subPrice}원"
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                    Log.d("CartActivity", "error")
+                }
+
+            })
+    }
+
 
     private fun getUserId(): Int {
         val jwtToken = masterApplication.getUserToken()
