@@ -51,7 +51,7 @@ class CartActivity : AppCompatActivity() {
     }
 
     private fun getProducts(cafeId: Int) {
-        val userId = getUserId()
+        val userId = masterApplication.getUserId()
         masterApplication.service.getCart(userId).enqueue(object : Callback<List<CartProduct>> {
             override fun onResponse(
                 call: Call<List<CartProduct>>,
@@ -100,7 +100,7 @@ class CartActivity : AppCompatActivity() {
             }
 
             private fun calcCartWithoutSub() {
-                masterApplication.service.getCartTotalPrice(getUserId())
+                masterApplication.service.getCartTotalPrice(masterApplication.getUserId())
                     .enqueue(object : Callback<ResponseBody> {
                         override fun onResponse(
                             call: Call<ResponseBody>,
@@ -128,7 +128,7 @@ class CartActivity : AppCompatActivity() {
 
             private fun calcCartWithSub(subCafeInfo: SubscribeHistory) {
                 masterApplication.service.getCartTotalPriceWithSubscribe(
-                    getUserId(),
+                    masterApplication.getUserId(),
                     subCafeInfo.subId
                 )
                     .enqueue(object : Callback<ResponseBody> {
@@ -198,7 +198,7 @@ class CartActivity : AppCompatActivity() {
     }
 
     private fun bindingTotalPrice(subPrice: Int) {
-        masterApplication.service.getCartTotalPrice(getUserId())
+        masterApplication.service.getCartTotalPrice(masterApplication.getUserId())
             .enqueue(object : Callback<ResponseBody> {
                 override fun onResponse(
                     call: Call<ResponseBody>,
@@ -219,31 +219,5 @@ class CartActivity : AppCompatActivity() {
 
             })
     }
-
-
-    private fun getUserId(): Int {
-        val jwtToken = masterApplication.getUserToken()
-
-        if (jwtToken == null) {
-            Log.d("decode", "JWT token is null")
-            return 0
-        }
-
-        // jwt decoding
-        val decodeClaims = jwtDecoding(jwtToken)
-        if (decodeClaims == null) {
-            Log.d("decode", "Failed decoding JWT token")
-            return 0
-        }
-
-        // get userId from jwt
-        val userId = decodeClaims.optInt("userId")
-        if (userId == 0) {
-            Log.d("decode", "Invalid user id")
-            return 0
-        }
-        return userId
-    }
-
 }
 

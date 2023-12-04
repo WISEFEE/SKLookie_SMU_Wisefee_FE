@@ -130,7 +130,7 @@
             android:orientation="vertical">
 
             <ImageView
-
+                android:id="@+id/cafe_image"
                 android:layout_width="match_parent"
                 android:layout_height="255dp"
                 android:scaleType="centerCrop"
@@ -138,6 +138,7 @@
                 android:clipToOutline="true"/>
 
             <TextView
+                android:id="@+id/cafe_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -154,36 +155,37 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/cafe_content"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="20dp"
                     android:fontFamily="@font/roboto_regular"
-                    android:text="매장 내 텀블러 보유수는"
+                    android:text="루키 카페입니다."
                     android:textColor="@color/black"
                     android:textSize="12dp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="5dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="20dp"
-                    android:fontFamily="@font/roboto_regular"
-                    android:text="N"
-                    android:textColor="@color/black"
-                    android:textSize="12dp" />
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginHorizontal="5dp"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:layout_marginBottom="20dp"-->
+<!--                    android:fontFamily="@font/roboto_regular"-->
+<!--                    android:text="N"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="12dp" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="20dp"
-                    android:fontFamily="@font/roboto_regular"
-                    android:text="개입니다"
-                    android:textColor="@color/black"
-                    android:textSize="12dp" />
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:layout_marginBottom="20dp"-->
+<!--                    android:fontFamily="@font/roboto_regular"-->
+<!--                    android:text="개입니다"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="12dp" />-->
             </LinearLayout>
 
         </LinearLayout>

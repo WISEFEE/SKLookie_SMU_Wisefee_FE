@@ -9,7 +9,14 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
+import com.example.wisefee.MainActivity
+import com.example.wisefee.Mypage.CustomerInquiry
+import com.example.wisefee.Mypage.MyPageActivity
+import com.example.wisefee.Mypage.PaymentHistory
+import com.example.wisefee.Mypage.UserInfoEdit
 import com.example.wisefee.R
+import com.example.wisefee.Return.ReturnTumblerActivity
 import com.example.wisefee.databinding.ActivityStoreMainBinding
 import com.example.wisefee.databinding.ActivityStoreMenuBinding
 
@@ -33,6 +40,9 @@ class StoreMenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_store_menu)
+
+        initialize()
+
 
         binding = ActivityStoreMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -102,18 +112,16 @@ class StoreMenuActivity : AppCompatActivity() {
             startActivityForResult(intent, ADD_MENU_ITEM_REQUEST_CODE)
         }
 
-        binding.goBackButton.setOnClickListener {
-            // 새로운 화면으로 이동하는 코드를 여기에 추가
-            val intent = Intent(this, StoreActivity::class.java)
-            startActivity(intent)
-        }
 
-        binding.home.setOnClickListener {
-            // 새로운 화면으로 이동하는 코드를 여기에 추가
-            val intent = Intent(this, StoreActivity::class.java)
-            startActivity(intent)
-        }
+    }
 
+    private fun initialize() {
+//
+//        binding.goBackButton.setOnClickListener { startActivity(Intent(this, StoreActivity::class.java)) }
+//        binding.home.setOnClickListener { startActivity(Intent(this, StoreActivity::class.java)) }
+//        binding.rental.setColorFilter(ContextCompat.getColor(this, R.color.selection_color))
+////        binding.returnTumbler.setOnClickListener { startActivity(Intent(this, ReturnTumblerActivity::class.java)) }
+//        binding.mypage.setOnClickListener { startActivity(Intent(this, MyPageActivity::class.java)) }
     }
 
     companion object {

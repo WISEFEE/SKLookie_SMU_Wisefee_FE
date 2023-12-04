@@ -92,7 +92,7 @@
 
         <activity
             android:name=".Store.StoreActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Menu.QuantitySelectionActivity"
             android:exported="false" />

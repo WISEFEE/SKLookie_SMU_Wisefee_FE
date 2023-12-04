@@ -2,6 +2,7 @@ package com.example.wisefee
 
 import android.app.Application
 import android.content.Context
+import android.util.Log
 import com.facebook.stetho.Stetho
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import okhttp3.Interceptor
@@ -62,6 +63,31 @@ class MasterApplication : Application() {
         val accessToken = sp.getString("accessToken", "null")
         return if (accessToken == "null") null
         else accessToken
+    }
+
+
+    fun getUserId(): Int {
+        val jwtToken = getUserToken()
+
+        if (jwtToken == null) {
+            Log.d("decode", "JWT token is null")
+            return 0
+        }
+
+        // jwt decoding
+        val decodeClaims = jwtDecoding(jwtToken)
+        if (decodeClaims == null) {
+            Log.d("decode", "Failed decoding JWT token")
+            return 0
+        }
+
+        // get userId from jwt
+        val userId = decodeClaims.optInt("userId")
+        if (userId == 0) {
+            Log.d("decode", "Invalid user id")
+            return 0
+        }
+        return userId
     }
 
 }

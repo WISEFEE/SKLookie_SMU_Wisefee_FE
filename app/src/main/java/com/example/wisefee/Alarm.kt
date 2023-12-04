@@ -3,6 +3,7 @@ package com.example.wisefee
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import com.example.wisefee.Store.StoreActivity
 import com.example.wisefee.databinding.ActivityAlarmBinding
 import com.example.wisefee.databinding.ActivityStoreMainBinding
@@ -16,5 +17,7 @@ class Alarm : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.backToStore.setOnClickListener { startActivity(Intent(this,  StoreActivity::class.java)) }
+        binding.home.setColorFilter(ContextCompat.getColor(this, R.color.selection_color))
+
     }
 }

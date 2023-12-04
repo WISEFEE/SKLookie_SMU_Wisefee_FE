@@ -3,6 +3,8 @@ package com.example.wisefee.Store
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import com.example.wisefee.R
 import com.example.wisefee.databinding.ActivityStoreSelfServiceBinding
 
 class StoreSelfServiceActivity : AppCompatActivity() {
@@ -31,5 +33,7 @@ class StoreSelfServiceActivity : AppCompatActivity() {
             val intent = Intent(this, StoreActivity::class.java)
             startActivity(intent)
         }
+
+        binding.returnTumbler.setColorFilter(ContextCompat.getColor(this, R.color.selection_color))
     }
 }

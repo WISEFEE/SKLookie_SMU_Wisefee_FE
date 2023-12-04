@@ -6,6 +6,8 @@ import com.example.wisefee.Login.MemberResponse
 import com.example.wisefee.Login.SignUpConsumerRequest
 import com.example.wisefee.Login.UpdateMemberRequest
 import com.example.wisefee.dto.AddressInfoDTO
+import com.example.wisefee.dto.Cafe
+import com.example.wisefee.dto.CafeInfoDTO
 import com.example.wisefee.dto.CartProduct
 import com.example.wisefee.dto.CartProductRequestDTO
 import com.example.wisefee.dto.ProductInfoDTO
@@ -39,6 +41,10 @@ interface RetrofitService {
     // seller
     @GET("/api/v1/address/{id}")
     fun getAddress(@Path("id") addressId: Int): Call <AddressInfoDTO>
+    @GET("/api/v1/seller/cafeId/{memberId}")
+    fun getCafeIdByMemberId(@Path("memberId") memberId: Int): Call<ResponseBody>
+    @GET("/api/v1/seller/cafe/{cafeId}")
+    fun getCafeInfo(@Path("cafeId") cafeId: Int): Call <CafeInfoDTO>
 
     // consumer
     @GET("/api/v1/consumer/cafe")
